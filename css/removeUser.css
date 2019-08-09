@@ -1,0 +1,65 @@
+table{
+	margin-left: 200px;
+	margin-top: 100px;
+	border-collapse: collapse;
+}
+tr{
+	border-bottom: 1px solid #BDBDBD;
+}
+th{
+	background-color: #222;
+	color: white;
+	padding: 10px 10px;
+	text-align: left;
+}
+tr:nth-child(even){
+	background-color: #BCBCBC;
+}
+td{
+	padding: 10px 10px;
+}
+tr:hover{
+	background-color: tomato;
+}
+.remove{
+	float: center;
+	margin-left: 100px;
+	margin-top: 40px;
+}
+.remove h2{
+	font-size: 20px;
+}
+.remove .input{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 120px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}
+.delete .btn{
+	margin-top: 10px;
+	background-color: red;
+	color: white;
+}
+.delete .btn:hover{
+	background-color: #222;
+	color: white;
+}

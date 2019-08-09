@@ -1,0 +1,20 @@
+body{
+	font-size: 20px;
+}
+table{
+	width: 50%;
+	margin: 30px auto;
+	border-collapse: collapse;
+	text-align: left;
+}
+tr{
+	border-bottom: 1px solid #cbcbcb;
+}
+th, td{
+	border: none;
+	height: 30px;
+	padding: 10px;
+}
+tr:hover{
+	background: #F5F5F5;
+}

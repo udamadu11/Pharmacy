@@ -1,0 +1,151 @@
+body {
+	 background: #052C34;
+}
+.top{
+	overflow: hidden;
+}
+.top h1{
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 10px 14px;
+	text-decoration: none;
+	font-size: 20px;
+}
+.top h1:hover{
+	color: #818181;
+}
+.top img{
+	float: left;
+	height: 60px;
+	width: 60px;
+}
+.top h1{
+	font-size: 20px;
+	float: left;
+	color: white;
+}
+.login-form{
+	width: 100%;
+	max-width: 350px;
+	background: white;
+	height: 520px;
+	margin-left: 500px;
+	border-radius: 5px;
+
+}
+.login-form .title{
+	height: 45%;
+	position: relative;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px; 
+	overflow: hidden;
+}
+
+.login-form .title:before{
+	content: "";
+	position: absolute;
+	top: -100px;
+	left: -32px;
+	width: 400px;
+	height: 330px;
+	background: url("../img/hush.jpg") no-repeat top center;
+	background-size: cover;
+	border-radius: 50%;
+}
+.login-form .title h1{
+	position: relative;
+	padding-top: 30%;
+	margin-top: 90px;
+	text-transform: uppercase;
+	font-size: 1.50em;
+	text-align: center;
+	color: #222; 
+}
+.login-form .title h1:hover{
+	color: #555;
+}
+.login-form .login-section{
+	width: 100%;
+	height: 50%;
+	padding: 30px 20px;
+}
+.login-form .login-section .input-fields{
+	padding-bottom: 10px;
+	position: relative;
+}
+.login-form .login-section .input-fields img{
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+.login-form .login-section .input-fields .input{
+	width: 50%;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
+
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 160px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 60px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+
+}
+.footer{
+	margin-top: 25px;
+	height: 40px;
+	color: white;
+
+}
+.footer h1{
+	float: right;
+	color: #f2f2f2;
+	padding: 10px 14px;
+	text-decoration: none;
+	font-size: 18px;
+}
+.footer h1:hover{
+	color: #818181;
+}
+.top h1 {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }

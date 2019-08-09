@@ -1,0 +1,25 @@
+table{
+	margin-left: 100px;
+	margin-top: 150px;
+	border-collapse: collapse;
+	width: 70%;
+}
+tr{
+	text-align: left;
+	border-bottom: 1px solid #BDBDBD;
+}
+tr:nth-child(even){
+	background-color: #BCBCBC;
+}
+th{
+	background-color: #222;
+	color: white;
+	padding: 10px 10px;
+	text-align: left;
+}
+td{
+	padding: 10px 10px;
+}
+tr:hover{
+	background-color: tomato;
+}

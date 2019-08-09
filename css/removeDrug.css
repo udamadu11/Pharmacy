@@ -1,0 +1,82 @@
+.search_name{
+	float: left;
+	margin-top: 30px; 
+	margin-left: 50px;
+}
+.search_name h2{
+	font-size: 20px;
+}
+.search_name .input1{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 120px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}
+.search_category{
+	float: left; 
+	margin-left: 100px;
+}
+.search_category h2{
+	font-size: 20px;
+}
+.search_category .input2{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;
+	
+}
+table{
+	margin-left: 200px;
+	width: 60%;
+	border-collapse: collapse;
+	text-align: left;
+
+}
+tr{
+	border-bottom: 1px solid #BDBDBD;
+}
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+th{
+	background-color: #222;
+	color: white;
+	padding: 10px 2px;
+}
+td{
+	border: none;
+	height: 40px;
+}
+tr:hover{
+	background: #cbcbcb;
+}
+.delete .btn{
+	border: none;
+	outline: none;
+	height: 30px;
+	background-color: #127D93; 
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+}

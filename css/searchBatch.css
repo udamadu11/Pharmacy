@@ -1,0 +1,76 @@
+.SearchId{
+	margin-top: 30px;
+	margin-left: 100px;
+	float: left;
+}
+.SearchId h2{
+	font-size: 24px;
+}
+
+.SearchId .search_id{
+	padding-bottom: 10px;
+	position: relative;
+}
+.SearchId .search_id .input{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 160px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	height: 40px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}
+table{
+	margin-left: 200px;
+	width: 70%;
+	border-collapse: collapse;
+	text-align: left;
+
+}
+tr{
+	border-bottom: 1px solid #BDBDBD;
+}
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+th{
+	text-align: center;
+	background-color: #222;
+	color: white;
+	padding: 10px 2px;
+}
+td{
+	text-align: center;
+	border: none;
+	height: 40px;
+}
+tr:hover{
+	background: #cbcbcb;
+}
+.delete .btn{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 100px;
+	background-color: #127D93; 
+	border-radius: 6px;
+	cursor: pointer;
+	margin-top: 10px;
+}

@@ -1,0 +1,82 @@
+.search_by_name{
+	float: left;
+	margin-top: 30px; 
+	margin-left: 50px;
+}
+.search_by_name h2{
+	font-size: 20px;
+}
+.search_by_name .input_fields1{
+	padding-bottom: 10px;
+	position: relative;
+}
+.search_by_name .input_fields1 .input1{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 160px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 100px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}
+.search_by_category{
+	float: right;
+	margin-top: 30px; 
+	margin-right: 100px;
+}
+.search_by_category h2{
+	font-size: 20px;
+}
+.search_by_category .input_fields2{
+	padding-bottom: 10px;
+	position: relative;
+}
+.search_by_category .input_fields2 .input2{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 10px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
+table{
+	width: 50%;
+	margin: 30px auto;
+	border-collapse: collapse;
+	text-align: left;
+}
+tr{
+	border-bottom: 1px solid #cbcbcb;
+}
+tr:nth-child(even){
+
+	background-color: #f2f2f2
+}
+th{
+	background-color: dodgerblue;
+	color: black;
+}
+th, td{
+
+	border: none;
+	height: 30px;
+	padding: 2px;
+}
+tr:hover{
+	background: #cbcbcb;
+}
