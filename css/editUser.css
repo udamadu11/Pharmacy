@@ -3,7 +3,7 @@ body{
 }
 table{
 	width: 50%;
-	margin: 30px auto;
+	margin: 20px auto;
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -13,7 +13,7 @@ tr{
 th, td{
 	border: none;
 	height: 30px;
-	padding: 10px;
+	padding: 5px;
 }
 tr:hover{
 	background: #F5F5F5;

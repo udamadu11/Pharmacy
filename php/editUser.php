@@ -38,9 +38,9 @@
 							<td>".$row['password']."</td>
 							<td>".$row['type']."</td>
 							<td>
-								<form method=\"post\" class=\"delete\" action =\"\">
-									<input type=\"hidden\" value=".$row['id']." name=\"delete\">
-									<input class=\"btn\" type=\"submit\" name=\"submit1\" value=\"Edit\">
+								<form method=\"post\" class=\"edit\" action=\"editUserNew.php\">
+									<input type=\"hidden\" value=".$row['id']." name=\"edit\">
+									<input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Edit\">
 								</form>
 
 							</td>
