@@ -1,4 +1,11 @@
 <?php include('include/connection.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/editUserNew.css">
+</head>
+<body>
 <?php
     
         if(isset($_POST['submit'])){
@@ -9,15 +16,11 @@
             $selectusers = "SELECT * FROM employee WHERE  id ='$uid' ";
 
             $userquery = mysqli_query($con,$selectusers);
-
-            echo "<div class=\"row-100\">";
-
                 while($row = mysqli_fetch_assoc($userquery)){
                     
                     echo "
-                    <div class=\"row-100\">
-                        <div class=\"login-box\">
-                            <form action=\"editUserNew.php\" method=\"post\">                   
+                            <form method=\"post\">
+                                <h2>Edit User</h2>                   
                                 <p>First Name</p>
                                 <input type=\"text\" name=\"EditFName\" placeholder=\"Edit name\" value=\"{$row['f_name']}\">
 
@@ -45,27 +48,32 @@
                                 <p></p>
                                 <input type=\"hidden\" value=" .$row['id']. " name=\"EditID\">
                                 <input type=\"submit\" name=\"EditSubmit\" value=\"EDIT\">
-                            </form>
-                        </div>
-                    </div>"
-
-                        ;
+                            </form>";
 
 
             }       
              
         }
 
-$id= $_POST['EditID'];
-$newFName = $_POST['EditFName'];
-$newLName = $_POST['EditLName'];
-$newUName = $_POST['EditUName'];
-$newEmail = $_POST['EditEmail'];
-$newTelephone = $_POST['EditTelephone'];
-$newNic = $_POST['EditNic'];
-$newPassword = $_POST['EditPassword'];
-$newType = $_POST['EditType'];
+    ?>
+    <?php 
+        if (isset($_POST['EditSubmit'])) {
+        $uid = $_POST['EditID'];
+        $newFname = $_POST['EditFName'];
+        $newLname = $_POST['EditLName'];
+        $newUname = $_POST['EditUName'];
+        $newEmail = $_POST['EditEmail'];
+        $newTelephone = $_POST['EditTelephone'];
+        $newNic = $_POST['EditNic'];
+        $newPassword = $_POST['EditPassword'];
+        $newType = $_POST['EditType'];
 
-        $EditQuery= "UPDATE users SET f_name = '$newFName', l_name ='$newLName', u_name = '$newUName', email = '$newEmail' , telephone = '$newTelephone',nic='$newNic',password='$newPassword',type='$newType' WHERE id = '$id' ";
+        $EditQuery= "UPDATE employee SET f_name ='$newFname',l_name = '$newLname',u_name = '$newUname',email ='$newEmail',telephone ='$newTelephone',nic ='$newNic',password ='$newPassword',type ='$newType' WHERE id = '$uid' ";
+        mysqli_query($con,$EditQuery);
+        }
+        
+
 
     ?>
+</body>
+</html>
