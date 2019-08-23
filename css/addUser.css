@@ -46,3 +46,8 @@ input[type="submit"]:hover{
 	background: #94DAE8;
 	color: black;
 }
+.redText{
+	color: red;
+	font-size: 15px;
+	
+}
