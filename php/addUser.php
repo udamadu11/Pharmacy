@@ -14,9 +14,9 @@
 		$password=$_POST['password'];
 		$type=$_POST['type'];
 
-		
-
-		//check first Name:
+		if (empty($_POST['f_name'])||empty($_POST['l_name'])||empty($_POST['u_name'])||empty($_POST['email'])||empty($_POST['telephone'])||empty($_POST['nic'])||empty($_POST['password'])||empty($_POST['type'])) {
+			
+			//check first Name:
 		if (empty($_POST['f_name'])) {
 			$errors['f_name'] = 'First Name is Required';
 		}
@@ -59,9 +59,12 @@
 		if (empty($_POST['type'])) {
 			$errors['type'] = 'Type is Required';
 		}
-		
-		$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
+		}
+
+		else{
+			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
 		mysqli_query($con, $sql);
+		}
 	}
 ?>
 
