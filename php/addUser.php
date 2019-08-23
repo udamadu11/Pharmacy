@@ -63,8 +63,9 @@
 
 		else{
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
-		mysqli_query($con, $sql);
+				mysqli_query($con, $sql);
 		}
+		
 	}
 ?>
 
