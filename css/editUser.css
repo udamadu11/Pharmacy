@@ -3,9 +3,10 @@ body{
 }
 table{
 	width: 50%;
-	margin: 20px auto;
 	border-collapse: collapse;
 	text-align: left;
+	margin-top: 100px;
+	margin-left: 150px;
 }
 tr{
 	border-bottom: 1px solid #cbcbcb;

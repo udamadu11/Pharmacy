@@ -23,7 +23,7 @@
 		<a href="#">Credit periods notification</a>
 		<a href="#">View Reports</a>
 		<a href="#">Approval list</a>
-		<a href="#">View Employee Details</a>
+		<a href="viewEmployee.php" target="main">View Employee Details</a>
 	</div>
 </body>
 </html>
