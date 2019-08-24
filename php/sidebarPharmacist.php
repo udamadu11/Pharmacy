@@ -23,13 +23,20 @@
 		<div class="dropdown">
 					<button class="drop-btn" >Update Suppliers</button>
 					<div class="dropdown-content">
-						<a href="../php/addSupplier.php" target="main">Add Supplier</a>
-						<a href="#" target="main">remove Supplier</a>
+						<a href="addSupplier.php" target="main">Add Supplier</a>
+						<a href="removeSupplier.php" target="main">remove Supplier</a>
 					</div>
 				</div>	
 				<br><br>
 		<a href="viewSupplier.php" target="main">View Suppliers</a>
-		<a href="#">Update Brand</a>
+		<div class="dropdown">
+					<button class="drop-btn" >Update Brand</button>
+					<div class="dropdown-content">
+						<a href="#" target="main">Add Brand</a>
+						<a href="#" target="main">Remove Brand</a>
+					</div>
+				</div>	
+				<br><br>
 		<a href="#">Recieve Approvle not.</a>
 	</div>
 </body>
