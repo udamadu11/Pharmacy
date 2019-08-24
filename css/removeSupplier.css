@@ -24,3 +24,10 @@ td{
 tr:hover{
 	background: #cbcbcb;
 }
+input[type="submit"]{
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	background-color: tomato;
+	color: black;
+}
