@@ -33,7 +33,7 @@
 					<button class="drop-btn" >Update Brand</button>
 					<div class="dropdown-content">
 						<a href="#" target="main">Add Brand</a>
-						<a href="#" target="main">Remove Brand</a>
+						<a href="##" target="main">Remove Brand</a>
 					</div>
 				</div>	
 				<br><br>
