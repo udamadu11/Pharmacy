@@ -21,8 +21,9 @@
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>	
 		<a href="#">Credit periods notification</a>
-		<a href="#">View sales level</a>
+		<a href="#">View Reports</a>
 		<a href="#">Approval list</a>
+		<a href="#">View Employee Details</a>
 	</div>
 </body>
 </html>
