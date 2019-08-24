@@ -11,8 +11,6 @@
         if(isset($_POST['submit'])){
 
             $uid = $_POST['edit'];
-
-
             $selectusers = "SELECT * FROM employee WHERE  id ='$uid' ";
 
             $userquery = mysqli_query($con,$selectusers);

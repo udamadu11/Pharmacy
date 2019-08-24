@@ -32,25 +32,21 @@ include ('include/connection.php');
 					<td>".$row['contact_no']."</td>
 					<td>".$row['credit_period_allowed']."</td>
 					<td>
-						<form method=\"post\" class=\"removeSupplier\" action=\"removeSupplier.php\">
+						<form method=\"post\" action=\"removeSupplier.php\">
 						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_id'].">
 						<input type=\"submit\" name=\"submit\" class=\"remove\" value=\"Delete\">
 						</form>
 					</td>
 				</tr>
 		";
-				}
-		echo "</table>";	
+				}	
 		} 
-		else{
-			echo "Result 0";
-		}
 		if (isset($_POST['submit'])) {
-				$re_id = $_POST['delete'];
-				$de_query = "DELETE FROM supplier WHERE supplier_id = '$re_id'";
-				$delete_re = mysqli_query($con,$de_query);
-			}
-			mysqli_close($con);	
+		$d_id = $_POST['delete'];
+		$delete_query ="DELETE FROM supplier WHERE supplier_id = '$d_id' ";
+		$delete_result = mysqli_query($con,$delete_query);
+		}
+		$con->close();	
 	?>
 </body>
 </html>
