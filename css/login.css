@@ -149,3 +149,12 @@ input[type="submit"]:hover{
   opacity: 1;
   }
   }
+  .error-msg{
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    background-color: #222;
+    width: 300px;
+    margin-right: 20px;
+    margin-left: 20px;
+}

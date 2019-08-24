@@ -20,7 +20,14 @@
 		<a href="viewDrugs.php" target="main">View Drug</a>
 		<a href="searchDrug.php" target="main">Search Drug</a>
 		<a href="#">Issue Drugs</a>
-		<a href="addSupplier.php" target="main">Add Suppliers</a>
+		<div class="dropdown">
+					<button class="drop-btn" >Update Suppliers</button>
+					<div class="dropdown-content">
+						<a href="../php/addSupplier.php" target="main">Add Supplier</a>
+						<a href="#" target="main">remove Supplier</a>
+					</div>
+				</div>	
+				<br><br>
 		<a href="viewSupplier.php" target="main">View Suppliers</a>
 		<a href="#">Update Brand</a>
 		<a href="#">Recieve Approvle not.</a>

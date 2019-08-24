@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/searchDrug.css">
 </head>
 <body>
-	
+	<div class="error-msg"><h3><?php include('include/message.php'); ?></h3></div>
 	<form class="search_by_name" method="post">
 		<h2>Search by Name</h2>
 		<div class="input_fields1">
@@ -47,7 +47,11 @@
 									<td>".$row['brand']."</td>
 								</tr>";
 						}
-					}		
+					}else{
+			$message = base64_encode(urlencode("Invalid Drug Name"));
+        	header('Location:searchDrug.php?msg=' . $message);
+        	exit();
+		}		
 		}
 		if (isset($_POST['submit2'])) {
 			$drug_category = $_POST['search_category'];
@@ -73,7 +77,11 @@
 									<td>".$row['brand']."</td>
 								</tr>";
 						}
-					}		
+					}else{
+			$message = base64_encode(urlencode("Invalid Drug Category"));
+        	header('Location:searchDrug.php?msg=' . $message);
+        	exit();
+        	}		
 		}
 	?>
 

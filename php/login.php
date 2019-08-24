@@ -18,15 +18,15 @@
 			<div class="title">
 				<h1>Login Here</h1>
 			</div>
-
+			<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 			<div class="login-section">
 				<div class="input-fields">
 					<img src="../img/man-user.png">
-					<input type="text" class="input" name="name" id="name" placeholder="Enter name">
+					<input type="text" class="input" name="name" id="name" placeholder="Enter name" required>
 				</div>
 				<div class="input-fields">
 					<img src="../img/lock.png">
-					<input type="password" class="input" id="password" name="password" placeholder="Enter password">
+					<input type="password" class="input" id="password" name="password" placeholder="Enter password" required>
 				</div>
 
 					<input type="submit" name="submit" value="Login">

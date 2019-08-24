@@ -35,8 +35,10 @@
 			}
 		}
 		else{
-			header("Location: login.php");
-			exit();
+
+			$message = base64_encode(urlencode("Invalid Email or Password"));
+        	header('Location:login.php?msg=' . $message);
+        	exit();
 		}
 
 	}

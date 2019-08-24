@@ -64,6 +64,9 @@
 		else{
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
 				mysqli_query($con, $sql);
+			$massage = base64_encode(urlencode("Successfully Added"));
+			header('Location:addUser.php?msg=' .$massage);
+			exit();
 		}
 		
 	}
@@ -77,6 +80,7 @@
 </head>
 <body>
 	<form class="addUser" method="post">
+		<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 		<h2>Add User</h2>
 		<div class="input_fields">
 				<p>First Name</p>
