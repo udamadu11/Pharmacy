@@ -1,5 +1,6 @@
 <?php require_once('include/connection.php'); ?>
 <?php require_once('include/session.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/removeDrug.css">
 </head>
 <body>
+	<div class="error-msg"><h3><?php include('include/message.php'); ?></h3></div>
 <form class="search_name" method="post">
 	<h2>Search by Name</h2>
 	<input type="text" class="input1" name="search_name" id="search_name" placeholder="Enter the Drug Name">
@@ -55,7 +57,11 @@
 					</tr>
 				";
 			}	
-		}
+		}else{
+		$message = base64_encode(urlencode("Invalid Drug Name"));
+		header('Location:removeDrug.php?msg=' . $message);
+		exit();
+	}
 
 	}
 
@@ -91,9 +97,12 @@
 						<input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Delete\">
 						</form>
 					</td>
-					</tr>
-				";
+					</tr>";
 			}	
+		}else{
+			$message = base64_encode(urlencode("Invalid Drug Category"));
+			header('Location:removeDrug.php?msg=' .$message);
+			exit();
 		}
 
 	}

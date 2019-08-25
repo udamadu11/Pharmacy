@@ -32,6 +32,7 @@ input[type="submit"]:hover{
 	color: #000;
 }
 .search_category{
+	margin-top: 30px; 
 	float: left; 
 	margin-left: 100px;
 }
@@ -79,4 +80,8 @@ tr:hover{
 	border-radius: 10px;
 	cursor: pointer;
 	margin-top: 10px;
+}
+.error-msg{
+	margin-left: 500px;
+	color: #052C34;
 }
