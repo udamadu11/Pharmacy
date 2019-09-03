@@ -9,8 +9,22 @@
 		$contact_no = $_POST['contact_no'];
 		$credit_period_allowed = $_POST['credit_period_allowed'];
 
-		$sql = "INSERT INTO supplier (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
-		mysqli_query($con, $sql);
+		$sql = "INSERT INTO tem (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
+		$result = mysqli_query($con, $sql);
+		if($result){
+			$to = $email;
+			$subject = "Notification of PHARMA-PRO";
+			$message = "<a href='http://localhost/Pharmacy/php/addSupplier.php'>Approval for Request</a>";
+
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+			$headers .= 'From: <madu12dara@gmail.com>' . "\r\n";
+			mail($to,$subject,$message,$headers);
+
+			header('Location:in.html');
+    		
+		}
 	}
 ?>
 
