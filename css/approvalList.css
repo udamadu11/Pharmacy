@@ -58,3 +58,11 @@ tr:hover{
 }
 
 .btn2:hover {opacity: 1}
+.error-msg h3{
+  text-align: center;
+  margin-left: 420px; 
+  color: #052C34;
+  width: 400px;
+  height: 20px;
+
+}

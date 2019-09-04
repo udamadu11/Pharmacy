@@ -12,7 +12,7 @@
 		$sql = "INSERT INTO tem (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
 		$result = mysqli_query($con, $sql);
 		if($result){
-			$to = $email;
+			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO";
 			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
 
