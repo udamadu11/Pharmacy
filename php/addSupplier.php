@@ -1,5 +1,5 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php include('include/connection.php'); ?>
+<?php include('include/session.php'); ?>
 <?php 
 	if(isset($_POST['submit'])){ 
 		$supplier_id = $_POST['supplier_id'];
@@ -14,15 +14,17 @@
 		if($result){
 			$to = $email;
 			$subject = "Notification of PHARMA-PRO";
-			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
+			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
 
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-			$headers .= 'From: <madu12dara@gmail.com>' . "\r\n";
-			mail($to,$subject,$message,$headers);
-
-			header('Location:in.html');
+			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+			$mail = mail($to,$subject,$message,$headers);
+			$massage = base64_encode(urlencode("Successfully Added"));
+			header('Location:addSupplier.php?msg=' .$massage);
+			exit();
+			
     		
 		}
 	}
@@ -36,6 +38,7 @@
 </head>
 <body>
 	<div class="addSupplier">
+		<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 	<form  method="post">
 		<img src="../img/pharmacist.png">
 		<h2>Add Supplier</h2>
