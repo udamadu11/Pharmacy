@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/approvalList.css">
 </head>
 <body>
+	<h3 class="error-msg"><?php include('include/message.php'); ?>
 	<table>
 		<tr>
 			<th>Supplier Id</th>
@@ -37,7 +38,7 @@
 
 					</td>
 					<td>
-								<form method=\"post\" class=\"approval\">
+								<form method=\"post\" class=\"approval\" action=\"approval.php\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"approval2\">
 									<input class=\"btn2\" type=\"submit\" name=\"decline\" value=\"Decline\">
 								</form>
@@ -46,30 +47,13 @@
 				</tr>";
 		}
 	echo "</table";
+	}else{
+		echo "<script>alert('No Pending !')</script>";
 	}
-	else{
-		echo "0 result";
-	}
+	
 	$con->close();
 ?>
 
 	</table>
 </body>
 </html>
-<?php 
-include('include/connection.php');
-	if (isset($_POST['decline'])) {
-	$s_id = $_POST['approval2'];
-	$delete_query ="DELETE FROM tem WHERE supplier_id = '$s_id' ";
-	$delete_result = mysqli_query($con,$delete_query);
-
-	if ($delete_result) {
-		echo "<script>alert('Decline Suceefully')</script>";
-	}
-	else{
-		echo "<script>alert('Decline y')</script>";
-	}
-	}
-	mysqli_close($con);
-
-?>
