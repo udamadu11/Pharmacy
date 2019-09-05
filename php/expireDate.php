@@ -43,7 +43,7 @@ while($row = mysqli_fetch_assoc($query)){
 									<td>".$row['supplier_id']."</td>
 									<td>
 										<form method=\"post\" class=\"send\">
-										<input type=\"hidden\" value=".$row['batch_no']." name=\"send\">
+										<input type=\"hidden\" value=".$row['supplier_id']." name=\"send\">
 										<input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Send\">
 										</form>
 									</td>
@@ -52,5 +52,15 @@ while($row = mysqli_fetch_assoc($query)){
 			";
 			
 		}
+}
+
+if (isset($_POST['submit'])) {
+			$supplier_id = $_POST['send'];
+			$search_query = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";
+			$query = mysqli_query($con,$search_query);
+	while($row = mysqli_fetch_assoc($query)){
+		$send_email = $row['email'];
+		echo "string".$send_email;
+	}
 }
 ?>
