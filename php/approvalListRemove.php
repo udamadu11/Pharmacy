@@ -52,7 +52,7 @@
 <?php 
 if (isset($_POST['del'])) {
 	$sid = $_POST['remove'];
-	$delete_query ="DELETE FROM tem2 WHERE supplier_id = '$s_id' ";
+	$delete_query ="DELETE FROM tem2 WHERE supplier_id = '$sid' ";
 	$delete_result = mysqli_query($con,$delete_query);
 
 	$s_id = $_POST['remove'];

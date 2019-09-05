@@ -41,33 +41,7 @@ include ('include/connection.php');
 		";
 				}	
 		} 
-	/*	if (isset($_POST['submit'])) {
-		$d_id = $_POST['delete'];
-		$delete_query ="DELETE FROM supplier WHERE supplier_id = '$d_id' ";
-		$delete_result = mysqli_query($con,$delete_query);
-
-		if($$delete_result){
-			$to = $email;
-			$subject = "Notification of PHARMA-PRO";
-			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
-
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
-			$mail = mail($to,$subject,$message,$headers);
-			if ($mail) {
-				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
-			}
-			else{
-				echo "<script>alert('Error.')</script>";
-			}
-			
-    		
-		}
-
-		}
-*/
+	
 
 		
 		if(isset($_POST['submit'])){ 
@@ -91,7 +65,7 @@ include ('include/connection.php');
 
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
-			$subject = "Notification of PHARMA-PRO";
+			$subject = "Notification of PHARMA-PRO To REMOVE SUPPLIER";
 			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
 
 			$headers = "MIME-Version: 1.0" . "\r\n";

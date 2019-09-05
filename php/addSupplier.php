@@ -14,7 +14,7 @@
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO";
-			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
+			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
 
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
