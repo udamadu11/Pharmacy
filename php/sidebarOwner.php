@@ -22,7 +22,14 @@
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>	
 		<a href="#">Credit periods notification</a>
 		<a href="#">View Reports</a>
-		<a href="approvalList.php" target="main">Approval list</a>
+		<div class="dropdown">
+			<button class="drop-btn">Approval List</button>
+				<div class="dropdown-content">
+					<a href="approvalList.php" target="main">Add Supplier Appro:</a>
+					<a href="approvalListRemove.php" target="main">remove Supplier Appro:</a>
+				</div>
+		</div>	
+		<br><br>
 		<a href="viewEmployee.php" target="main">View Employee Details</a>
 	</div>
 </body>

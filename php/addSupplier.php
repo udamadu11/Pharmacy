@@ -13,7 +13,7 @@
 		$result = mysqli_query($con, $sql);
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
-			$subject = "Notification of PHARMA-PRO";
+			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
 			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
 
 			$headers = "MIME-Version: 1.0" . "\r\n";
