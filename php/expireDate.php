@@ -10,17 +10,10 @@ while($row = mysqli_fetch_assoc($query)){
 		$exp =strtotime($exp_date);
 		$td = strtotime($today);
 
-		if ($td>$exp) {
-			$diff = $td - $exp;
-			$x =abs(floor($diff/ (60 * 60 *24)));
-			echo "expire";
-			echo "expireed :".$x;
-		}else{
-			$diff = $td - $exp;
-			$x =abs(floor($diff/ (60 * 60 *24)));
-			echo "not expire";
-			echo "expire remininig :".$x;
-		}
-
+		$warning_days = 14;
+		$seconds_diff = $warning_days * 24 * 3600;
+		$warning_timestamp = $exp - $seconds_diff;
+		$warning_date = date('Y-m-d', $warning_timestamp);
+		echo $warning_date;
 }
 ?>
