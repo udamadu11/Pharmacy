@@ -1,10 +1,10 @@
 <?php 
 include('include/connection.php');
 $query = "SELECT * FROM batch";
-$query = mysqli_query($con,$query);
+$result = mysqli_query($con,$query);
 
 
-while($row = mysqli_fetch_assoc($query)){
+while($row = mysqli_fetch_assoc($result)){
 		$exp_date = $row['ex_date'];
 		$today = date('Y-m-d');
 		$exp =strtotime($exp_date);
@@ -49,5 +49,5 @@ while($row = mysqli_fetch_assoc($query)){
 			
 		}
 }
-//
+
 ?>
