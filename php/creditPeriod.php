@@ -22,7 +22,7 @@ while($row = mysqli_fetch_assoc($result)){
 		$exp =strtotime($exp_date);
 		$td = strtotime($today);
 
-		$warning_days = 24;
+		$warning_days = 14;
 		$seconds_diff = $warning_days * 24 * 3600;
 		$warning_timestamp = $exp - $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
@@ -35,7 +35,7 @@ while($row = mysqli_fetch_assoc($result)){
 			echo "
 			
 
-	<div class=\"card\" style=\"width:18rem; float:left;margin-left:80px;margin-top:40px;\">
+	<div class=\"card\" style=\"width:18rem; float:left;margin-left:100px;margin-top:40px;\">
   <div class=\"card-header\" style=\"background-color:skyblue;\">
     Credit Period Notification
   </div>
