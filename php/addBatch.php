@@ -10,8 +10,9 @@
 	$ex_date = $_POST['ex_date'];
 	$sales_value = $_POST['sales_value'];
 	$supplier_id = $_POST['supplier_id'];
+	$available_quantity = $quantity_box * $no_of_boxes;
 
-	$sql = "INSERT INTO batch(batch_no,drug_name,brand,quantity_box,no_of_boxes,manu_date,ex_date,sales_value,supplier_id) VALUES('$batch_no','$drug_name','$brand','$quantity_box','$no_of_boxes','$manu_date','$ex_date','$sales_value','$supplier_id')";
+	$sql = "INSERT INTO batch(batch_no,drug_name,brand,quantity_box,no_of_boxes,manu_date,ex_date,sales_value,supplier_id,available_quantity) VALUES('$batch_no','$drug_name','$brand','$quantity_box','$no_of_boxes','$manu_date','$ex_date','$sales_value','$supplier_id','$available_quantity')";
 	mysqli_query($con,$sql);
 	}
 ?>
