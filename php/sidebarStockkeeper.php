@@ -31,7 +31,7 @@
 		<a href="../php/viewSupplier.php" target="main">View Supplier info</a>
 		<a href="#">Set reorder level</a>
 		<a href="#">View low drug list</a>
-		<a href="#">Expiry Notification</a>
+		<a href="expireDate.php" target="main">Expiry Notification</a>
 		
 			<div class="dropdown ">
 					<button class="drop-btn">Purchase order</button>
