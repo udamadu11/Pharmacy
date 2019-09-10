@@ -31,6 +31,7 @@ while($row = mysqli_fetch_assoc($result)){
 
 			$invoice_no = $row['invoice_no'];
 			$supplier_id = $row['supplier_id'];
+			$invoice_value = $row['invoice_value'];
 			$credit_period = $row['credit_period'];
 			echo "
 			
@@ -42,6 +43,7 @@ while($row = mysqli_fetch_assoc($result)){
   <ul class=\"list-group list-group-flush\">
     <li class=\"list-group-item\"> invoice No : $invoice_no</li>
     <li class=\"list-group-item\"> supplier Id : $supplier_id</li>
+    <li class=\"list-group-item\"> invoice value : $invoice_value</li>
     <li class=\"list-group-item\"> credit Period : $credit_period</li>
     <li class=\"list-group-item\">
     <form method=\"post\" class=\"dl\">
