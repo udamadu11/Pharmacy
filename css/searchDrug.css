@@ -1,3 +1,12 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+	 margin: 0px;
+	 padding: 0px;
+	 background:url(../img/loginbg1.jpg) no-repeat;
+	background-size: cover;
+
+}
 .search_by_name{
 	float: left;
 	margin-top: 30px; 
@@ -68,8 +77,8 @@ tr:nth-child(even){
 	background-color: #f2f2f2
 }
 th{
-	background-color: dodgerblue;
-	color: black;
+	background-color: #222;
+	color: white;
 }
 th, td{
 

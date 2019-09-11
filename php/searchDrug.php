@@ -33,7 +33,7 @@
 			if (mysqli_num_rows($query) > 0) {
 						while($row = mysqli_fetch_assoc($query)){
 							echo "
-							<table border=1 >
+							<table>
 							<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
@@ -65,7 +65,7 @@
 						while($row = mysqli_fetch_assoc($query)){
 							echo "
 
-							<table border=1 >
+							<table>
 								<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
