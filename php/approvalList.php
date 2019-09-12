@@ -7,7 +7,14 @@
 </head>
 <body>
 	<h3 class="error-msg"><?php include('include/message.php'); ?>
-	<table>
+	
+<?php
+	$sql = "SELECT * FROM tem";
+	$result = $con->query($sql);
+	if($result-> num_rows > 0 ){
+		while ($row = $result-> fetch_assoc()){
+			echo "
+		<table>
 		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
@@ -18,12 +25,7 @@
 			<th>Approve</th>
 			<th>Decline</th>
 		</tr>
-<?php
-	$sql = "SELECT * FROM tem";
-	$result = $con->query($sql);
-	if($result-> num_rows > 0 ){
-		while ($row = $result-> fetch_assoc()){
-			echo "<tr>
+				<tr>
 					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
 					<td>".$row['location']."</td>
@@ -49,6 +51,7 @@
 	echo "</table";
 	}else{
 		echo "<script>alert('No Pending !')</script>";
+        
 	}
 	
 	$con->close();
