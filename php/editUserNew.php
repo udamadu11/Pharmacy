@@ -67,7 +67,11 @@
         $newType = $_POST['EditType'];
 
         $EditQuery= "UPDATE employee SET f_name ='$newFname',l_name = '$newLname',u_name = '$newUname',email ='$newEmail',telephone ='$newTelephone',nic ='$newNic',password ='$newPassword',type ='$newType' WHERE id = '$uid' ";
-        mysqli_query($con,$EditQuery);
+        $sqlQuery = mysqli_query($con,$EditQuery);
+        if ($sqlQuery) {
+            echo "<script>alert('Successfuly Upadated...')</script>";
+            echo "<script>window.open('editUser.php','_self')</script>";
+        }
         }
         
 
