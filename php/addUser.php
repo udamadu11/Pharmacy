@@ -63,9 +63,13 @@
 
 		else{
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
-				mysqli_query($con, $sql);
+			$sqlResult = mysqli_query($con, $sql);
 			$massage = base64_encode(urlencode("Successfully Added"));
-			header('Location:addUser.php?msg=' .$massage);
+			//header('Location:addUser.php?msg=' .$massage);
+			if ($sqlResult) {
+			echo "<script>alert('Successfuly Added...')</script>";
+            echo "<script>window.open('AddUser.php','_self')</script>";
+			}
 			exit();
 		}
 		
@@ -84,28 +88,28 @@
 		<h2>Add User</h2>
 		<div class="input_fields">
 				<p>First Name</p>
-				<input type="text" class="input" name="f_name" id="f_name" placeholder="Enter First Name">
+				<input type="text" class="input" name="f_name" id="f_name" placeholder="Enter First Name" required>
 				<div class="redText"> <?php echo $errors['f_name']; ?>	</div>
 				<p>Last Name</p>
-				<input type="text" class="input" name="l_name" id="l_name" placeholder="Enter Last Name">
+				<input type="text" class="input" name="l_name" id="l_name" placeholder="Enter Last Name" required>
 				<div class="redText"> <?php echo $errors['l_name']; ?>	</div>
 				<p>User Name</p>
-				<input type="text" class="input" name="u_name" id="u_name" placeholder="Enter User Name">
+				<input type="text" class="input" name="u_name" id="u_name" placeholder="Enter User Name" required>
 				<div class="redText"> <?php echo $errors['u_name']; ?>	</div>
 				<p>Email</p>
-				<input type="text" class="input" name="email" id="email" placeholder="Enter Email">
+				<input type="text" class="input" name="email" id="email" placeholder="Enter Email" required>
 				<div class="redText"> <?php echo $errors['email']; ?>	</div>
 				<p>Telephone</p>
-				<input type="number" class="input" name="telephone" id="telephone" placeholder="Enter Telephone Number">
+				<input type="number" class="input" name="telephone" id="telephone" placeholder="Enter Telephone Number" required>
 				<div class="redText"> <?php echo $errors['telephone']; ?>	</div>
 				<p>Nic</p>
-				<input type="text" class="input" name="nic" id="nic" placeholder="Enter the Nic Number">
+				<input type="text" class="input" name="nic" id="nic" placeholder="Enter the Nic Number" required>
 				<div class="redText"> <?php echo $errors['nic']; ?>	</div>
 				<p>Password</p>
-				<input type="password" class="input" name="password" id="password" placeholder="Enter Password">
+				<input type="password" class="input" name="password" id="password" placeholder="Enter Password" required>
 				<div class="redText"> <?php echo $errors['password']; ?>	</div>
 				<p>type</p>
-				<input type="number" class="input" name="type" id="type" placeholder="Enter Type">
+				<input type="number" class="input" name="type" id="type" placeholder="Enter Type" required>
 				<div class="redText"> <?php echo $errors['type']; ?>	</div>
 		</div>
 		<input type="submit" name="submit" value="Add User">
