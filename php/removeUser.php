@@ -71,6 +71,10 @@
 	$d_id = $_POST['delete'];
 	$delete_query ="DELETE FROM employee WHERE id = '$d_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
+	if ($delete_result) {
+		echo "<script>alert('Successfuly Removed...')</script>";
+            echo "<script>window.open('removeUser.php','_self')</script>";
+	}
 	}
 	mysqli_close($con);
 
