@@ -7,7 +7,14 @@
 </head>
 <body>
 	<h3 class="error-msg"><?php include('include/message.php'); ?>
-	<table>
+	
+<?php
+	$sql = "SELECT * FROM tem2";
+	$result = $con->query($sql);
+	if($result-> num_rows > 0 ){
+		while ($row = $result-> fetch_assoc()){
+			echo "
+		<table>
 		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
@@ -17,12 +24,9 @@
 			<th>Credit Period</th>
 			<th>Remove</th>
 		</tr>
-<?php
-	$sql = "SELECT * FROM tem2";
-	$result = $con->query($sql);
-	if($result-> num_rows > 0 ){
-		while ($row = $result-> fetch_assoc()){
-			echo "<tr>
+
+
+				<tr>
 					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
 					<td>".$row['location']."</td>
