@@ -65,10 +65,10 @@
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
 			$sqlResult = mysqli_query($con, $sql);
 			$massage = base64_encode(urlencode("Successfully Added"));
-			//header('Location:addUser.php?msg=' .$massage);
+			header('Location:addUser.php?msg=' .$massage);
 			if ($sqlResult) {
 			echo "<script>alert('Successfuly Added...')</script>";
-            echo "<script>window.open('AddUser.php','_self')</script>";
+           	echo "<script>window.open('AddUser.php','_self')</script>";
 			}
 			exit();
 		}
@@ -97,7 +97,7 @@
 				<input type="text" class="input" name="u_name" id="u_name" placeholder="Enter User Name" required>
 				<div class="redText"> <?php echo $errors['u_name']; ?>	</div>
 				<p>Email</p>
-				<input type="text" class="input" name="email" id="email" placeholder="Enter Email" required>
+				<input type="email" class="input" name="email" id="email" placeholder="Enter Email" required>
 				<div class="redText"> <?php echo $errors['email']; ?>	</div>
 				<p>Telephone</p>
 				<input type="number" class="input" name="telephone" id="telephone" placeholder="Enter Telephone Number" required>
