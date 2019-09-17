@@ -141,6 +141,15 @@ if (isset($_POST['deli'])) {
 	}
 }
  ?>
+ <?php 
+ 	//if (isset($_POST['btn'])) {
+ 	//	
+ 	//	$today = date('Y-m-d');
+	//	$tod =strtotime($today);
+	//	$issueSql = "INSERT INTO invoice(date,total)VALUES('$today','$total')";
+	//	$IssuResult = mysqli_query($con,$issueSql);
+ 	//}
+ ?>
 	
 </body>
 </html>
