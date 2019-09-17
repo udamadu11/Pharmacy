@@ -11,9 +11,9 @@ include ('include/connection.php');
 			$drug_name = $row['drug_name'];
 			$price = $row['price'];
 			$qty = $row['qty'];
-			$total = $row['total'];
+			$tot = $row['total'];
 
-			$sq = "INSERT INTO invoice_items(id,drug_id,drug_name,price,qty,total)VALUES('$id','$drug_id','$drug_name','$price','$qty','$total')";
+			$sq = "INSERT INTO invoice_items(id,drug_id,drug_name,price,qty,total)VALUES('$id','$drug_id','$drug_name','$price','$qty','$tot')";
 		$query = mysqli_query($con,$sq);
 			
 		}
