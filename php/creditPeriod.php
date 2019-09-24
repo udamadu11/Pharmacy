@@ -46,7 +46,6 @@ while($row = mysqli_fetch_assoc($result)){
     <li class=\"list-group-item\"> credit Period : $credit_period</li>
     <li class=\"list-group-item\">
     <form method=\"post\" class=\"dl\">
-		<input type=\"hidden\" value=\"$supplier_id\" name=\"send\">
 		<input class=\"btn btn-info\" type=\"submit\" name=\"submit\" value=\"Send Email\" style =\"margin-left:50px;\">
 	</form></li>
    
@@ -59,16 +58,8 @@ while($row = mysqli_fetch_assoc($result)){
 		}
 
 if(isset($_POST['submit'])){ 
-
-		$supplier_id = $_POST['send'];
-		$select = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";
-		$result = $con->query($select);
-		if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			$email = $row['email'];
-
-			
-			$to = $email;
+	
+			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO About Credit Period";
 			$message = "Your Credit .......";
 
@@ -84,12 +75,6 @@ if(isset($_POST['submit'])){
 				echo "<script>alert('Error.')</script>";
 			}
 
-
-
-
-		
-	}
-}
 }
 		
 ?>

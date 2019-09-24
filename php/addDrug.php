@@ -2,7 +2,7 @@
 <?php require_once('include/session.php'); ?>
 <?php 
 	if(isset($_POST['submit'])){ 
-		$drug_id=$_POST['drug_id'];
+		
 		$drug_name=$_POST['drug_name'];
 		$category=$_POST['category'];
 		$reorder_level=$_POST['reorder_level'];
@@ -10,7 +10,7 @@
 		$price=$_POST['price'];
 		$brand=$_POST['brand'];
 
-		$sql = "INSERT INTO drug (drug_id,drug_name,category,reorder_level,supplier_id,price,brand) VALUES ('$drug_id','$drug_name','$category','$reorder_level','$supplier_id','$price','$brand')";
+		$sql = "INSERT INTO drug (drug_name,category,reorder_level,supplier_id,price,brand) VALUES ('$drug_name','$category','$reorder_level','$supplier_id','$price','$brand')";
 		mysqli_query($con, $sql);
 	}
 ?>
@@ -26,8 +26,7 @@
 		<img src="../img/pharmacist.png">
 		<h2>Add Drug</h2>
 		<div class="input_fields">
-				<p>Drug Id</p>
-				<input type="text" class="input" name="drug_id" id="drug_id" placeholder="Enter Drug Id">
+				
 				<p>Drug Name</p>
 				<input type="text" class="input" name="drug_name" id="drug_name" placeholder="Enter Drug Name">
 				<p>Category</p>
@@ -35,7 +34,19 @@
 				<p>Reorder Level</p>
 				<input type="text" class="input" name="reorder_level" id="reorder_level" placeholder="Enter Reorder level">
 				<p>Supplier Id</p>
-				<input type="text" class="input" name="supplier_id" id="supplier_id" placeholder="Enter Supplier id">
+				<select class="form-control" name="supplier_id">
+						<?php
+							include ('include/connection.php');
+							$sqlSupplier = "SELECT * FROM supplier";
+							$resultSupplier = mysqli_query($con,$sqlSupplier);
+							while ($row = mysqli_fetch_array($resultSupplier)) {
+							$sName = $row['supplier_name'];
+							$sid = $row['supplier_id'];
+							echo '<option value="'.$sid.'">'.$sName.'</option>';
+						}
+					?>
+						
+				</select>
 				<p>Price</p>
 				<input type="text" class="input" name="price" id="price" placeholder="Enter the Price">
 				<p>Brand</p>

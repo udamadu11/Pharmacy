@@ -41,5 +41,6 @@
 					</div>
 				</div><br><br>
 		<a href="#">View product info</a>
+		<a href="creditPeriod.php" target="main">Store Credit Period</a>
 	</div>	
 </body>

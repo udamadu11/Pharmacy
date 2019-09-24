@@ -1,10 +1,4 @@
-body{
-	margin: 0px;
-	padding: 0px;
-	background: url(../img/loginbg11.jpg) no-repeat;
-	background-size: cover;
 
-}
 .addDrug{
 	float: center;
 	margin-top: 5px; 
@@ -72,4 +66,12 @@ input[type="submit"]:hover{
 	cursor: pointer;
 	background: #94DAE8;
 	color: #000;
+}
+.addDrug .input_fields select{
+	width: 360px;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
 }
