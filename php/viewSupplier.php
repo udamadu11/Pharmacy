@@ -9,7 +9,7 @@
 <body> 
 	<table>
 		<tr>
-			<th>Supplier Id</th>
+			<th>Supplier No</th>
 			<th>Supplier Name</th>
 			<th>Location</th>
 			<th>Email</th>
@@ -23,7 +23,7 @@
 			while ($row = $result -> fetch_assoc()) {
 				echo "
 			<tr>
-				<td>".$row['supplier_id']."</td>
+				<td>".$row['supplier_no']."</td>
 				<td>".$row['supplier_name']."</td>
 				<td>".$row['location']."</td>
 				<td>".$row['email']."</td>
