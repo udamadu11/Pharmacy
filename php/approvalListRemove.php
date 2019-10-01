@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Approval list</title>
+	<title>Approval list..</title>
 	<link rel="stylesheet" type="text/css" href="../css/approvalList.css">
 </head>
 <body>
