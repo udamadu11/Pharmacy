@@ -64,8 +64,8 @@
 		else{
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
 			$sqlResult = mysqli_query($con, $sql);
-			$massage = base64_encode(urlencode("Successfully Added"));
-			header('Location:addUser.php?msg=' .$massage);
+			//$massage = base64_encode(urlencode("Successfully Added"));
+			//header('Location:addUser.php?msg=' .$massage);
 			if ($sqlResult) {
 			echo "<script>alert('Successfuly Added...')</script>";
            	echo "<script>window.open('AddUser.php','_self')</script>";

@@ -11,12 +11,10 @@ include('include/connection.php');
 	
 <?php 
 include('include/connection.php');
-$query = "SELECT * FROM broughtin";
+$query = "SELECT * FROM purchases";
 $result = mysqli_query($con,$query);
-
-
 while($row = mysqli_fetch_assoc($result)){
-		$exp_date = $row['credit_period'];
+		$exp_date = $row['date'];
 		$today = date('Y-m-d');
 		$exp =strtotime($exp_date);
 		$td = strtotime($today);
@@ -28,10 +26,10 @@ while($row = mysqli_fetch_assoc($result)){
 		
 		if ($warning_date <= $today) {
 
-			$invoice_no = $row['invoice_no'];
+			$purchase_id = $row['purchase_id'];
 			$supplier_id = $row['supplier_id'];
-			$invoice_value = $row['invoice_value'];
-			$credit_period = $row['credit_period'];
+			$date = $row['date'];
+			$invoice = $row['invoice'];
 			echo "
 			
 
@@ -40,10 +38,10 @@ while($row = mysqli_fetch_assoc($result)){
     Credit Period Notification
   </div>
   <ul class=\"list-group list-group-flush\">
-    <li class=\"list-group-item\"> invoice No : $invoice_no</li>
+    <li class=\"list-group-item\"> Purchase Id : $purchase_id</li>
     <li class=\"list-group-item\"> supplier Id : $supplier_id</li>
-    <li class=\"list-group-item\"> invoice value : $invoice_value</li>
-    <li class=\"list-group-item\"> credit Period : $credit_period</li>
+    <li class=\"list-group-item\"> Date : $date</li>
+    <li class=\"list-group-item\"> Invoice : $invoice</li>
     <li class=\"list-group-item\">
     <form method=\"post\" class=\"dl\">
 		<input class=\"btn btn-info\" type=\"submit\" name=\"submit\" value=\"Send Email\" style =\"margin-left:50px;\">
