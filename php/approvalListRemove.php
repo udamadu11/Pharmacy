@@ -60,7 +60,7 @@ if (isset($_POST['del'])) {
 	$delete_result = mysqli_query($con,$delete_query);
 
 	$s_id = $_POST['remove'];
-	$delete_query2 ="DELETE FROM supplier WHERE supplier_id = '$s_id' ";
+	$delete_query2 ="DELETE FROM supplier WHERE supplier_no = '$s_id' ";
 	$delete_result2 = mysqli_query($con,$delete_query2);
 
 	$massage = base64_encode(urlencode("Decline Successfully"));
