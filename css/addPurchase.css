@@ -1,0 +1,77 @@
+
+.addPurchase{
+	float: center;
+	margin-top: 5px; 
+	margin-left: 300px;
+	background: none;
+	color: black;
+	position: absolute;
+	box-sizing: border-box; 
+	padding: 40px 30px;
+	
+}
+.addPurchase img{
+	width: 50px;
+	height: 50px;
+	border-radius: 20%;
+	position: absolute;
+	top: 60px;
+	left: 320px;
+	
+}
+.addPurchase h2{
+	text-align: center;
+	font-size: 25px;
+	font-family: Arial black;
+}
+.addPurchase .input_fields{
+	padding-bottom: 10px;
+	position: relative;
+}
+.addPurchase .input_fields .input{
+	width: 300px;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
+
+.addPurchase  p{
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	font-size: 20px;
+	font-family: sans-serif;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-weight: bold;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 160px;
+	background-color: black; 
+	color: white;
+	font-size: 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 100px;
+	border: 1px solid #F0F3F4;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}
+.addPurchase .input_fields select{
+	width: 360px;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
