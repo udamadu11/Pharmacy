@@ -25,7 +25,7 @@ include ('include/connection.php');
 		if($result-> num_rows > 0){
 			while ($row = $result-> fetch_assoc()) {
 				echo "<tr>
-					<td>".$row['supplier_no']."</td>
+					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
 					<td>".$row['location']."</td>
 					<td>".$row['email']."</td>
@@ -33,7 +33,7 @@ include ('include/connection.php');
 					<td>".$row['credit_period_allowed']."</td>
 					<td>
 						<form method=\"post\">
-						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_no'].">
+						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_id'].">
 						<input type=\"submit\" name=\"submit\" class=\"remove\" value=\"Delete\">
 						</form>
 					</td>
@@ -47,13 +47,13 @@ include ('include/connection.php');
 		if(isset($_POST['submit'])){ 
 
 		$supplier_id = $_POST['delete'];
-		$select = "SELECT * FROM supplier WHERE supplier_no = '$supplier_id'";
+		$select = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";
 		$result1 = $con->query($select);
 		
 		if (mysqli_num_rows($result1) > 0) {
 		while ($row = mysqli_fetch_assoc($result1)) {
 
-		$supplier_id = $row['supplier_no'];
+		$supplier_id = $row['supplier_id'];
 		$supplier_name = $row['supplier_name'];
 		$location = $row['location'];
 		$email = $row['email'];
