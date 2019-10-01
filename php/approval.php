@@ -16,7 +16,7 @@ if(isset($_POST['approve'])){
 		$contact_no = $row['contact_no'];
 		$credit_period_allowed = $row['credit_period_allowed'];
 
-		$sql = "INSERT INTO supplier (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
+		$sql = "INSERT INTO supplier (supplier_no,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
 		$result = mysqli_query($con, $sql);
 
 		
