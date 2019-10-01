@@ -1,17 +1,17 @@
 <?php require_once('include/connection.php') ?>
 <?php 
 	if (isset($_POST['submit'])) {
-	$drug_id = $_POST['drug_id'];
+	$batch_no = $_POST['batch_no'];
 	$purchase_id = $_POST['purchase_id'];
+	$drug_id = $_POST['drug_id'];
 	$drug_name = $_POST['drug_name'];
-	$quantity_box = $_POST['quantity_box'];
+	$brand = $_POST['brand'];
 	$no_of_boxes = $_POST['no_of_boxes'];
-	$manu_date = $_POST['manu_date'];
+	$quantity_box = $_POST['quantity_box'];
 	$ex_date = $_POST['ex_date'];
-	$sales_value = $_POST['sales_value'];
 	$available_quantity = $quantity_box * $no_of_boxes;
 
-	$sql = "INSERT INTO batch(drug_id,purchase_id,drug_name,quantity_box,no_of_boxes,manu_date,ex_date,sales_value,available_quantity) VALUES('$drug_id','$purchase_id','$drug_name','$quantity_box','$no_of_boxes','$manu_date','$ex_date','$sales_value','$available_quantity')";
+	$sql = "INSERT INTO batch(batch_no,purchase_id,drug_id,drug_name,brand,no_of_boxes,quantity_box,ex_date,available_quantity) VALUES('$batch_no','$purchase_id','$drug_id','$drug_name','$brand','$no_of_boxes','$quantity_box','$ex_date','$available_quantity')";
 	mysqli_query($con,$sql);
 	}
 ?>
@@ -25,22 +25,57 @@
 	<form class="addBatch" method="post">
 		<h2>Add Batch</h2>
 	<div class="input-field">
-		<p>Drug Id</p>
-		<input type="text" name="drug_id">
+		<p>Batch No</p>
+		<input type="text" name="batch_no">
+
 		<p>Purchase Id</p>
-		<input type="text" name="purchase_id">
+				<select class="form-control" name="purchase_id">
+						<?php
+							include ('include/connection.php');
+							$sqlPurchase = "SELECT * FROM purchase";
+							$resultPurchase = mysqli_query($con,$sqlPurchase);
+							while ($row = mysqli_fetch_array($resultPurchase)) {
+							$pid = $row['purchase_id'];
+							echo '<option value="'.$pid.'">'.$pid.'</option>';
+						}
+					?>
+						
+				</select>
+
+		<p>Drug Id</p>
+				<select class="form-control" name="drug_id">
+						<?php
+							include ('include/connection.php');
+							$sqlDrug = "SELECT * FROM drug";
+							$resultDrug = mysqli_query($con,$sqlDrug);
+							while ($row = mysqli_fetch_array($resultDrug)) {
+							$did = $row['drug_id'];
+							echo '<option value="'.$did.'">'.$did.'</option>';
+						}
+					?>
+						
+				</select>
 		<p>Drug Name</p>
-		<input type="text" name="drug_name">
-		<p>Quantity Box</p>
-		<input type="number" name="quantity_box">
+			<select class="form-control" name="drug_name">
+							<?php
+								include ('include/connection.php');
+								$sqlDrug1 = "SELECT * FROM drug";
+								$resultDrug1 = mysqli_query($con,$sqlDrug1);
+								while ($row = mysqli_fetch_array($resultDrug1)) {
+								$dname = $row['drug_name'];
+								echo '<option value="'.$dname.'">'.$dname.'</option>';
+							}
+						?>
+							
+					</select>
+		<p>Brand</p>
+		<input type="text" name="brand">
 		<p>NO of Boxes</p>
 		<input type="number" name="no_of_boxes">
-		<p>Manufacturing Date</p>
-		<input type="date" name="manu_date">
+		<p>Quantity Box</p>
+		<input type="number" name="quantity_box">
 		<p>Expiry Date</p>
 		<input type="date" name="ex_date">
-		<p>value</p>
-		<input type="number" name="sales_value">
 	</div>
 		<input type="submit" name="submit" value="Add">
 		<input type="reset" name="reset" value="reset">

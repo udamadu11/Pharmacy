@@ -63,3 +63,11 @@ input[type="reset"]:hover{
 	background: #94DAE8;
 	color: #000;
 }
+.addBatch  select{
+	width: 360px;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
