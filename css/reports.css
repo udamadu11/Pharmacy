@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "Lato";
+    src: url('../fonts/lato.ttf');
+}
+
+.font
+{
+   font-size: 12pt !important;
+   font-family:  "Lato" !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /*keep all given sizes to the outer size*/
+}
+
+.container {
+    width: 100%;    
+    padding: 12pt;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+}
+ 
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.big {
+   font-size: 1.5rem; 
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    height: 50px;
+    z-index: -1;
+    background-color: white;
+}
+
+.br {
+    height: 0 !important;
+}
+
+.btn{
+    -webkit-us er-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 0;
+    border: 1px solid;
+    font-size: 1rem;
+    padding: 0.4rem;    
+    margin: 0.5rem 0.1rem 0.5rem 0.1rem;
+    font-family: inherit;
+    font-size: inherit;
+    box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    -ms-box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: background-color 300ms;
+    -webkit-transition: background-color 300ms;
+    cursor: pointer;
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse !important;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid  rgba(0,0,0,0.3);
+    
+}
+
+.table thead tr {
+    vertical-align: bottom;
+    border-top: 2px solid  rgba(0,0,0,0.3);
+    border-bottom: 2px solid  rgba(0,0,0,0.3);
+    
+}
+
+.table tbody tr {
+    vertical-align: bottom;
+    border-bottom: 1.5px solid  rgba(0,0,0,0.3);
+    
+}
+
+.card-heading-blue {
+    padding: 0.8rem;
+    background-color: rgba(11,98,222, 0.1);
+    border: 1px solid rgba(0,0,255,0.1);
+}

@@ -21,7 +21,15 @@
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>	
 		<a href="creditOwnerNotification.php" target="main">Credit periods notification</a>
-		<a href="#">View Reports</a>
+		<div class="dropdown">
+			<button class="drop-btn">View Reports</button>
+				<div class="dropdown-content">
+					<a href="fastselling.php" target="main">Selling Reports</a>
+					<a href="current_stock_report.php" target="main">Current Stock</a>
+				</div>
+		</div>
+		<br><br>
+
 		<div class="dropdown">
 			<button class="drop-btn">Approval List</button>
 				<div class="dropdown-content">
