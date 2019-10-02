@@ -100,6 +100,8 @@
 					<td>
 								<form method=\"post\" class=\"delete\">
 									<input type=\"hidden\" value=".$row1['id']." name=\"del\">
+									<input type=\"hidden\" value=".$row1['drug_id']." name=\"up\">
+									<input type=\"hidden\" value=".$row1['qty']." name=\"qty\">
 									<input class=\"btn btn-danger\" type=\"submit\" name=\"deli\" value=\"remove\">
 								</form>
 
@@ -129,18 +131,33 @@
 
 				";
 		
+ ?>
  
+ 	
+
+ <?php 
 
 if (isset($_POST['deli'])) {
+	
 	$d_id = $_POST['del'];
+	$upId = $_POST['up'];
+	$qt = $_POST['qty'];
+
+	$sele = "SELECT * FROM stock WHERE drug_id = '$upId'";
+	$ress = mysqli_query($con,$sele);
+	$rows = mysqli_fetch_array($ress);
+	$drug_id = $rows['drug_id'];
+	$avail = $rows['current_stock'];
+
+	$available = $avail + $qt;
+	$updateQury2 = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
+	$updateRe2 = mysqli_query($con,$updateQury2);
+
+
 	$delete_query ="DELETE FROM invoice_temp WHERE id = '$d_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
 	
-	//$sele = "SELECT * FROM stock WHERE ";
-
-	//$availabl = $avail - $qty;
-	//$updateQury = "UPDATE stock SET current_stock = '$availabl' WHERE drug_name = '$drug_name'";
-//	$updateRe = mysqli_query($con,$updateQury);
+	
 	
 	if ($delete_result) {
 		echo "<script>window.open('issueDrug.php','_self')</script>";
