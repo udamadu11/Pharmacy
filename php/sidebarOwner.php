@@ -20,7 +20,7 @@
 <div class="sidenav">
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>	
-		<a href="creditPeriod.php" target="main">Credit periods notification</a>
+		<a href="creditOwnerNotification.php" target="main">Credit periods notification</a>
 		<a href="#">View Reports</a>
 		<div class="dropdown">
 			<button class="drop-btn">Approval List</button>
