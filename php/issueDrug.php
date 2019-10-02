@@ -5,7 +5,11 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<div class="container" style="margin-top: 200px;">
+	<div class="container" style="margin-top: 120px;">
+			<div class="alert alert-primary" role="alert" style="text-align: center;">
+  					<h2>Issue Drug</h2>
+  			</div>
+		<hr>
 		<div>
  		 	<div class="row">
     			<div class="col">
@@ -15,7 +19,7 @@
       				<h3 style="text-align: center;">Quantity</h3>
     			</div>
     			<div class="col">
-      				<h3>Action</h3>
+      				<h3></h3>
     			</div>
   			</div>
   		</div>
@@ -39,14 +43,13 @@
       				<input type="number" name="qty" class="form-control" placeholder="Quantity">
     			</div>
     			<div class="col">
-      				<input type="submit" name="submit" class="btn btn-primary" value="Add" style="width: 100px;" >
+      				<input type="submit" name="submit" class="btn btn-primary" value="Add" style="margin-left: 150px;width: 80px;" >
     			</div>
   			</div>
 		</form>
-
-
-	</div>
-	<?php
+		<hr>
+		
+		<?php
 	$total =0 ;
 	if (isset($_POST['submit'])) {
 		$drug_name = $_POST['drug_name'];
@@ -66,7 +69,7 @@
 				}
 			}
 
-			echo "<table>
+			echo "<table class=\"table\">
 		<tr>
 			<th>Id</th>
 			<th>Drug Id</th>
@@ -91,7 +94,7 @@
 					<td>
 								<form method=\"post\" class=\"delete\">
 									<input type=\"hidden\" value=".$row1['id']." name=\"del\">
-									<input class=\"btn\" type=\"submit\" name=\"deli\" value=\"remove\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"deli\" value=\"remove\">
 								</form>
 
 					</td>
@@ -105,21 +108,16 @@
 }
 				echo "
 					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
 						<td>Total</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
 						<td>".$total."</td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td></td>
 						<td>
-						<form method=\"post\">
-						<input type=\"submit\" name=\"btn\" class=\"btn btn-primary\" value=\"Issue\" style=\"width:100px;\">
-						</form>
+							<form method=\"post\">
+							<input type=\"submit\" name=\"btn\" class=\"btn btn-primary\" value=\"Issue\" style=\"width:80px;\">
+							</form>
 						</td>
 					</tr>
 
@@ -170,6 +168,9 @@ if (isset($_POST['deli'])) {
 
  }
  ?>
+
+	</div>
+	
 	
 </body>
 </html>
