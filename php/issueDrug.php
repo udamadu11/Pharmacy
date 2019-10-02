@@ -62,12 +62,18 @@
 			$avail = $row['current_stock'];
 			$total = $qty * $price;
 
-			$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total)VALUES('$drug_id','$drug_name','$price','$qty','$total')";
-			$r = mysqli_query($con,$s);
-			if ($r) {
+			if ($qty <=$avail) {
+				$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total)VALUES('$drug_id','$drug_name','$price','$qty','$total')";
+				$r = mysqli_query($con,$s);
+
+				$available = $avail - $qty;
+				$updateQury = "UPDATE stock SET current_stock = '$available' WHERE drug_name = '$drug_name'";
+				$updateRe = mysqli_query($con,$updateQury);
+				if ($r ||$updateRe) {
 				echo "<script>window.open('issueDrug.php','_self')</script>";
 				}
 			}
+		}
 
 			echo "<table class=\"table\">
 		<tr>
@@ -123,16 +129,18 @@
 
 				";
 		
- ?>
  
- 	
-
- <?php 
 
 if (isset($_POST['deli'])) {
 	$d_id = $_POST['del'];
 	$delete_query ="DELETE FROM invoice_temp WHERE id = '$d_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
+	
+	//$sele = "SELECT * FROM stock WHERE ";
+
+	//$availabl = $avail - $qty;
+	//$updateQury = "UPDATE stock SET current_stock = '$availabl' WHERE drug_name = '$drug_name'";
+//	$updateRe = mysqli_query($con,$updateQury);
 	
 	if ($delete_result) {
 		echo "<script>window.open('issueDrug.php','_self')</script>";
