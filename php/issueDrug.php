@@ -118,7 +118,7 @@
 						<td></td>
 						<td>
 						<form method=\"post\">
-						<input type=\"submit\" name=\"btn\" class=\"btn btn-primary\" value=\"Sell\" style=\"width:100px;\">
+						<input type=\"submit\" name=\"btn\" class=\"btn btn-primary\" value=\"Issue\" style=\"width:100px;\">
 						</form>
 						</td>
 					</tr>
@@ -144,20 +144,17 @@ if (isset($_POST['deli'])) {
  <?php 
  	if (isset($_POST['btn'])) {
  		
- 	//	$sql = "SELECT * FROM invoice_temp";
-	//	$res = mysqli_query($con,$sql);
+ 		$sql = "SELECT * FROM invoice_temp";
+		$res = mysqli_query($con,$sql);
 		
-	//	while($row=mysqli_fetch_array($res)){
-	//		$id = $row['id'];
-	//		$drug_id = $row['drug_id'];
-	//		$drug_name = $row['drug_name'];
-	//		$price = $row['price'];
-	//		$qty = $row['qty'];
-	//		$tot = $row['total'];
+		while($row=mysqli_fetch_array($res)){
+			$id = $row['id'];
+			$drug_id = $row['drug_id'];
+			$qty = $row['qty'];
 
-	//		$sq = "INSERT INTO invoice(date,total)VALUES('$id','$drug_id','$drug_name','$price','$qty','$tot')";
-	//		$query = mysqli_query($con,$sq);		
- 	//}
+			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty)VALUES('$id','$drug_id','$qty')";
+			$query = mysqli_query($con,$sq);		
+ 	}
  		$today = date('Y-m-d');
 		$tod =strtotime($today);
 		$issueSql = "INSERT INTO invoice(date,total)VALUES('$today','$total')";

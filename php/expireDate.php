@@ -21,13 +21,13 @@ while($row = mysqli_fetch_assoc($result)){
 		$warning_timestamp = $exp - $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
 		
-		if ($warning_date == $today) {
+		if ($warning_date <= $today) {
 
 			$batch_no = $row['batch_no'];
 			$drug_name = $row['drug_name'];
 			$brand = $row['brand'];
 			$ex_date = $row['ex_date'];
-			$supplier_id = $row['supplier_id'];
+			$purchase_id = $row['purchase_id'];
 			$available_quantity = $row['available_quantity'];
 			echo "
 			
@@ -41,7 +41,7 @@ while($row = mysqli_fetch_assoc($result)){
     <li class=\"list-group-item\"> Drug Name : $drug_name</li>
     <li class=\"list-group-item\"> Brand : $brand</li>
     <li class=\"list-group-item\"> Expiry Date : $ex_date</li>
-    <li class=\"list-group-item\"> supplier Id : $supplier_id</li>
+    <li class=\"list-group-item\"> Purchase Id : $purchase_id</li>
     <li class=\"list-group-item\"> Available Quantity : $available_quantity</li>
   
   </ul>

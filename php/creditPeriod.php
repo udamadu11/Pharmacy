@@ -11,7 +11,7 @@ include('include/connection.php');
 	
 <?php 
 include('include/connection.php');
-$query = "SELECT * FROM purchases";
+$query = "SELECT * FROM purchase";
 $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
 		$exp_date = $row['date'];
