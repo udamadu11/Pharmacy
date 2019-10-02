@@ -116,7 +116,7 @@
 						<td>".$total."</td>
 						<td>
 							<form method=\"post\">
-							<input type=\"submit\" name=\"btn\" class=\"btn btn-primary\" value=\"Issue\" style=\"width:80px;\">
+							<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Issue\" style=\"width:80px;\">
 							</form>
 						</td>
 					</tr>

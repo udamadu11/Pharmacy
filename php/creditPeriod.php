@@ -14,14 +14,17 @@ include('include/connection.php');
 $query = "SELECT * FROM purchase";
 $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
-		$exp_date = $row['date'];
+		$credit_date = $row['date'];
 		$today = date('Y-m-d');
-		$exp =strtotime($exp_date);
+		$exp =strtotime($credit_date);
 		$td = strtotime($today);
 
-		$warning_days = 14;
+			$supQuery = "SELECT "
+
+
+		$warning_days = 90;
 		$seconds_diff = $warning_days * 24 * 3600;
-		$warning_timestamp = $exp - $seconds_diff;
+		$warning_timestamp = $exp + $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
 		
 		if ($warning_date <= $today) {
