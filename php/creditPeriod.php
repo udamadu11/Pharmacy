@@ -19,10 +19,7 @@ while($row = mysqli_fetch_assoc($result)){
 		$exp =strtotime($credit_date);
 		$td = strtotime($today);
 
-			$supQuery = "SELECT "
-
-
-		$warning_days = 90;
+		$warning_days = 83;
 		$seconds_diff = $warning_days * 24 * 3600;
 		$warning_timestamp = $exp + $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
@@ -62,7 +59,7 @@ if(isset($_POST['submit'])){
 	
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO About Credit Period";
-			$message = "Your Credit .......";
+			$message = "Your Credit :" . $invoice ." "."To"." "."Supplier id is :".$supplier_id." And Purchase Id is ".$purchase_id;
 
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
