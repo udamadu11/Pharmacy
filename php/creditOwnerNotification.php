@@ -44,6 +44,10 @@ while($row = mysqli_fetch_assoc($result)){
 			
 	if (isset($_POST['submit'])) {
 	$Cid = $_POST['paid'];
+
+	$update = "UPDATE purchase SET paid = 1 WHERE purchase_id = '$Cid'";
+	mysqli_query($con,$update);
+
 	$delete_query ="DELETE FROM pur_tem WHERE purchase_id = '$Cid' ";
 	$delete_result = mysqli_query($con,$delete_query);
 

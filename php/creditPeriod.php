@@ -15,6 +15,7 @@ $query = "SELECT * FROM purchase";
 $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
 		$credit_date = $row['date'];
+		$paid = $row['paid'];
 		$today = date('Y-m-d');
 		$exp =strtotime($credit_date);
 		$td = strtotime($today);
@@ -24,7 +25,9 @@ while($row = mysqli_fetch_assoc($result)){
 		$warning_timestamp = $exp + $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
 		
-		if ($warning_date <= $today) {
+		if ($paid == 0) {
+			
+			if ($warning_date <= $today) {
 
 			$purchase_id = $row['purchase_id'];
 			$supplier_id = $row['supplier_id'];
@@ -38,6 +41,8 @@ while($row = mysqli_fetch_assoc($result)){
 
 	}
 
+		}
+		
 
 }
 $query = "SELECT * FROM pur_tem";
