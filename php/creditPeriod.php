@@ -56,8 +56,11 @@ while($row = mysqli_fetch_assoc($result)){
 		}
 
 if(isset($_POST['submit'])){ 
-	
-			$to = "udaramadumalka3@gmail.com";
+
+			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchase_id','$supplier_id','$date','$invoice')";
+			$resultCreditOwner =mysqli_query($con, $sqlCreidtOwner);
+			if ($resultCreditOwner) {
+				$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO About Credit Period";
 			$message = "Your Credit :" . $invoice ." "."To"." "."Supplier id is :".$supplier_id." And Purchase Id is ".$purchase_id;
 
@@ -72,6 +75,9 @@ if(isset($_POST['submit'])){
 			else{
 				echo "<script>alert('Error.')</script>";
 			}
+			}
+	
+			
 
 }
 		
