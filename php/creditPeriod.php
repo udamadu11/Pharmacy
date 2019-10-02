@@ -30,6 +30,23 @@ while($row = mysqli_fetch_assoc($result)){
 			$supplier_id = $row['supplier_id'];
 			$date = $row['date'];
 			$invoice = $row['invoice'];
+
+			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchase_id','$supplier_id','$date','$invoice')";
+			$resultCreditOwner =mysqli_query($con, $sqlCreidtOwner);
+	
+
+
+	}
+
+
+}
+$query = "SELECT * FROM pur_tem";
+$result = mysqli_query($con,$query);
+while($row = mysqli_fetch_assoc($result)){
+			$purchase_id = $row['purchase_id'];
+			$supplier_id = $row['supplier_id'];
+			$date = $row['date'];
+			$invoice = $row['invoice'];
 			echo "
 			
 
@@ -44,7 +61,7 @@ while($row = mysqli_fetch_assoc($result)){
     <li class=\"list-group-item\"> Invoice : $invoice</li>
     <li class=\"list-group-item\">
     <form method=\"post\" class=\"dl\">
-		<input class=\"btn btn-info\" type=\"submit\" name=\"submit\" value=\"Send Email\" style =\"margin-left:50px;\">
+		<input class=\"btn btn-info\" type=\"submit\" name=\"submit\" value=\"Send mail\" style =\"margin-left:50px;\">
 	</form></li>
    
   </ul>
@@ -52,15 +69,10 @@ while($row = mysqli_fetch_assoc($result)){
 
 			";
 		}
-			
-		}
+		
 
 if(isset($_POST['submit'])){ 
-
-			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchase_id','$supplier_id','$date','$invoice')";
-			$resultCreditOwner =mysqli_query($con, $sqlCreidtOwner);
-			if ($resultCreditOwner) {
-				$to = "udaramadumalka3@gmail.com";
+			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO About Credit Period";
 			$message = "Your Credit :" . $invoice ." "."To"." "."Supplier id is :".$supplier_id." And Purchase Id is ".$purchase_id;
 
@@ -79,8 +91,7 @@ if(isset($_POST['submit'])){
 	
 			
 
-}
-		
+	
 ?>
 
 
