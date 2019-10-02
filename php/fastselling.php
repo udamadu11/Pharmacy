@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4 center big card-heading-blue">
-                            Reports - Fast Selling Drugs
+                            Reports - Selling Drugs
                         </div>
                         <div class="col-sm-4">
 
@@ -35,7 +35,7 @@
                     <div class="row">
                         <?php
                         include ('include/connection.php');
-                        //fast moving items
+                       
                         $result_fast_move = mysqli_query($con, "SELECT i.drug_name AS 'name',SUM(iv.qty) AS 'qtys' FROM invoice_items iv LEFT JOIN batch i ON iv.drug_id=i.drug_id WHERE iv.qty>0 GROUP BY iv.drug_id  ORDER BY qtys DESC LIMIT 10");
                         ?>
                         <div class="col-sm-12">
@@ -82,8 +82,8 @@
                 mywindow.document.write(document.getElementById("print_area").innerHTML);
                 mywindow.document.write('</body></html>');
 
-                mywindow.document.close(); // necessary for IE >= 10
-                mywindow.focus(); // necessary for IE >= 10*/
+                mywindow.document.close(); 
+                mywindow.focus(); 
 
                 mywindow.print();
                 mywindow.close();
