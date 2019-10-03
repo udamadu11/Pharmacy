@@ -21,13 +21,26 @@
 	$category = $rows['category'];
 	$price = $rows['price'];
 
-
-		
-		$sql3 = "INSERT INTO stock(drug_id,drug_name,price,category) VALUES('$drug_id','$drug_name','$price','$category')";
-		$result3 = mysqli_query($con,$sql3);
-
+	$sql3 = "INSERT INTO stock(drug_id,drug_name,price,category) VALUES('$drug_id','$drug_name','$price','$category')";
+	$result3 = mysqli_query($con,$sql3);
+	
 	}
 	
+	$sql4 = "SELECT available_quantity FROM batch WHERE drug_id = '$drug_id'";
+	$result4 = mysqli_query($con,$sql4);
+	$array = array();
+	while ($data = mysqli_fetch_assoc($result4)) {
+		$array[] = $data;
+	}
+	$total = 0;
+	foreach ($array as $arr1) {
+		$total = $total + $arr1['available_quantity'];
+	}
+	$sql5 = "UPDATE stock SET current_stock = '$total' WHERE drug_id = '$drug_id'";
+	$result5 = mysqli_query($con,$sql5);
+	if ($result5) {
+		echo "<script>window.open('addBatch.php','_self')</script>";
+	}
 	}
 ?>
 <!DOCTYPE html>
