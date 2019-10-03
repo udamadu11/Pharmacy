@@ -15,13 +15,13 @@
 	$result = mysqli_query($con,$sql);
 
 	if ($result) {
-		$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
+	$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 	$result2 = mysqli_query($con,$sql2);
 	$rows = mysqli_fetch_array($result2);
 	$category = $rows['category'];
 	$price = $rows['price'];
 
-	
+
 		
 		$sql3 = "INSERT INTO stock(drug_id,drug_name,price,category) VALUES('$drug_id','$drug_name','$price','$category')";
 		$result3 = mysqli_query($con,$sql3);
@@ -33,7 +33,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add batch</title>
+	<title>Add batch </title>
 	<link rel="stylesheet" type="text/css" href="../css/addBatch.css">
 </head>
 <body>
