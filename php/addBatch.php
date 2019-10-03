@@ -12,7 +12,22 @@
 	$available_quantity = $quantity_box * $no_of_boxes;
 
 	$sql = "INSERT INTO batch(batch_no,purchase_id,drug_id,drug_name,brand,no_of_boxes,quantity_box,ex_date,available_quantity) VALUES('$batch_no','$purchase_id','$drug_id','$drug_name','$brand','$no_of_boxes','$quantity_box','$ex_date','$available_quantity')";
-	mysqli_query($con,$sql);
+	$result = mysqli_query($con,$sql);
+
+	if ($result) {
+		$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
+	$result2 = mysqli_query($con,$sql2);
+	$rows = mysqli_fetch_array($result2);
+	$category = $rows['category'];
+	$price = $rows['price'];
+
+	
+		
+		$sql3 = "INSERT INTO stock(drug_id,drug_name,price,category) VALUES('$drug_id','$drug_name','$price','$category')";
+		$result3 = mysqli_query($con,$sql3);
+
+	}
+	
 	}
 ?>
 <!DOCTYPE html>
