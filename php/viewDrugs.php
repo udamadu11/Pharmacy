@@ -4,10 +4,11 @@
 <html> 
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/viewDrugs.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<table>
+	<div class="container" style="margin-top: 50px">
+		<table class="table">
 		<tr>
 			<th>Drug Id</th>
 			<th>Drug Name</th>
@@ -17,30 +18,30 @@
 			<th>Price</th>
 			<th>Brand</th>
 		</tr>
-<?php
-	$sql = "SELECT drug_id,drug_name,category,reorder_level,supplier_id,price,brand FROM drug";
-	$result = $con->query($sql);
-	if($result-> num_rows > 0 ){
-		while ($row = $result-> fetch_assoc()){
-			echo "<tr>
-					<td>".$row['drug_id']."</td>
-					<td>".$row['drug_name']."</td>
-					<td>".$row['category']."</td>
-					<td>".$row['reorder_level']."</td>
-					<td>".$row['supplier_id']."</td>
-					<td>".$row['price']."</td>
-					<td>".$row['brand']."</td>
-				</tr>";
-		}
-	echo "</table";
-	}
-	else{
-		echo "0 result";
-	}
-	$con->close();
-?>		
+		<?php
+			$sql = "SELECT drug_id,drug_name,category,reorder_level,supplier_id,price,brand FROM drug";
+			$result = $con->query($sql);
+			if($result-> num_rows > 0 ){
+				while ($row = $result-> fetch_assoc()){
+					echo "<tr>
+							<td>".$row['drug_id']."</td>
+							<td>".$row['drug_name']."</td>
+							<td>".$row['category']."</td>
+							<td>".$row['reorder_level']."</td>
+							<td>".$row['supplier_id']."</td>
+							<td>".$row['price']."</td>
+							<td>".$row['brand']."</td>
+						</tr>";
+				}
+			echo "</table";
+			}
+			else{
+				echo "0 result";
+			}
+			$con->close();
+		?>		
 
 	</table>
-
+	</div>
 </body>
 </html>
