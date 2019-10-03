@@ -24,6 +24,8 @@
 					<th>Drug Name</th>
 					<th>Drug Category</th>
 					<th>Drug Brand</th>
+					<th>Drug Price</th>
+					<th>Action</th>
 				</tr>";
 
 			if (mysqli_num_rows($query) > 0) {
@@ -33,6 +35,14 @@
 									<td>".$row['drug_name']."</td>
 									<td>".$row['category']."</td>
 									<td>".$row['brand']."</td>
+									<td>".$row['price']."</td>
+									<td>
+										<form method=\"post\">
+										<input type=\"hidden\" value=".$row['drug_id']." name=\"del\">
+										<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Add Stock\" style=\"width:100px;margin-top:10px;\">
+										</form>
+
+									</td>
 								</tr>";
 						}
 					}else{
@@ -44,3 +54,10 @@
  ?>
 </body>
 </html>
+<?php 
+	if (isset($_POST['btn'])) {
+		$drugId = $_POST['drug_id'];
+		$
+	}
+
+?>
