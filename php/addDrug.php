@@ -15,10 +15,10 @@
 		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
 		$result = mysqli_query($con, $sql);
 
-		if ($result) {
+		
 			$sql2 = "INSERT INTO stock (drug_id,drug_name,price,category) VALUES ('$drug_id','$drug_name','$price','$category')";
 			$result2 = mysqli_query($con, $sql2);
-		}
+		
 		
 	}
 ?>
@@ -26,7 +26,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Drug</title>
+	<title>Add Drug </title>
 	<link rel="stylesheet" type="text/css" href="../css/addDrug.css">
 </head>
 <body>

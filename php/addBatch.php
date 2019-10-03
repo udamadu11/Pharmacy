@@ -13,7 +13,10 @@
 
 	$sql = "INSERT INTO batch(batch_no,purchase_id,drug_id,drug_name,brand,no_of_boxes,quantity_box,ex_date,available_quantity) VALUES('$batch_no','$purchase_id','$drug_id','$drug_name','$brand','$no_of_boxes','$quantity_box','$ex_date','$available_quantity')";
 	$result = mysqli_query($con,$sql);
-
+	if ($result) {
+		echo "<script>window.open('addBatch.php','_self')</script>";
+	}
+/*
 	if ($result) {
 	$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 	$result2 = mysqli_query($con,$sql2);
@@ -40,7 +43,7 @@
 	$result5 = mysqli_query($con,$sql5);
 	if ($result5) {
 		echo "<script>window.open('addBatch.php','_self')</script>";
-	}
+	}*/
 	}
 ?>
 <!DOCTYPE html>
