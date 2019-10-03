@@ -20,6 +20,7 @@
 
 		<a href="../php/viewDrugs.php" target="main">View drug</a>
 		<a href="../php/searchDrug.php" target="main">Search drug</a>
+		<a href="addBatch.php" target="main">Add Batch</a>
 				<div class="dropdown">
 					<button class="drop-btn" >Update Inventory</button>
 					<div class="dropdown-content">
@@ -28,7 +29,8 @@
 					</div>
 				</div>	
 				<br><br>
-		<a href="../php/viewSupplier.php" target="main">View Supplier info</a>
+		<a href="addStock.php" target="main">Add Stock</a>
+		<a href="viewSupplier.php" target="main">View Supplier info</a>
 		<a href="#">Set reorder level</a>
 		<a href="#">View low drug list</a>
 		<a href="expireDate.php" target="main">Expiry Notification</a>
