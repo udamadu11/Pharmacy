@@ -49,7 +49,7 @@
 					<th>Drug Category</th>
 					<th>Drug Quantity</th>
 					<th>Drug Price</th>
-					<th>Action</th>
+					
 				</tr>";
 
 			if (mysqli_num_rows($query) > 0) {
@@ -60,14 +60,30 @@
 									<td>".$row['category']."</td>
 									<td>".$row['current_stock']."</td>
 									<td>".$row['price']."</td>
+								</tr>
+								<tr>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
 									<td>
 										<form method=\"post\">
-										<input type=\"hidden\" value=".$row['drug_id']." name=\"del\">
-										<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Add Stock\" style=\"width:100px;margin-top:10px;\">
-										</form>
+											<div class=\"form-group\">
+	    								
+	    										<input type=\"number\" class=\"form-control\"  placeholder=\"Add Stock Quantity\" name=\"quantity\">
+	 										</div>
+	 								</td>
+	 								<td>
+											<input type=\"hidden\" value=".$row['drug_id']." name=\"adStk\">
+											<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Add Stock\">
+										
 
 									</td>
-								</tr>";
+										</form>
+
+								</tr>
+								";
 						}
 					}else{
 			$message = base64_encode(urlencode("Invalid Drug id"));
@@ -77,8 +93,24 @@
 		}
 
 	if (isset($_POST['btn'])) {
-		$drugId = $_POST['drug_id'];
+		$drugId = $_POST['adStk'];
+		$qty = $_POST['quantity'];
+
+		$sele = "SELECT * FROM stock WHERE drug_id = '$drugId'";
+		$ress = mysqli_query($con,$sele);
+		$rows = mysqli_fetch_array($ress);
+		$avail = $rows['current_stock'];
+
 		
+
+		$available = $avail + $qty;
+
+		$updateQury = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drugId'";
+		$updateRe = mysqli_query($con,$updateQury);
+
+		$message = base64_encode(urlencode("Successfully Updated stock"));
+        	header('Location:addStock.php?msg=' . $message);
+        	exit();
 	}
 
 
