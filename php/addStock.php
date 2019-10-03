@@ -10,9 +10,11 @@
 	
 
 	<div class="container" style="margin-top: 200px">
+
 		<div class="alert alert-primary" role="alert" style="text-align: center;">
   					<h2>Add Stock</h2>
   			</div>
+  			<div class="alert alert-danger" style="text-align: center;"><h3><?php include('include/message.php'); ?></h3></div>
 	<form class="form-group" method="post" action="addStock.php">
 		<div class="row">
 		<div class="col-md-6">
