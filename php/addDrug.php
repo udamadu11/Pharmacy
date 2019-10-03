@@ -13,7 +13,13 @@
 		
 
 		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
-		mysqli_query($con, $sql);
+		$result = mysqli_query($con, $sql);
+
+		if ($result) {
+			$sql2 = "INSERT INTO stock (drug_id,drug_name,price,category) VALUES ('$drug_id','$drug_name','$price','$category')";
+			$result2 = mysqli_query($con, $sql2);
+		}
+		
 	}
 ?>
 
