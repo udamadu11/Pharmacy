@@ -9,7 +9,7 @@
 <body>
 	
 
-	<div class="container" style="margin-top: 200px">
+	<div class="container" style="margin-top: 100px">
 
 		<div class="alert alert-primary" role="alert" style="text-align: center;">
   					<h2>Add Stock</h2>
