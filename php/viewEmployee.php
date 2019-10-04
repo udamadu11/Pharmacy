@@ -8,7 +8,7 @@
 <body>
 	<div class="container" style="margin-top: 50px;">
 		<table class="table table-hover">
-	<tr class="table-info">
+	<tr>
 		<th>Id</th>
 		<th>First Name</th>
 		<th>Last Name</th>
