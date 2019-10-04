@@ -9,7 +9,7 @@
 <body> 
 	<div class="container" style="margin-top: 50px;">
 		<table class="table table-hover">
-		<tr class="table-success">
+		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
 			<th>Location</th>

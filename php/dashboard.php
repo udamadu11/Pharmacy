@@ -3,6 +3,7 @@
 <head>
 	<title>DashBoard</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
 	<div class="container" style="margin-top: 50px; margin-left: 200px;">
@@ -54,11 +55,39 @@
 				
 			</div>
         </div>
-    </div>
-			
-		</div>
 
-	</div>
+   
+
+      <script type="text/javascript">
+		      google.charts.load('current', {'packages':['bar']});
+		      google.charts.setOnLoadCallback(drawChart);
+
+		      function drawChart() {
+		        var data = google.visualization.arrayToDataTable([
+		          ['Year', 'Sales', 'Expenses', 'Profit','Income'],
+		          ['2014', 1000, 400, 600,122],
+		          ['2015', 1170, 460, 250,900],
+		          ['2016', 660, 1120, 300,876],
+		          ['2017', 1030, 540, 350,122]
+		        ]);
+
+		        var options = {
+		          chart: {
+		            title: 'Company Performance',
+		            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+		          }
+		        };
+
+		        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+		        chart.draw(data, google.charts.Bar.convertOptions(options));
+		      }
+    </script>
+<div id="columnchart_material" style="width: 800px; height: 500px;margin-top: 50px;"></div>
+
+    </div>
+
+
 	
 </body>
 </html>
