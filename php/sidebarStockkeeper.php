@@ -29,7 +29,6 @@
 					</div>
 				</div>	
 				<br><br>
-		<a href="addStock.php" target="main">Add Stock</a>
 		<a href="viewSupplier.php" target="main">View Supplier info</a>
 		<a href="#">Set reorder level</a>
 		<a href="#">View low drug list</a>
