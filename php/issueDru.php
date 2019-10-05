@@ -95,7 +95,7 @@
 			$total = $qty * $price;
 
 			
-				$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total)VALUES('$drug_id','$drug_name','$price','$qty','$total')";
+				$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total,batch_no)VALUES('$drug_id','$drug_name','$price','$qty','$total','$batch_no')";
 				$r = mysqli_query($con,$s);
 
 				$available = $available_quantity - $qty;
@@ -135,8 +135,8 @@
 					<td>".$row1['total']."</td>
 					<td>
 								<form method=\"post\" class=\"delete\">
-									<input type=\"hidden\" value=".$row1['id']." name=\"del\">
-									<input type=\"hidden\" value=".$row1['drug_id']." name=\"up\">
+									<input type=\"hidden\" value=".$row1['drug_id']." name=\"drug_id\">
+									<input type=\"hidden\" value=".$row1['batch_no']." name=\"batch_no\">
 									<input type=\"hidden\" value=".$row1['qty']." name=\"qty\">
 									<input class=\"btn btn-danger\" type=\"submit\" name=\"deli\" value=\"remove\">
 								</form>
@@ -166,6 +166,33 @@
 					</tr>
 
 				";
+
+	if (isset($_POST['deli'])) {
+	$drug_id = $_POST['drug_id'];
+	$qty = $_POST['qty'];
+	$batch_no = $_POST['batch_no'];
+
+
+	$sele = "SELECT * FROM batch WHERE drug_id = '$drug_id' AND batch_no = '$batch_no'";
+	$ress = mysqli_query($con,$sele);
+	$rows = mysqli_fetch_array($ress);
+	$available_quantity = $rows['available_quantity'];
+
+	$available = $available_quantity + $qty;
+	$updateQury2 = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no ='$batch_no'";
+	$updateRe2 = mysqli_query($con,$updateQury2);
+
+
+	$delete_query ="DELETE FROM invoice_temp WHERE drug_id = '$drug_id'";
+	$delete_result = mysqli_query($con,$delete_query);
+	
+	
+	
+	if ($delete_result) {
+		echo "<script>window.open('issueDru.php','_self')</script>";
+	}
+}
+
 		?>
 		</div>
 </body>
