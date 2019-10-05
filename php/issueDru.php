@@ -87,20 +87,31 @@
 		$available_quantity = $_POST['available_quantity'];
 		$batch_no = $_POST['batch_no'];
 		$qty = $_POST['quantity'];
-		$sq = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
-		$re = mysqli_query($con,$sq);
-		$row = mysqli_fetch_array($re);
-			$drug_name = $row['drug_name'];
-			$price = $row['price'];
-			$total = $qty * $price;
+			$sq = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
+			$re = mysqli_query($con,$sq);
+			$row = mysqli_fetch_array($re);
+				$drug_name = $row['drug_name'];
+				$price = $row['price'];
+				$total = $qty * $price;
 
-			
-				$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total,batch_no)VALUES('$drug_id','$drug_name','$price','$qty','$total','$batch_no')";
-				$r = mysqli_query($con,$s);
+				
+					$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total,batch_no)VALUES('$drug_id','$drug_name','$price','$qty','$total','$batch_no')";
+					$r = mysqli_query($con,$s);
 
-				$available = $available_quantity - $qty;
-				$updateQury = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no = '$batch_no'";
-				$updateRe = mysqli_query($con,$updateQury);
+					$available = $available_quantity - $qty;
+					$updateQury = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no = '$batch_no'";
+					$updateRe = mysqli_query($con,$updateQury);
+
+
+	$sqlStock = "SELECT * FROM stock WHERE drug_id = '$drug_id'";
+	$resultStock = mysqli_query($con,$sqlStock);
+	$rowStock = mysqli_fetch_array($resultStock);
+	$avail = $rowStock['current_stock'];
+
+	$available = $avail - $qty;
+	$updateStock = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
+	$updateResultStock = mysqli_query($con,$updateStock);
+
 		}
 
 		echo "
@@ -182,6 +193,15 @@
 	$updateQury2 = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no ='$batch_no'";
 	$updateRe2 = mysqli_query($con,$updateQury2);
 
+
+	$sqlStock2 = "SELECT * FROM stock WHERE drug_id = '$drug_id'";
+	$resultStock2 = mysqli_query($con,$sqlStock2);
+	$rowStock2 = mysqli_fetch_array($resultStock2);
+	$avail = $rowStock2['current_stock'];
+
+	$available = $avail + $qty;
+	$updateStock2 = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
+	$updateResultStock2 = mysqli_query($con,$updateStock2);
 
 	$delete_query ="DELETE FROM invoice_temp WHERE drug_id = '$drug_id'";
 	$delete_result = mysqli_query($con,$delete_query);
