@@ -171,7 +171,7 @@
 						<td>".$total."</td>
 						<td>
 							<form method=\"post\">
-							<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Issue\" style=\"width:80px;\">
+							<input type=\"submit\" name=\"btn2\" class=\"btn btn-success\" value=\"Issue\" style=\"width:80px;\">
 							</form>
 						</td>
 					</tr>
@@ -212,8 +212,34 @@
 		echo "<script>window.open('issueDrug.php','_self')</script>";
 	}
 }
+if (isset($_POST['btn2'])) {
+ 		
+ 		$sqlIssue = "SELECT * FROM invoice_temp";
+		$resIssue = mysqli_query($con,$sqlIssue);
+		
+		while($rowIssue=mysqli_fetch_array($resIssue)){
+			$id = $rowIssue['id'];
+			$drug_id = $rowIssue['drug_id'];
+			$qty = $rowIssue['qty'];
 
+			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty)VALUES('$id','$drug_id','$qty')";
+			$query = mysqli_query($con,$sq);		
+ 	}
+ 		$today = date('Y-m-d');
+		$issueSql = "INSERT INTO invoice(date,total)VALUES('$today','$total')";
+		$IssuResult = mysqli_query($con,$issueSql);
+
+		$delete_query ="DELETE FROM invoice_temp";
+		$delete_result = mysqli_query($con,$delete_query);
+
+		if ($delete_query) {
+			echo "<script>alert('Purchase succesfully')</script>";
+			echo "<script>window.open('issueDrug.php','_self')</script>";
+		}
+
+ }
 		?>
 		</div>
 </body>
 </html>
+
