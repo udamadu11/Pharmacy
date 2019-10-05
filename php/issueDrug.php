@@ -233,7 +233,7 @@ if (isset($_POST['btn2'])) {
 		$delete_result = mysqli_query($con,$delete_query);
 
 		if ($delete_query) {
-			echo "<script>alert('Purchase succesfully')</script>";
+			echo "<script>alert('Issue succesfully')</script>";
 			echo "<script>window.open('issueDrug.php','_self')</script>";
 		}
 
