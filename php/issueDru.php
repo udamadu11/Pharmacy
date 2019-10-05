@@ -203,7 +203,7 @@
 	$updateStock2 = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
 	$updateResultStock2 = mysqli_query($con,$updateStock2);
 
-	$delete_query ="DELETE FROM invoice_temp WHERE drug_id = '$drug_id'";
+	$delete_query ="DELETE FROM invoice_temp WHERE drug_id = '$drug_id'  AND batch_no ='$batch_no'";
 	$delete_result = mysqli_query($con,$delete_query);
 	
 	
