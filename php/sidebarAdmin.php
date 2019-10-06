@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Side Bar</title>
 	<link rel="stylesheet" type="text/css" href="../css/admin.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
 		<a href="viewUser.php" target="main">View User</a>
 		<a href="removeUser.php" target="main">Remove User</a>
 		<a href="editUser.php" target="main">Edit User</a>
-		
+		<i class="far fa-restroom"></i>
 	</div>
 </body>
 </html>
