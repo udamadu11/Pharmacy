@@ -19,7 +19,7 @@
 <body>
 	<table>
 		<tr>
-			<th>id</th>
+			<th>Id</th>
 			<th>F_Name</th>
 			<th>L_Name</th>
 			<th>U_Name</th>

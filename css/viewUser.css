@@ -1,25 +1,25 @@
 table{
-	margin-left: 100px;
-	margin-top: 150px;
+	margin-left: 150px;
+	margin-top: 100px;
 	border-collapse: collapse;
-	width: 70%;
+	width: 80%;
 }
 tr{
 	text-align: left;
 	border-bottom: 1px solid #BDBDBD;
 }
-tr:nth-child(even){
+tr:nth-child(odd){
 	background-color: #BCBCBC;
 }
 th{
-	background-color: #222;
+	background-color: #565656;
 	color: white;
-	padding: 10px 10px;
+	padding: 20px 10px;
 	text-align: left;
 }
 td{
-	padding: 10px 10px;
+	padding: 20px 10px;
 }
 tr:hover{
-	background-color: tomato;
+	background-color: #D5D5D5;
 }
