@@ -1,8 +1,8 @@
 table{
-	margin-left: 300px;
+	margin-left: 200px;
 	margin-top: 100px;
 	border-collapse: collapse;
-	width: 60%;
+	width: 75%;
 	text-align: left;
 }
 tr{
@@ -14,11 +14,12 @@ tr:nth-child(even){
 th{
 	background-color: #333;
 	color: white;
-	padding: 10px 2px; 
+	padding: 15px 2px; 
 }
 td{
 	border: none;
 	height: 30px;
+	padding: 10px 2px; 
 }
 tr:hover{
 	background-color:#dbdbdb; 
@@ -28,12 +29,13 @@ input[type="submit"]{
 	border: none;
 	width: 80px;
 	height: 30px
-	background-color: #127D93; 
+	color: tomato;
+	background-color: tomato; 
 	font-size: 18px;
 	border-radius: 3px;
 	cursor: pointer;
 }
 input[type="submit"]:hover{
-	background: #94DAE8;
+	background: red;
 	color: #000;
 }
