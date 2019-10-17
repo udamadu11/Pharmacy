@@ -37,7 +37,6 @@
 					</div>
 				</div>	
 				<br><br>
-		<a href="#">Recieve Approvle not.</a>
 	</div>
 </body>
 </html>
