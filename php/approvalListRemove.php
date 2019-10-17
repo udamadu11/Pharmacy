@@ -36,7 +36,14 @@
 					<td>
 								<form method=\"post\" class=\"remove\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"remove\">
-									<input class=\"btn\" type=\"submit\" name=\"del\" value=\"Remove\">
+									<input class=\"btn\" type=\"submit\" name=\"del\" value=\"Yes\">
+								</form>
+
+					</td>
+					<td>
+								<form method=\"post\" class=\"remove\">
+									<input type=\"hidden\" value=".$row['supplier_id']." name=\"rem\">
+									<input class=\"btn\" type=\"submit\" name=\"no\" value=\"No\">
 								</form>
 
 					</td>
@@ -67,5 +74,12 @@ if (isset($_POST['del'])) {
 	header('Location:approvalList.php?msg=' .$massage);
 	exit();
 	}
+if (isset($_POST['no'])) {
+	$id = $_POST['rem'];
+	$no_query ="DELETE FROM tem2 WHERE supplier_id = '$id' ";
+	$no_result = mysqli_query($con,$no_query);
+	header('Location:approvalList.php?msg=' .$massage);
+	exit();
+}
 
 ?>
