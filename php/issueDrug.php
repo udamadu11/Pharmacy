@@ -81,13 +81,12 @@
 		}		
 		}
 
-		$total =0 ;
+		
 		if (isset($_POST['btn'])) {
 		$drug_id = $_POST['drug_id'];
 		$available_quantity = $_POST['available_quantity'];
 		$batch_no = $_POST['batch_no'];
 		$qty = $_POST['quantity'];
-
 				if ($available_quantity > $qty) {
 					$sq = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 					$re = mysqli_query($con,$sq);
@@ -116,7 +115,7 @@
 					$updateResultStock = mysqli_query($con,$updateStock);
 		}
 	}
-
+	$total = 0;
 		echo "
 
 		<table class=\"table\" style=\"margin-top: 10px;border: 2px solid green;padding: 40px;\">
