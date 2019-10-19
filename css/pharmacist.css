@@ -1,6 +1,7 @@
 .sidenav{
 	height: 100%;/*100% full height */
-	width: 250px;
+	margin-top: 0px;
+	width: 300px;
 	position: fixed;
 	z-index: 1;  
 	top : 0;
@@ -10,28 +11,30 @@
 	transition: 0.3s;
 }
 .sidenav a{
-	margin-top: 12px;
+	margin-top: 15px;
 	padding: 4px 8px 8px 32px;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 16px;
+	font-family: Arial Black;
 	color: #818181;
 	display: block;
 	transition: 0.3s;
 
 }
-.sidenav a:hover{
+.active, .sidenav a:hover{
 	color: #f1f1f1;
 }
 
 @media screen and (max-height: 400px) {
   .sidenav {padding-top: 8px;}
-  .sidenav a {font-size: 16px;}
+  .sidenav a {font-size: 18px;}
 }
 .drop-btn{
 	background-color: #222;
 	color: #818181;
 	padding: 12px;
-	font-size: 15px;
+	font-size: 16px;
+	font-family: Arial Black;
 	border: none;
 	margin-left: 20px;
 	margin-top: 5px;
@@ -47,13 +50,14 @@
 	position: absolute;
 	background-color: #222;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+	box-shadow: 3px 5px rgba(0,0,0,0.5);
 	z-index: 1;
 }
 .dropdown-content a{
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
 	font-size: 16px;
+	font-family: Arial Black;
 	color: #818181;
 	display: block;
 	transition: 0.3s;

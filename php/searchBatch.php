@@ -23,14 +23,14 @@
 			echo "<table>
 				<tr>
 					<th>Batch No</th>
-					<th>Purchase Id</th>
-					<th>Drug Id</th>
 					<th>Drug Name</th>
 					<th>Brand</th>
 					<th>Quantity</th>
 					<th>Box</th>
+					<th>Manufacuring Date</th>
 					<th>Expiry Date</th>
-					<th>Available Quantity</th>
+					<th>value</th>
+					<th>Supplier Id</th>
 					<th>Delete</th>
 				</tr>
 			";
@@ -39,14 +39,14 @@
 						while($row = mysqli_fetch_assoc($query)){
 							echo "<tr>
 									<td>".$row['batch_no']."</td>
-									<td>".$row['purchase_id']."</td>
-									<td>".$row['drug_id']."</td>
 									<td>".$row['drug_name']."</td>
 									<td>".$row['brand']."</td>
 									<td>".$row['quantity_box']."</td>
 									<td>".$row['no_of_boxes']."</td>
+									<td>".$row['manu_date']."</td>
 									<td>".$row['ex_date']."</td>
-									<td>".$row['available_quantity']."</td>
+									<td>".$row['sales_value']."</td>
+									<td>".$row['supplier_id']."</td>
 									<td>
 										<form method=\"post\" class=\"delete\">
 										<input type=\"hidden\" value=".$row['batch_no']." name=\"delete\">

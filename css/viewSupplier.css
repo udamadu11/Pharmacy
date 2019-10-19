@@ -1,8 +1,18 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+	 margin: 0px;
+	 padding: 0px;
+	 background:url(../img/loginbg10.png)no-repeat;
+	 background-size: cover;
+
+}
+
 table{
-	margin-left: 200px;
+	margin-left: 150px;
 	margin-top: 100px;
 	border-collapse: collapse;
-	width: 60%;
+	width: 80%;
 	text-align: left;
 }
 tr{

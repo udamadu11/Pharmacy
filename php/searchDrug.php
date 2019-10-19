@@ -33,7 +33,7 @@
 			if (mysqli_num_rows($query) > 0) {
 						while($row = mysqli_fetch_assoc($query)){
 							echo "
-							<table>
+							<table border=1 >
 							<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
@@ -61,9 +61,11 @@
 			$search_category = "SELECT * FROM drug WHERE category ='$drug_category'";
 			$query= mysqli_query($con,$search_category);
 
-			echo "
-				
-							<table>
+			if (mysqli_num_rows($query) > 0) {
+						while($row = mysqli_fetch_assoc($query)){
+							echo "
+
+							<table border=1 >
 								<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
@@ -71,10 +73,7 @@
 									<th>Drug Price</th>
 									<th>Drug Brand</th>
 								</tr>
-			";
-			if (mysqli_num_rows($query) > 0) {
-						while($row = mysqli_fetch_assoc($query)){
-							echo "
+
 								<tr>
 									<td>".$row['drug_id']."</td>
 									<td>".$row['drug_name']."</td>

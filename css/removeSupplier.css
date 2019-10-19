@@ -1,8 +1,18 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+	 margin: 0px;
+	 padding: 0px;
+	 background-color: #CCD1D1;
+	background-size: cover;
+
+}
+
 table{
-	margin-left: 200px;
+	margin-left: 150px;
 	margin-top: 100px;
 	border-collapse: collapse;
-	width: 75%;
+	width: 80%;
 	text-align: left;
 }
 tr{
@@ -14,12 +24,11 @@ tr:nth-child(even){
 th{
 	background-color: #333;
 	color: white;
-	padding: 15px 2px; 
+	padding: 10px 2px; 
 }
 td{
 	border: none;
 	height: 30px;
-	padding: 10px 2px; 
 }
 tr:hover{
 	background-color:#dbdbdb; 
@@ -29,13 +38,12 @@ input[type="submit"]{
 	border: none;
 	width: 80px;
 	height: 30px
-	color: tomato;
-	background-color: tomato; 
+	background-color: #127D93; 
 	font-size: 18px;
 	border-radius: 3px;
 	cursor: pointer;
 }
 input[type="submit"]:hover{
-	background: red;
+	background: #94DAE8;
 	color: #000;
 }

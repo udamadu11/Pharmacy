@@ -1,25 +1,38 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+	 margin: 0px;
+	 padding: 0px;
+	 background:url(../img/loginbg12.jpg) no-repeat;
+	background-size: cover;
+
+}
+
 table{
-	margin-left: 150px;
-	margin-top: 100px;
+	margin-left: 100px;
+	margin-top: 150px;
 	border-collapse: collapse;
-	width: 80%;
+	width: 70%;
 }
 tr{
 	text-align: left;
 	border-bottom: 1px solid #BDBDBD;
+	font-size: 15px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
-tr:nth-child(odd){
+tr:nth-child(even){
 	background-color: #BCBCBC;
 }
 th{
-	background-color: #015249;
+	background-color: #222;
 	color: white;
-	padding: 20px 10px;
+	padding: 10px 10px;
 	text-align: left;
+	font-size: 16px;
 }
 td{
-	padding: 20px 10px;
+	padding: 10px 10px;
 }
 tr:hover{
-	background-color: #D5D5D5;
+	background-color: tomato;
 }

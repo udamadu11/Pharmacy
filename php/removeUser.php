@@ -50,7 +50,7 @@
 							<td>".$rows['l_name']."</td>
 							<td>".$rows['u_name']."</td>
 							<td>".$rows['email']."</td>
-							<td>".$rows['telephone']."</td>
+							<td>".$rows['tp']."</td>
 							<td>".$rows['nic']."</td>
 							<td>".$rows['password']."</td>
 							<td>".$rows['type']."</td>
@@ -71,10 +71,6 @@
 	$d_id = $_POST['delete'];
 	$delete_query ="DELETE FROM employee WHERE id = '$d_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
-	if ($delete_result) {
-		echo "<script>alert('Successfuly Removed...')</script>";
-            echo "<script>window.open('removeUser.php','_self')</script>";
-	}
 	}
 	mysqli_close($con);
 

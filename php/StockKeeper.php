@@ -15,11 +15,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/StockKeeper.css">
-	<frameset rows="8%,92%" border="-5px">
-  		<frame src="top.php" border="-5px">
-  			<frameset cols="14%,86%" border="-5px">
+	<frameset rows="16%,92%" border="-1px">
+  		<frame src="top.php" border="-1px">
+  			<frameset cols="20%,86%" border="-5px">
     			<frame src="sidebarStockkeeper.php" border="-5px">
-    			<frame src="viewDrugs.php" name="main" border="-5px">
+    			<frame src="home.html" name="main" border="-5px">
   			</frameset>
 	</frameset>
 

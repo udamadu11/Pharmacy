@@ -2,10 +2,10 @@
 	float: left;
 	margin-top: 10px; 
 	margin-left: 450px;
-	background: #052C34;
-	color: #fff;
+	background: none;
+	color:black;
 	position: absolute;
-	box-sizing: border-box; 
+	
 	padding:0px 20px;
 }
 .addBatch h2{
@@ -17,10 +17,9 @@
 
 }
 .addBatch .input_field{
+	border:none;
 	width: 300px;
-	border: 1px solid #BDBDBD;
 	padding: 6px 30px;
-	border-radius: 3px;
 	font-size: 1.0em;
 }
 .addBatch  p{
@@ -62,12 +61,4 @@ input[type="reset"]:hover{
 	cursor: pointer;
 	background: #94DAE8;
 	color: #000;
-}
-.addBatch  select{
-	width: 360px;
-	border: none;
-	border-bottom: 1px solid #BDBDBD;
-	padding: 6px 30px;
-	border-radius: 3px;
-	font-size: 1.0em;	
 }

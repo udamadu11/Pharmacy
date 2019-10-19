@@ -1,24 +1,25 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/loginbg3.jpg) no-repeat;
+	background-size: cover;
+
+}
 .addSupplier{
-	float: left;
-	margin-top: 20px; 
-	margin-left: 450px;
-	background: #052C34;
-	color: #fff;
-	position: absolute;
+	float: center;
+	margin-top: 5px; 
+	margin-left: 300px;
+	background: none;
 	box-sizing: border-box; 
+	color: black;
+	position: absolute;
 	padding: 40px 30px;
 }
-.addSupplier img{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	position: absolute;
-	top: 5px;
-	left: 320px;
-}
+
 .addSupplier h2{
 	text-align: center;
-	font-size: 20px;
+	font-size: 25px;
+	font-family: Arial black;
 }
 .addSupplier .input_fields{
 	padding-bottom: 10px;
@@ -36,7 +37,8 @@
 	margin: 0px;
 	padding: 0px;
 	text-align: left;
-	font-size: 15px;
+	font-size: 20px;
+	font-family: sans-serif;
 	margin-bottom: 5px;
 	margin-top: 10px;
 	font-weight: bold;
@@ -47,12 +49,14 @@ input[type="submit"]{
 	outline: none;
 	height: 30px;
 	width: 160px;
-	background-color: #127D93; 
+	background-color: black; 
+	color: white;
 	font-size: 18px;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-bottom: 20px;
 	margin-left: 100px;
+	border: 1px solid #F0F3F4;
 }
 input[type="submit"]:hover{
 	cursor: pointer;

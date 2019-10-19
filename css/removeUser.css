@@ -1,16 +1,29 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body{
+
+	 margin: 0px;
+	 padding: 0px;
+	 background:url(../img/loginbg12.jpg) no-repeat;
+	background-size: cover;
+
+}
+
 table{
-	margin-left: 200px;
+	margin-left: 100px;
 	margin-top: 100px;
 	border-collapse: collapse;
 }
 tr{
 	border-bottom: 1px solid #BDBDBD;
+	font-size: 15px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 th{
 	background-color: #222;
 	color: white;
 	padding: 10px 10px;
 	text-align: left;
+	font-size: 16px;
 }
 tr:nth-child(even){
 	background-color: #BCBCBC;
@@ -28,6 +41,7 @@ tr:hover{
 }
 .remove h2{
 	font-size: 20px;
+	font-family: Arial black;
 }
 .remove .input{
 	width: 300px;
@@ -38,20 +52,21 @@ tr:hover{
 	
 }
 input[type="submit"]{
-	border: none;
+	border:1px solid black;
 	outline: none;
 	height: 30px;
 	width: 120px;
-	background-color: #127D93; 
+	background:none; 
 	font-size: 18px;
 	border-radius: 10px;
 	cursor: pointer;
 	margin-bottom: 20px;
 	margin-left: 10px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 input[type="submit"]:hover{
 	cursor: pointer;
-	background: #94DAE8;
+	background: #85929E;
 	color: #000;
 }
 .delete .btn{

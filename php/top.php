@@ -8,9 +8,8 @@
 </head>
 <body>
 	<div class="topnav">
-		<img src="../img/logo.png">
-		<h4>PHARMA-PRO</h4>	
-
+			<img src="../img/logo.png">
+				<h4>PHARMA-PRO</h4>
 		<?php  
 			checkSession();
 			if(isset($_SESSION['u_name'])){
@@ -41,12 +40,12 @@
 			else{
 				echo "<a href=\"login.php\">Login</a>";
 			}
-
-
-		?>
 		
 
-	</div>
+		?>	</div>	
+		
+
+	
 
 </body>
 </html>

@@ -15,11 +15,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/pharmacist.css">
-	<frameset rows="8%,92%" border="-5px">
-  		<frame src="top.php" border="-5px">
-  			<frameset cols="14%,86%" border="-5px">
-    			<frame src="sidebarPharmacist.php" border="-5px">
-          <frame src="addDrug.php" name="main" border="-5px">
+	<frameset rows="15%,92%" border="0 px">
+  		<frame src="top.php" border="0 px">
+  			<frameset cols="23%,86%" border="-3px">
+    			<frame src="sidebarPharmacist.php" border="-3px">
+          <frame src="home.html" name="main" border="-3px">
   			</frameset>
 	</frameset>
 </head>

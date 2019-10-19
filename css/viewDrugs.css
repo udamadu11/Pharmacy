@@ -20,7 +20,7 @@ table{
 tr{
 	border-bottom: 1px solid #808B96;
 }
-tr:nth-child(odd){
+tr:nth-child(even){
 	background-color: #808B96;
 }
 th{

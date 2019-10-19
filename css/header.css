@@ -3,23 +3,26 @@ a{text-decoration: none;}
 	top : 0;
 	left: 0;
 	width: 100%;
-	background-color: #333;
+	background-color: #222;
 	position: fixed;
+	overflow-y: hidden;
+	border-bottom: 2px solid black;
 
 }
 .topnav img{
 	float: left;
 	margin-left: 10px;
-	height: 60px;
-	width: 60px;
+	height: 100px;
+	width: 100px;
 }
 .topnav h4{
 	float: left;
-	color: #f2f2f2;
+	color: white;
 	text-align: center;
 	padding: -5px 10px;
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 25px;
+	font-family: Arial Black;
 }
 .topnav h4:hover{
 	color: #818181;
@@ -32,33 +35,35 @@ a{text-decoration: none;}
 	padding: 8px 12px;
 	margin-right: 10px;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 20px;
 	color: #818181;
 	display: block;
 	transition: 0.3s;
 	list-style: none;
 	margin-top: 15px;
+	font-family: Arial Black;
 }
 .topnav p{
 	float: right;
 	color: white;
 	list-style: none;
-	padding: 8px 12px;
+	padding: 12px 12px;
 	margin-right: 20px;
 	text-decoration: none;
 	font-size: 14px;
 	color: #818181;
 	display: block;
 	transition: 0.3s;
+	font-family: Arial Black;
 }
 .topnav p:hover{
-	color: white;
+	color:  white;
 }
 .topnav a:hover{
 	color: white;
 }
 .topnav img{
-	height: 50px;
+	height: 90px;
 	width: 100px;
 	float: left;
 }
