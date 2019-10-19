@@ -20,21 +20,24 @@
 			</div>
 			<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 			<div class="login-section">
-			<img src="../img/man-user.png">
 				<div class="input-fields">
-				<input type="text" class="input" name="name" id="name" placeholder="Enter name" required>
-				</div></div>
-				<div class="login-section">
-				<img src="../img/lock.png">
+					<img src="../img/man-user.png">
+					<input type="text" class="input" name="name" id="name" placeholder="Enter name" required>
+				</div>
 				<div class="input-fields">
+					<img src="../img/lock.png">
 					<input type="password" class="input" id="password" name="password" placeholder="Enter password" required>
 				</div>
-					</div>
-				<input type="submit" name="submit" value="Login">
-					</div>
+
+					<input type="submit" name="submit" value="Login">
+
+			</div>
+		</div>
 		</form>
 
-		
+		<footer class="footer">
+        <h1>developed by <b>Team</b></h1>
+    	</footer>
 
 	</div>
 	<div class="bg"></div>

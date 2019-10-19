@@ -1,10 +1,5 @@
 body{
-	
-	margin: 0px;
-	padding: 0px;
-	background:url(../img/loginbg12.jpg) no-repeat;
-	background-size: cover;
-
+	font-size: 20px;
 }
 table{
 	width: 50%;
@@ -15,8 +10,6 @@ table{
 }
 tr{
 	border-bottom: 1px solid #cbcbcb;
-	font-size: 15px;
-	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 th{
 	border: none;
@@ -24,7 +17,6 @@ th{
 	padding: 5px;
 	color: white;
 	background-color: #222;
-	font-size: 16px;
 }
 td{
 	border: none;
@@ -43,7 +35,6 @@ input[type="submit"]{
 	font-size: 18px;
 	border-radius: 3px;
 	cursor: pointer;
-	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 input[type="submit"]:hover{
 	background: #94DAE8;

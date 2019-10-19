@@ -33,7 +33,7 @@
 							<td>".$row['l_name']."</td>
 							<td>".$row['u_name']."</td>
 							<td>".$row['email']."</td>
-							<td>".$row['tp']."</td>
+							<td>".$row['telephone']."</td>
 							<td>".$row['nic']."</td>
 							<td>".$row['password']."</td>
 							<td>".$row['type']."</td>

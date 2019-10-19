@@ -1,10 +1,4 @@
-body{
-	margin: 0px;
-	padding: 0px;
-	background: url(../img/loginbg3.jpg) no-repeat;
-	background-size: cover;
 
-}
 .addDrug{
 	float: center;
 	margin-top: 5px; 
@@ -16,15 +10,15 @@ body{
 	padding: 40px 30px;
 	
 }
-/*.addDrug img{
-	width: 100px;
-	height: 100px;
+.addDrug img{
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	position: absolute;
-	top: 5px;
+	top: 60px;
 	left: 320px;
 	
-}*/
+}
 .addDrug h2{
 	text-align: center;
 	font-size: 25px;
@@ -72,4 +66,12 @@ input[type="submit"]:hover{
 	cursor: pointer;
 	background: #94DAE8;
 	color: #000;
+}
+.addDrug .input_fields select{
+	width: 360px;
+	border: none;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
 }

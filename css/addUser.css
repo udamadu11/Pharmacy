@@ -1,19 +1,8 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-body{
-
-	 margin: 0px;
-	 padding: 0px;
-	 background:url(../img/loginbg11.jpg) no-repeat;
-	background-size: cover;
-
-}
-
 .addUser{
-
-	margin-left: 300px;
+	margin-left: 500px;
 	margin-top: 50px;
-	background: none;
-	color:black;
+	background: #052C34;
+	color: white;
 	width: 400px;
 	position: absolute;
 	box-sizing: border-box;
@@ -25,13 +14,10 @@ body{
 }
 .addUser h2{
 	text-align: center;
-	font-size: 18px;
-	font-family: Arial Black, Gadget, sans-serif;
-
 }
 .addUser .input_fields .input{
 	width: 250px;
-	border-bottom: 2px solid #BDBDBD;
+	border: 1px solid #BDBDBD;
 	border-radius: 3px;
 	padding: 4px 30px;
 	font-size: 1.0em;
@@ -39,14 +25,14 @@ body{
 }
 .addUser  p{
 	text-align: left;
-	font-size: 18px;
+	font-size: 15px;
 	margin-bottom: 5px;
 	margin-top: 10px;
 	font-weight: bold;
 	
 }
 input[type="submit"]{
-	background-color: black;
+	background-color: #127D93;
 	border: none;
 	margin-left: 100px;
 	height: 30px;
@@ -55,7 +41,6 @@ input[type="submit"]{
 	color: white;
 	border-radius: 10px;
 	cursor: pointer;
-	border: 1px solid #F0F3F4;
 }
 input[type="submit"]:hover{
 	background: #94DAE8;

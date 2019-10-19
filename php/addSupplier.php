@@ -1,16 +1,35 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php include('include/connection.php'); ?>
+<?php include('include/session.php'); ?>
 <?php 
 	if(isset($_POST['submit'])){ 
-		$supplier_id = $_POST['supplier_id'];
+		//$supplier_id = $_POST['supplier_id'];
 		$supplier_name = $_POST['supplier_name'];
 		$location = $_POST['location'];
 		$email = $_POST['email'];
 		$contact_no = $_POST['contact_no'];
 		$credit_period_allowed = $_POST['credit_period_allowed'];
 
-		$sql = "INSERT INTO supplier (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
-		mysqli_query($con, $sql);
+		$sql = "INSERT INTO tem (supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
+		$result = mysqli_query($con, $sql);
+		if($result){
+			$to = "udaramadumalka3@gmail.com";
+			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
+			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
+
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+			$mail = mail($to,$subject,$message,$headers);
+			if ($mail) {
+				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
+			}
+			else{
+				echo "<script>alert('Error.')</script>";
+			}
+			
+    		
+		}
 	}
 ?>
 
@@ -19,16 +38,14 @@
 <head>
 	<title>Add Supplier</title>
 	<link rel="stylesheet" type="text/css" href="../css/addSupplier.css">
-	
 </head>
 <body>
 	<div class="addSupplier">
+		<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 	<form  method="post">
-		
+		<img src="../img/pharmacist.png">
 		<h2>Add Supplier</h2>
 		<div class="input_fields">
-				<p>Supplier Id</p>
-				<input type="text" class="input" name="supplier_id" id="supplier_id" placeholder="Enter Supplier Id">
 				<p>Supplier Name</p>
 				<input type="text" class="input" name="supplier_name" id="supplier_name" placeholder="Enter Supplier Name">
 				<p>Location</p>
@@ -38,7 +55,7 @@
 				<p>Contact No :</p>
 				<input type="number" class="input" name="contact_no" id="contact_no" placeholder="Enter the Contact">
 				<p>Credit Period</p>
-				<input type="datetime-local" value="2000-01-01T00:00:00" class="input" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period">
+				<input type="number"  class="input" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period">
 		</div>
 		<input type="submit" name="submit" value="Add Supplier">
 	</form>

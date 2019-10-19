@@ -19,7 +19,7 @@
 <body>
 	<table>
 		<tr>
-			<th>id</th>
+			<th>Id</th>
 			<th>F_Name</th>
 			<th>L_Name</th>
 			<th>U_Name</th>
@@ -41,7 +41,7 @@
 							<td>".$row['l_name']."</td>
 							<td>".$row['u_name']."</td>
 							<td>".$row['email']."</td>
-							<td>".$row['tp']."</td>
+							<td>".$row['telephone']."</td>
 							<td>".$row['nic']."</td>
 							<td>".$row['password']."</td>
 							<td>".$row['type']."</td>
