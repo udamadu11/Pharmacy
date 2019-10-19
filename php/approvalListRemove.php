@@ -23,6 +23,7 @@
 			<th>Contact number</th>
 			<th>Credit Period</th>
 			<th>Remove</th>
+			<th></th>
 		</tr>
 
 
@@ -43,7 +44,7 @@
 					<td>
 								<form method=\"post\" class=\"remove\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"rem\">
-									<input class=\"btn\" type=\"submit\" name=\"no\" value=\"No\">
+									<input class=\"btn1\" type=\"submit\" name=\"no\" value=\"No\">
 								</form>
 
 					</td>
@@ -71,14 +72,14 @@ if (isset($_POST['del'])) {
 	$delete_result2 = mysqli_query($con,$delete_query2);
 
 	$massage = base64_encode(urlencode("Decline Successfully"));
-	header('Location:approvalList.php?msg=' .$massage);
+	header('Location:approvalListRemove.php?msg=' .$massage);
 	exit();
 	}
 if (isset($_POST['no'])) {
 	$id = $_POST['rem'];
 	$no_query ="DELETE FROM tem2 WHERE supplier_id = '$id' ";
 	$no_result = mysqli_query($con,$no_query);
-	header('Location:approvalList.php?msg=' .$massage);
+	header('Location:approvalListRemove.php?msg=' .$massage);
 	exit();
 }
 
