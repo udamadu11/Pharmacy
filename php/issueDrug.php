@@ -17,7 +17,7 @@
 						$result = mysqli_query($con,$sql);
 						while ($row = mysqli_fetch_array($result)) {
 			
-						echo '<option value="'.$row['drug_id'].'">'.$row['drug_id'].'</option>';
+						echo '<option value="'.$row['drug_id'].'">'.$row['drug_name'].'</option>';
 				}
 				?>			
 				</select>

@@ -20,14 +20,14 @@ while($row = mysqli_fetch_assoc($result)){
 		$exp =strtotime($credit_date);
 		$td = strtotime($today);
 
-		$warning_days = 83;
+		$warning_days = 76;
 		$seconds_diff = $warning_days * 24 * 3600;
 		$warning_timestamp = $exp + $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
 		
 		if ($paid == 0) {
 			
-			if ($warning_date <= $today) {
+			if ($warning_date > $today) {
 
 			$purchase_id = $row['purchase_id'];
 			$supplier_id = $row['supplier_id'];
