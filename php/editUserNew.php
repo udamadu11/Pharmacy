@@ -38,7 +38,7 @@
                                 <input type=\"text\" name=\"EditNic\" placeholder=\"Edit Nic\" value=\"{$row['nic']}\">
 
                                 <p>Password</p>
-                                <input type=\"password\" name=\"EditPassword\" placeholder=\"Enter Password\" value=\"{$row['password']}\">
+                                <input type=\"text\" name=\"EditPassword\" placeholder=\"Enter Password\" value=\"{$row['password']}\">
 
                                 <p>Type</p>
                                 <input type=\"number\" name=\"EditType\" placeholder=\"Type\" value=\"{$row['type']}\">
