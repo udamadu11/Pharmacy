@@ -16,10 +16,10 @@
 </head>
 <body>
 <div class="sidenav">
-		<a href="addDrug.php" target="main">Add Drugs</a>
 		<a href="viewDrugs.php" target="main">View Drug</a>
 		<a href="searchDrug.php" target="main">Search Drug</a>
 		<a href="issueDrug.php" target="main">Issue Drugs</a>
+		<a href="viewSupplier.php" target="main">View Suppliers</a>
 		<div class="dropdown">
 					<button class="drop-btn" >Update Suppliers</button>
 					<div class="dropdown-content">
@@ -28,12 +28,11 @@
 					</div>
 				</div>	
 				<br><br>
-		<a href="viewSupplier.php" target="main">View Suppliers</a>
 		<div class="dropdown">
-					<button class="drop-btn" >Update Brand</button>
+					<button class="drop-btn" >Update Drugs</button>
 					<div class="dropdown-content">
-						<a href="#" target="main">Add Brand</a>
-						<a href="##" target="main">Remove Brand</a>
+						<a href="addDrug.php" target="main">Add New Drug</a>
+						<a href="updateDrug.php" target="main">Remove Drug</a>
 					</div>
 				</div>	
 				<br><br>

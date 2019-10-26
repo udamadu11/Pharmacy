@@ -19,7 +19,7 @@
   		<frame src="top.php" border="-5px">
   			<frameset cols="14%,86%" border="-5px">
     			<frame src="sidebarPharmacist.php" border="-5px">
-          <frame src="addDrug.php" name="main" border="-5px">
+          <frame src="viewDrugs.php" name="main" border="-5px">
   			</frameset>
 	</frameset>
 </head>
