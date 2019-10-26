@@ -6,10 +6,11 @@ include ('include/connection.php');
 <html>
 <head>
 	<title>Remove Supplier</title>
-	<link rel="stylesheet" type="text/css" href="../css/removeSupplier.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<table>
+	<div class="container" style="margin-top: 100px;">
+<table class="table">
 	<tr>
 		<th>Supplier Id</th>
 		<th>Supplier Name</th>
@@ -17,7 +18,9 @@ include ('include/connection.php');
 		<th>Email</th>
 		<th>Contact No</th>
 		<th>Credit Period</th>
+		<th>Edit</th>
 		<th>Remove</th>
+		
 	</tr>
 	<?php 
 		$sql = "SELECT * FROM supplier";
@@ -32,9 +35,15 @@ include ('include/connection.php');
 					<td>".$row['contact_no']."</td>
 					<td>".$row['credit_period_allowed']."</td>
 					<td>
+						<form method=\"post\" action=\"editSupplier.php\">
+						<input type=\"hidden\" name=\"edit\" value=".$row['supplier_id'].">
+						<input type=\"submit\" name=\"submit1\" class=\"btn btn-primary\" value=\"Edit\" style=\"width:70px;\">
+						</form>
+					</td>
+					<td>
 						<form method=\"post\">
 						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_id'].">
-						<input type=\"submit\" name=\"submit\" class=\"remove\" value=\"Delete\">
+						<input type=\"submit\" name=\"submit2\" class=\"btn btn-danger\" value=\"Delete\">
 						</form>
 					</td>
 				</tr>
@@ -44,7 +53,7 @@ include ('include/connection.php');
 	
 
 		
-		if(isset($_POST['submit'])){ 
+		if(isset($_POST['submit2'])){ 
 
 		$supplier_id = $_POST['delete'];
 		$select = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";
@@ -87,7 +96,10 @@ include ('include/connection.php');
 	}
 	}
 }
+	
+
 
 	?>
+	</div>
 </body>
 </html>
