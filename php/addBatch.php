@@ -13,9 +13,6 @@
 
 	$sql = "INSERT INTO batch(batch_no,purchase_id,drug_id,drug_name,brand,no_of_boxes,quantity_box,ex_date,available_quantity) VALUES('$batch_no','$purchase_id','$drug_id','$drug_name','$brand','$no_of_boxes','$quantity_box','$ex_date','$available_quantity')";
 	$result = mysqli_query($con,$sql);
-	if ($result) {
-		echo "<script>window.open('addBatch.php','_self')</script>";
-	}
 
 	if ($result) {
 	$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
@@ -42,6 +39,7 @@
 	$sql5 = "UPDATE stock SET current_stock = '$total' WHERE drug_id = '$drug_id'";
 	$result5 = mysqli_query($con,$sql5);
 	if ($result5) {
+		echo "<script>alert('Add new Stock SuccessFully')</script>";
 		echo "<script>window.open('addBatch.php','_self')</script>";
 	}
 	}
@@ -54,7 +52,7 @@
 </head>
 <body>
 	<form class="addBatch" method="post">
-		<h2>Add Batch</h2>
+		<h2>Add New Stock</h2>
 	<div class="input-field">
 		<p>Batch No</p>
 		<input type="text" name="batch_no">

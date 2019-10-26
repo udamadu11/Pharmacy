@@ -20,12 +20,11 @@
 
 		<a href="../php/viewDrugs.php" target="main">View drug</a>
 		<a href="../php/searchDrug.php" target="main">Search drug</a>
-		<a href="addBatch.php" target="main">Add Batch</a>
 				<div class="dropdown">
 					<button class="drop-btn" >Update Inventory</button>
 					<div class="dropdown-content">
-						<a href="../php/addDrug.php" target="main">Add drug</a>
-						<a href="../php/removeDrug.php" target="main">remove drug</a>
+						<a href="addBatch.php" target="main">Add New Stock</a>
+						<a href="searchBatch.php" target="main">remove Stock</a>
 					</div>
 				</div>	
 				<br><br>
