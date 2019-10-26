@@ -18,6 +18,7 @@
                     
                     echo "
                             <form method=\"post\">
+                                <h3 style=\"text-align:center;\">Edit Supplier</h3>
                                 <p>Supplier Name</p>
                                 <input type=\"text\" class=\"input\" name=\"supplier_name\" id=\"supplier_name\" placeholder=\"Edit Supplier Name\" value=\"{$row['supplier_name']}\">
                                 <p>Location</p>
