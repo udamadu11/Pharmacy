@@ -51,7 +51,9 @@ include ('include/connection.php');
 				}	
 		} 
 	
-
+		echo "</table>";
+		echo "<hr  style=\"margin-top:50px;\">";
+		echo"<a href=\"addSupplier.php\"><button class=\"btn btn-success\" style=\"margin-left:935px;\">Add New Supplier</button></a>";
 		
 		if(isset($_POST['submit2'])){ 
 
