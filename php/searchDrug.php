@@ -27,7 +27,9 @@
 	<?php
 		if (isset($_POST['submit1'])) {
 			$drug_name = $_POST['search_name'];
-			$search_name = "SELECT * FROM drug WHERE drug_name ='$drug_name'";
+
+			 $search_name ="SELECT drug.drug_id,drug.drug_name,drug.price, batch.batch_no,batch.ex_date,batch.available_quantity FROM drug INNER JOIN batch ON drug.drug_name = batch.drug_name AND drug.drug_name = '$drug_name'";
+
 			$query= mysqli_query($con,$search_name);
 
 			echo "
@@ -37,7 +39,9 @@
 									<th>Drug Id</th>
 									<th>Drug Name</th>
 									<th>Drug Price</th>
-									<th>Drug Brand</th>
+									<th>Batch No</th>
+									<th>Expiry Date</th>
+									<th>Available Quantity</th>
 							</tr>
 
 
@@ -52,7 +56,9 @@
 									<td>".$row['drug_id']."</td>
 									<td>".$row['drug_name']."</td>
 									<td>".$row['price']."</td>
-									<td>".$row['brand']."</td>
+									<td>".$row['batch_no']."</td>
+									<td>".$row['ex_date']."</td>
+									<td>".$row['available_quantity']."</td>
 								</tr>";
 						}
 					}else{

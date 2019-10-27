@@ -8,32 +8,40 @@
 	<div class="container" style="margin-top: 50px;">
 		
   			<form method="post">
-  		<div class="row">
-			<div class="col-md-4">
-      			<select class="form-control" name="drug_id" style="margin-left: 300px;">
-					<?php
-						include ('include/connection.php');
-						$sql = "SELECT * FROM batch";
-						$result = mysqli_query($con,$sql);
-						while ($row = mysqli_fetch_array($result)) {
+  			<div class="form-row">
+				<div class="col-md-4" style="margin-left: 300px;">
+					<input type="text" class="form-control"  name="search_name" placeholder="Enter the Drug Name">
+				</div>
+				<div class="col-md-4">
+					<input type="submit" name="submit" value="Search" class="btn btn-info" style="width: 150px;">
+				</div>
+    				
+    				
+
 			
-						echo '<option value="'.$row['drug_id'].'">'.$row['drug_name'].'</option>';
-				}
+
+
+      	<!--		<select class="form-control" name="drug_id" style="margin-left: 300px;">
+					<?php
+			//			include ('include/connection.php');
+			//			$sql = "SELECT * FROM batch";
+			//			$result = mysqli_query($con,$sql);
+			//			while ($row = mysqli_fetch_array($result)) {
+			//
+			//			echo '<option value="'.$row['drug_id'].'">'.$row['drug_name'].'</option>';
+			//	}
 				?>			
-				</select>
-    		</div>
-    	<div class="col-md-6">
-    		<input type="submit" name="submit" value="Search" class="btn btn-info" style="width: 150px;margin-left: 300px;">
-    	</div>
+				</select>-->
+    	
     </div>
     </form>
     	<hr>
 
 	<?php
-
+include('include/connection.php');
 	if (isset($_POST['submit'])) {
-			$drug_id = $_POST['drug_id'];
-			$search_id = "SELECT * FROM batch WHERE drug_id ='$drug_id'";
+			$drug_name = $_POST['search_name'];
+			$search_id = "SELECT * FROM batch WHERE drug_name ='$drug_name'";
 			$query= mysqli_query($con,$search_id);
 
 			echo "<table class=\"table\">
@@ -75,9 +83,7 @@
 								";
 						}
 					}else{
-			$message = base64_encode(urlencode("Invalid Drug id"));
-        	header('Location:issueDrug.php?msg=' . $message);
-        	exit();
+			echo "<script>alert('Invalid Drug Name')</script>";
 		}		
 		}
 
