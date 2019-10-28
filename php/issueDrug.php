@@ -49,6 +49,7 @@ include('include/connection.php');
 					<th>Batch No</th>
 					<th>Drug Id</th>
 					<th>Drug Name</th>
+					<th>Expiry Date</th>
 					<th>Available</th>
 					<th>Issue Quantity</th>
 					<th>Action</th>
@@ -61,6 +62,7 @@ include('include/connection.php');
 									<td>".$row['batch_no']."</td>
 									<td>".$row['drug_id']."</td>
 									<td>".$row['drug_name']."</td>
+									<td>".$row['ex_date']."</td>
 									<td>".$row['available_quantity']."</td>
 									<td>
 										<form method=\"post\">

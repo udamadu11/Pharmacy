@@ -56,7 +56,21 @@
 			</div>
         </div>
 
+   <?php 
+   	$total = 0;
+   	for ($i=1; $i < date("m")+1; $i++) { 
+   		$SalesQuery = "SELECT total FROM invoice WHERE MONTH(date) = '$i'";
+   	$resultSalesQuery = mysqli_query($con,$SalesQuery);
+   	while($row = mysqli_fetch_array($resultSalesQuery)){
+   	$total += $row['total'];
+   	
+   }
+   echo $total ." ";
+   }
+   	
    
+   	
+   ?>
 
       <script type="text/javascript">
 		      google.charts.load('current', {'packages':['bar']});
@@ -64,8 +78,8 @@
 
 		      function drawChart() {
 		        var data = google.visualization.arrayToDataTable([
-		          ['Year', 'Sales', 'Expenses', 'Profit','Income'],
-		          ['2014', 1000, 400, 600,122],
+		          ['Month', 'Sales', 'Expenses', 'Profit','Income'],
+		          ['January', 1000, 400, 600,122],
 		          ['2015', 1170, 460, 250,900],
 		          ['2016', 660, 1120, 300,876],
 		          ['2017', 1030, 540, 350,122]

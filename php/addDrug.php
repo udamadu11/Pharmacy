@@ -12,8 +12,27 @@
 		$price=$_POST['price'];
 		
 
-		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
+		$sql = "INSERT INTO tem3 (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
 		$result = mysqli_query($con, $sql);
+		if($result){
+			$to = "udaramadumalka3@gmail.com";
+			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
+			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
+
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+			$mail = mail($to,$subject,$message,$headers);
+			if ($mail) {
+				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
+			}
+			else{
+				echo "<script>alert('Error.')</script>";
+			}
+			
+    		
+		}
 	}
 ?>
 
