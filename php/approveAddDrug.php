@@ -49,6 +49,7 @@
 				}
 			echo "</table";
 			}
+			
 			$con->close();
 		?>		
 

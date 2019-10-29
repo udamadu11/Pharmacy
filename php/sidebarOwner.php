@@ -37,6 +37,8 @@
 				<div class="dropdown-content">
 					<a href="approvalList.php" target="main">Add Supplier Appro:</a>
 					<a href="approvalListRemove.php" target="main">remove Supplier Appro:</a>
+					<a href="approveAddDrug.php" target="main">Add Drug Appro:</a>
+					<a href="approveRemoveDrug.php" target="main">remove Drug Appro:</a>
 				</div>
 		</div>	
 		<br><br>
