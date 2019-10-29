@@ -60,12 +60,27 @@
    	$total = 0;
    	for ($i=1; $i < date("m")+1; $i++) { 
    		$SalesQuery = "SELECT total FROM invoice WHERE MONTH(date) = '$i'";
-   	$resultSalesQuery = mysqli_query($con,$SalesQuery);
-   	while($row = mysqli_fetch_array($resultSalesQuery)){
-   	$total += $row['total'];
-   	
+   		$resultSalesQuery = mysqli_query($con,$SalesQuery);
+   			while($row = mysqli_fetch_array($resultSalesQuery)){
+   				$total += $row['total'];
+   			}
+   		echo $total ." ";
+   		$total = 0;
    }
-   echo $total ." ";
+   	
+   
+   	
+   ?>
+   <?php 
+   	$total = 0;
+   	for ($i=1; $i < date("m")+1; $i++) { 
+   		$SalesQuery = "SELECT invoice FROM purchase WHERE MONTH(date) = '$i'";
+   		$resultSalesQuery = mysqli_query($con,$SalesQuery);
+   			while($row = mysqli_fetch_array($resultSalesQuery)){
+   				$total += $row['invoice'];
+   			}
+   		echo $total ." ";
+   		$total = 0;
    }
    	
    
@@ -78,11 +93,11 @@
 
 		      function drawChart() {
 		        var data = google.visualization.arrayToDataTable([
-		          ['Month', 'Sales', 'Expenses', 'Profit','Income'],
-		          ['January', 1000, 400, 600,122],
-		          ['2015', 1170, 460, 250,900],
-		          ['2016', 660, 1120, 300,876],
-		          ['2017', 1030, 540, 350,122]
+		          ['Month', 'Sales', 'purchases', 'Profit'],
+		          ['January', 1000, 400, 600],
+		          ['2015', 1170, 460, 250],
+		          ['2016', 660, 1120, 300],
+		          ['2017', 1030, 540, 350]
 		        ]);
 
 		        var options = {
