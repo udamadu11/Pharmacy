@@ -35,18 +35,15 @@
 			<img src="../img/logo.png">
 			<h1>PHARMA-PRO</h1>
 		</div>
-	<img src="../img/elements-bg.png" style="margin-left: 740px;width: 800px;margin-top: -60px;">
-	<img src="../img/testimonial-content-bg.png" style="margin-left: 600px;margin-top: -50px;width: 200px;">
+	<img src="../img/elements-bg.png" style="margin-left: 740px;width: 800px;margin-top: -70px;">
 <div class="container">
-	<form class="form" style="margin-left: 250px;margin-top: -250px;">
+	<form class="form" style="margin-left: 275px;margin-top: -100px;">
 			<fieldset>
 				<div class="alert alert-primary" role="alert" style="width: 400px;text-align: center;">Login Here</div>
     <div class="form-group" style="width: 400px;">
-      <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     </div>
     <div class="form-group" style="width: 400px;">
-      <label for="exampleInputPassword1">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
    
