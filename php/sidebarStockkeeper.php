@@ -21,7 +21,7 @@
 		<a href="../php/viewDrugs.php" target="main">View drug</a>
 		<a href="../php/searchDrug.php" target="main">Search drug</a>
 				<div class="dropdown">
-					<button class="drop-btn" >Update Inventory</button>
+					<button class="drop-btn" >Update Stock</button>
 					<div class="dropdown-content">
 						<a href="addBatch.php" target="main">Add New Stock</a>
 						<a href="searchBatch.php" target="main">remove Stock</a>
