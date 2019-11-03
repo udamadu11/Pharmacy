@@ -3,11 +3,11 @@
 <html>
 <head>
 	<title>Approval lists</title>
-	<link rel="stylesheet" type="text/css" href="../css/approvalList.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<h3 class="error-msg"><?php include('include/message.php'); ?>
-	<table>
+	<div class="container" style="margin-top: 100px;">
+		<table class="table">
 		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
@@ -17,15 +17,13 @@
 			<th>Credit Period</th>
 			<th>Approve</th>
 			<th>Decline</th>
-	
-<?php
+		</tr>
+		<?php
 	$sql = "SELECT * FROM tem";
 	$result = $con->query($sql);
 	if($result-> num_rows > 0 ){
 		while ($row = $result-> fetch_assoc()){
 			echo "
-		
-		</tr>
 				<tr>
 					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
@@ -34,16 +32,16 @@
 					<td>".$row['contact_no']."</td>
 					<td>".$row['credit_period_allowed']."</td>
 					<td>
-								<form method=\"post\" class=\"approval\" action=\"approval.php\">
+								<form method=\"post\" action=\"approval.php\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"approval\">
-									<input class=\"btn\" type=\"submit\" name=\"approve\" value=\"Approve\">
+									<input class=\"btn btn-primary\" type=\"submit\" name=\"approve\" value=\"Approve\">
 								</form>
 
 					</td>
 					<td>
-								<form method=\"post\" class=\"approval\" action=\"approval.php\">
+								<form method=\"post\" action=\"approval.php\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"approval2\">
-									<input class=\"btn2\" type=\"submit\" name=\"decline\" value=\"Decline\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"decline\" value=\"Decline\">
 								</form>
 
 					</td>
@@ -57,7 +55,7 @@
 	
 	$con->close();
 ?>
+	</div>
 
-	</table>
 </body>
 </html>

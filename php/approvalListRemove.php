@@ -3,10 +3,11 @@
 <html>
 <head>
 	<title>Approval list..</title>
-	<link rel="stylesheet" type="text/css" href="../css/approvalList.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<h3 class="error-msg"><?php include('include/message.php'); ?>
+	<div class="container" style="margin-top: 100px;">
+			<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
 	
 <?php
 	$sql = "SELECT * FROM tem2";
@@ -14,7 +15,7 @@
 	if($result-> num_rows > 0 ){
 		while ($row = $result-> fetch_assoc()){
 			echo "
-		<table>
+		<table class=\"table\">
 		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
@@ -35,30 +36,29 @@
 					<td>".$row['contact_no']."</td>
 					<td>".$row['credit_period_allowed']."</td>
 					<td>
-								<form method=\"post\" class=\"remove\">
+								<form method=\"post\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"remove\">
-									<input class=\"btn\" type=\"submit\" name=\"del\" value=\"Yes\">
+									<input class=\"btn btn-info\" type=\"submit\" name=\"del\" value=\"Yes\">
 								</form>
 
 					</td>
 					<td>
-								<form method=\"post\" class=\"remove\">
+								<form method=\"post\">
 									<input type=\"hidden\" value=".$row['supplier_id']." name=\"rem\">
-									<input class=\"btn1\" type=\"submit\" name=\"no\" value=\"No\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"no\" value=\"No\">
 								</form>
 
 					</td>
 				</tr>";
 		}
-	echo "</table";
 	}else{
 		echo "<script>alert('No Pending !')</script>";
 	}
 	
 	
-?>
-
-	</table>
+?>	
+</table>
+	</div>
 </body>
 </html>
 <?php 
@@ -71,16 +71,21 @@ if (isset($_POST['del'])) {
 	$delete_query2 ="DELETE FROM supplier WHERE supplier_id = '$s_id' ";
 	$delete_result2 = mysqli_query($con,$delete_query2);
 
-	$massage = base64_encode(urlencode("Decline Successfully"));
-	header('Location:approvalListRemove.php?msg=' .$massage);
-	exit();
+	if ($delete_result2) {
+		echo "<script>alert('Decline Successfully')</script>";
+		echo "<script>window.open('approvalListRemove.php','_self')</script>";
 	}
+	}
+
 if (isset($_POST['no'])) {
 	$id = $_POST['rem'];
 	$no_query ="DELETE FROM tem2 WHERE supplier_id = '$id' ";
 	$no_result = mysqli_query($con,$no_query);
-	header('Location:approvalListRemove.php?msg=' .$massage);
-	exit();
+
+	if ($no_result) {
+		echo "<script>alert('Not Deleted')</script>";
+		echo "<script>window.open('approvalListRemove.php','_self')</script>";
+	}
 }
 
 ?>
