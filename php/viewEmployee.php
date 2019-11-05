@@ -18,6 +18,7 @@
 		<th>Nic</th>
 	</tr>
 	<?php
+		//retrive all the data from employee table
 		$sql = "SELECT * FROM employee";
 		$result = mysqli_query($con,$sql);
 		if ($result -> num_rows > 0) {

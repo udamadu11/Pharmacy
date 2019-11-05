@@ -31,11 +31,12 @@
 			<th>Type</th>
 		</tr>
 		<?php
+		//retrive all the data from employee table
 			$sql = "SELECT * FROM employee";
 			$result = mysqli_query($con,$sql);
 
 			if ($result -> num_rows > 0) {
-			while ($row = $result -> fetch_assoc()) {
+			while ($row = $result -> fetch_assoc()) { 
 					echo "<tr>
 							<td>".$row['id']."</td>
 							<td>".$row['f_name']."</td>

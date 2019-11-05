@@ -18,6 +18,7 @@
 			<th>Credit Period</th>
 		</tr>
 		<?php
+		// retrive all the data from supplier table
 		$sql = "SELECT * FROM supplier";
 		$result = mysqli_query($con,$sql);
 		if ($result -> num_rows > 0) {

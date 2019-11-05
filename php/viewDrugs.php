@@ -19,6 +19,7 @@
 			<th>Brand</th>
 		</tr>
 		<?php
+			//retrive all the data from drug table
 			$sql = "SELECT drug_id,drug_name,category,reorder_level,supplier_id,price,brand FROM drug";
 			$result = $con->query($sql);
 			if($result-> num_rows > 0 ){

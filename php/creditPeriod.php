@@ -5,7 +5,8 @@ include('include/connection.php');
 <html>
 <head>
 	<title>Credit period notification</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> </head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 <body>
 
 	
@@ -17,7 +18,7 @@ while($row = mysqli_fetch_assoc($result)){
 		$credit_date = $row['date'];
 		$paid = $row['paid'];
 		$today = date('Y-m-d');
-		$exp =strtotime($credit_date);
+		$exp = strtotime($credit_date);
 		$td = strtotime($today);
 
 		$warning_days = 76;
@@ -35,7 +36,7 @@ while($row = mysqli_fetch_assoc($result)){
 			$invoice = $row['invoice'];
 
 			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchase_id','$supplier_id','$date','$invoice')";
-			$resultCreditOwner =mysqli_query($con, $sqlCreidtOwner);
+			$resultCreditOwner = mysqli_query($con, $sqlCreidtOwner);
 	
 
 
