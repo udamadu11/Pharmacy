@@ -1,10 +1,13 @@
+<?php include('include/session.php') ?>
+<?php include('include/connection.php') ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>DAsh Board</title>
+	<title>Dash Board</title>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -24,7 +27,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card mx-auto">
-				  <img class="card-img-top mx-auto" style="width:40%;" src="../img/man11.png" alt="Card image cap">
+				  <img class="card-img-top mx-auto" style="width:40%;margin-top: 10px;" src="../img/man11.png" alt="Card image cap">
 				  <div class="card-body">
 				    <h4 class="card-title">Profile Info</h4>
 				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Udara</p>
@@ -40,7 +43,7 @@
 			</div>
 			<div class="col-md-8">
 				<div class="jumbotron" style="width:100%;height:100%;">
-					<h1>Welcome Admin,</h1>
+					<h1>Welcome Owner</h1>
 					<div class="row">
 						<div class="col-sm-6">
 							<iframe src="http://free.timeanddate.com/clock/i616j2aa/n1993/szw160/szh160/cf100/hnce1ead6" frameborder="0" width="160" height="160"></iframe>
@@ -88,7 +91,7 @@
 				<div class="card">
 						<div class="card-body">
 						<h4 class="card-title">Products</h4>
-						<p class="card-text">Here you can manage your prpducts and you add new products</p>
+						<p class="card-text">Here you can manage your products and you add new products</p>
 						<a href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary">Add</a>
 						<a href="manage_product.php" class="btn btn-primary">Manage</a>
 					</div>
