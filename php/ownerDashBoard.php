@@ -50,7 +50,7 @@
 				    	$ownerQuery = "SELECT  * FROM employee";
 
 				    ?>
-				    <button class="btn btn-primary" name="submit" type="submit"><i class="fa fa-edit">&nbsp;</i>Edit Profile</button>
+				    <a href="ownerProfile.php"><button class="btn btn-primary" name="submit" type="submit"><i class="fa fa-edit">&nbsp;</i>Edit Profile</button></a>
 				  </div>
 				</div>
 			</div>
