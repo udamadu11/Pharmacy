@@ -27,6 +27,8 @@
 
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
  </head>
 <body>
 
@@ -50,7 +52,8 @@
 				    	$ownerQuery = "SELECT  * FROM employee";
 
 				    ?>
-				    <a href="ownerProfile.php"><button class="btn btn-primary" name="submit" type="submit"><i class="fa fa-edit">&nbsp;</i>Edit Profile</button></a>
+				    <a href="#"><button class="btn btn-primary" data-toggle="modal" data-target="#form_profile"><i class="fa fa-edit">&nbsp;</i>Edit Profile</button></a>
+				    <?php include ('ownerProfile.php'); ?>
 				  </div>
 				</div>
 			</div>
