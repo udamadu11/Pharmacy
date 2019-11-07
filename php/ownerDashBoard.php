@@ -52,9 +52,44 @@
 						<div class="col-sm-6">
 							<div class="card">
 						      <div class="card-body">
-						        <h4 class="card-title">New Orders</h4>
-						        <p class="card-text">Here you can make invoices and create new orders</p>
-						        <a href="new_order.php" class="btn btn-primary">New Orders</a>
+						        <h4 class="card-title">Notifications</h4>
+						        <p class="card-text">Here you can Manage your notifications</p>
+						        <div class="btn-group">
+									  <button type="button" class="btn btn-primary">Action</button>
+									  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									    <span class="sr-only">Toggle Dropdown</span>
+									  </button>
+									  <div class="dropdown-menu">
+									  	<?php 
+									  		include('include/connection.php');
+									  		$sql1 = "SELECT * FROM tem";
+											$result1 = $con->query($sql1);
+											if($result1-> num_rows > 0 ){
+												echo "<h5><a class=\"dropdown-item\" href=\"approvalList.php\" target=\"main\" style=\"color:red;\">Add Supplier Appro:</a></h5>";
+											}
+									  	
+									  		
+									  		$sql2 = "SELECT * FROM tem2";
+											$result2 = $con->query($sql2);
+											if($result2-> num_rows > 0 ){
+												echo "<a class=\"dropdown-item\" href=\"approvalListRemove.php\" target=\"main\">remove Supplier Appro:</a>";
+											}
+									  
+									  		
+									  		$sql3 = "SELECT * FROM tem3";
+											$result3 = $con->query($sql3);
+											if($result3-> num_rows > 0 ){
+												echo "<a class=\"dropdown-item\" href=\"approveAddDrug.php\" target=\"main\">Add Drug Appro:</a>";
+											}
+									 
+									  		
+									  		$sql4 = "SELECT * FROM tem4";
+											$result4 = $con->query($sql4);
+											if($result4-> num_rows > 0 ){
+												echo "<a class=\"dropdown-item\" href=\"approveRemoveDrug.php\" target=\"main\">remove Drug Appro:</a>";
+											}
+									  	?>
+									</div>
 						      </div>
 						    </div>
 						</div>

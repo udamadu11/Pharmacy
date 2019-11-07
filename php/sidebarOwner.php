@@ -18,6 +18,7 @@
 </head>
 <body>
 <div class="sidenav">
+		<a href="ownerDashboard.php"	target="main">DashBoard</a>
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>
 
