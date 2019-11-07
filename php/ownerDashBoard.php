@@ -1,6 +1,15 @@
 <?php include('include/session.php') ?>
 <?php include('include/connection.php') ?>
 
+<?php
+    //Unauthorized Access_Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '1'){
+       header("Location:login.php");
+       exit();
+       }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +39,11 @@
 				  <img class="card-img-top mx-auto" style="width:40%;margin-top: 10px;" src="../img/man11.png" alt="Card image cap">
 				  <div class="card-body">
 				    <h4 class="card-title">Profile Info</h4>
-				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Udara</p>
+				    <p class="card-text"><i class="fa fa-user">&nbsp;</i><?php 
+				    	if (isset($_SESSION['type'])) {
+				    		echo $_SESSION['u_name'];
+				    	}
+				    ?></p>
 				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Owner</p>
 				    <?php 
 				    	include('include/connection.php');
