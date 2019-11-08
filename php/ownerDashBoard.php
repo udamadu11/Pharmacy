@@ -71,7 +71,9 @@
 						        <h4 class="card-title">Notifications</h4>
 						        <p class="card-text">Here you can Manage your notifications</p>
 						        <div class="btn-group">
-									  <button type="button" class="btn btn-primary">Action</button>
+									 <button type="button" class="btn btn-primary">
+ 										 Notifications <span class="badge badge-light">*</span>
+									</button>
 									  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									    <span class="sr-only">Toggle Dropdown</span>
 									  </button>
@@ -132,9 +134,8 @@
 				<div class="card">
 						<div class="card-body">
 						<h4 class="card-title">Employees</h4>
-						<p class="card-text">Here you can manage your team and you can add new employee</p>
-						<a href="addUser.php" class="btn btn-primary">Add</a>
-						<a href="EditUser.php" class="btn btn-primary">Manage</a>
+						<p class="card-text">Here you can manage your team</p>
+						<a href="EditUser.php" class="btn btn-primary" style="margin-left: 70px;">Manage</a>
 					</div>
 				</div>
 			</div>
