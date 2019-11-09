@@ -3,8 +3,7 @@
 
 <html>
     <head>
-        <link href="../css/reports.css" rel="stylesheet" type="text/css">
-        <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <title> Reports</title>
         
     </head>  
@@ -17,12 +16,12 @@
             <br>
         </div>
 
-        <div class="container">
+        <div class="container" style="margin-top: 100px;">
             <div class="row">
                 <div class="col-sm-12" >
                     <div class="row">
                         <div class="col-sm-4"></div>
-                        <div class="col-sm-4 center big card-heading-blue">
+                        <div class="alert alert-primary" role="alert">
                             Reports - Selling Drugs
                         </div>
                         <div class="col-sm-4">

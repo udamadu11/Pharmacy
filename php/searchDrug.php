@@ -4,24 +4,26 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/searchDrug.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
+	<div class="container">
 	<div class="error-msg"><h3><?php include('include/message.php'); ?></h3></div>
-	<form class="search_by_name" method="post">
+	<form class="form-7" method="post">
 		<h2>Search by Name</h2>
-		<div class="input_fields1">
-				<input type="text" class="input1" class="img" name="search_name" id="search_name" placeholder="Enter the Name">
+		<div class="input_field-5">
+				<input type="text" class="input-5" name="search_name" id="search_name" placeholder="Enter the Name">
 		</div>
-		<input type="submit" name="submit1" value="Search Name">
+		<input type="submit" name="submit1" value="Search Name" class="btn-7">
 
 	</form>
-	<form class="search_by_category" method="post">
+	<form class="form-8" method="post">
 		<h2>Search by Category</h2>
-		<div class="input_fields2">
-				<input type="text" class="input2" name="search_category" id="search_category" placeholder="Enter the Category Name">
+		<div class="input_field-6">
+				<input type="text" class="input-6" name="search_category" id="search_category" placeholder="Enter the Category Name">
 		</div>
-		<input type="submit" name="submit2" value="Search Category">
+		<input type="submit" name="submit2" value="Search Category" class="btn-7">
 
 	</form>
 	<?php
@@ -33,8 +35,9 @@
 			$query= mysqli_query($con,$search_name);
 
 			echo "
+				<br>
 
-						<table>
+						<table class=\"table\">
 							<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
@@ -74,8 +77,8 @@
 			$query= mysqli_query($con,$search_category);
 
 			echo "
-				
-							<table>
+				<br>
+							<table class=\"table table-hover\">
 								<tr>
 									<th>Drug Id</th>
 									<th>Drug Name</th>
@@ -103,6 +106,6 @@
         	}		
 		}
 	?>
-
+</div>
 </body>
 </html>

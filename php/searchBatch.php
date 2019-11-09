@@ -3,14 +3,16 @@
 <html>
 <head>
 	<title>Search Batch</title>
-	<link rel="stylesheet" type="text/css" href="../css/searchBatch.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 </head>
 <body>
-	<form class="SearchId" method="post">
+	<div class="container" style="margin-top: 100px;">
+	<form class="form" method="post">
 		<h2>Search By Id</h2>
-		<div class="search_id">
-			<input type="text" class="input" name="search_batch" placeholder="Search By Id" id="search_batch">
-			<input type="submit" name="submit" value="Search">
+		<div class="row">
+			<input type="text" class="form-control" name="search_batch" placeholder="Search By Id" id="search_batch">
+			<input type="submit" name="submit" value="Search" class="btn btn-info" style="margin-left: 20px;">
 		</div>
 	</form>
 
@@ -20,13 +22,12 @@
 			$search_query = "SELECT * FROM batch WHERE batch_no = '$batch_no'";
 			$query = mysqli_query($con,$search_query);
 
-			echo "
-			";
-
+		
 			if (mysqli_num_rows($query) > 0) {
 						while($row = mysqli_fetch_assoc($query)){
 							echo "
-								<table>
+							<br>
+								<table class=\"table table-hover\">
 								<tr>
 									<th>Batch No</th>
 									<th>Purchase Id</th>
@@ -51,11 +52,11 @@
 									<td>".$row['ex_date']."</td>
 									<td>".$row['available_quantity']."</td>
 									<td>
-										<form method=\"post\" class=\"delete\">
+										<form method=\"post\">
 										<input type=\"hidden\" value=".$row['batch_no']." name=\"delete\">
 										<input type=\"hidden\" value=".$row['drug_id']." name=\"deleteDrugId\">
 										<input type=\"hidden\" value=".$row['available_quantity']." name=\"deleteAvailable\">
-										<input class=\"btn\" type=\"submit\" name=\"submit1\" value=\"Delete\">
+										<input class=\"btn btn-danger\" type=\"submit\" name=\"submit1\" value=\"Delete\">
 										</form>
 									</td>
 								</tr>";
@@ -88,5 +89,6 @@
 		mysqli_close($con);
 
 	?>
+	</div>
 </body>
 </html>

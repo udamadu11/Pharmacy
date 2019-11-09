@@ -1,25 +1,18 @@
 <?php require_once('include/connection.php'); ?>
 <?php require_once('include/session.php'); ?>
-<?php
-    //Unauthorized Access Check
-    checkSession();
-    if(!isset($_SESSION['type']) || $_SESSION['type'] != '4'){
-       header("Location:login.php");
-       exit();
-       }
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/removeUser.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<form method="post" class="remove">
+	<div class="container" style="margin-top: 100px;">
+<form method="post" class="form-6">
 	<h2>Search By Name</h2>
-	<input type="text" name="searchName" id="searchName" placeholder="Enter the Name" class="input">
-	<input type="submit" name="submit" value="Search">
+	<input type="text" name="searchName" id="searchName" placeholder="Enter the Name" class="input-4">
+	<input type="submit" name="submit" value="Search" class="btn-6">
 </form>
 <?php
 	if (isset($_POST['submit'])) {
@@ -27,7 +20,7 @@
 		$search = "SELECT * FROM employee WHERE u_name = '$user'";
 		$query = mysqli_query($con,$search);
 
-		echo "<table>
+		echo "<table class=\"table\" style=\"margin-top:50px;\">
 			<tr>
 			<th>Id</th>
 			<th>F_Name</th>
@@ -55,9 +48,9 @@
 							<td>".$rows['password']."</td>
 							<td>".$rows['type']."</td>
 							<td>
-								<form method=\"post\" class=\"delete\">
+								<form method=\"post\">
 									<input type=\"hidden\" value=".$rows['id']." name=\"delete\">
-									<input class=\"btn\" type=\"submit\" name=\"submit1\" value=\"Delete\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"submit1\" value=\"Delete\">
 								</form>
 
 							</td>
@@ -65,7 +58,10 @@
 
 					";
 				}
-			}
+			}else{
+		echo "<script>alert('Invalid User Name')</script>";
+        echo "<script>window.open('removeUser.php','_self')</script>";
+	}
 	}
 	if (isset($_POST['submit1'])) {
 	$d_id = $_POST['delete'];
@@ -79,5 +75,6 @@
 	mysqli_close($con);
 
 ?>
+</div>
 </body>
 </html>
