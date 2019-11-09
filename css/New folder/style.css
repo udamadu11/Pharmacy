@@ -1,0 +1,57 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+
+.top{
+	overflow: hidden;
+	border-bottom: 3px solid  #1C2833;
+}
+.top h1{
+	float: left;
+	color: #305AA8  ;
+	text-align: center;
+	padding: 10px 14px;
+	text-decoration: none;
+	font-size: 20px;
+}
+.top h1:hover{
+	color: white;
+}
+.top img{
+	float: left;
+	height: 80px;
+	width: 80px;
+}
+.top h1{
+	font-family: Arial Black;
+	font-size: 30px;
+	float: left;
+	color: black;
+}
+.top h1 {
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes zoomIn {
+  0% {
+  opacity: 0;
+  -webkit-transform: scale3d(.3, .3, .3);
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }

@@ -80,39 +80,39 @@
 <html>
 <head>
 	<title>Add User</title>
-	<link rel="stylesheet" type="text/css" href="../css/addUser.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<form class="addUser" method="post">
-		<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
+	<form class="form-1" method="post">
+		<h3 class="error-msg"><?php include('include/message.php'); ?></h3> 
 		<h2>Add User</h2>
-		<div class="input_fields">
+		<div class="input_field-5">
 				<p>First Name</p>
-				<input type="text" class="input" name="f_name" id="f_name" placeholder="Enter First Name" required>
+				<input type="text" class="input-4" name="f_name" id="f_name" placeholder="Enter First Name" required>
 				<div class="redText"> <?php echo $errors['f_name']; ?>	</div>
 				<p>Last Name</p>
-				<input type="text" class="input" name="l_name" id="l_name" placeholder="Enter Last Name" required>
+				<input type="text" class="input-4" name="l_name" id="l_name" placeholder="Enter Last Name" required>
 				<div class="redText"> <?php echo $errors['l_name']; ?>	</div>
 				<p>User Name</p>
-				<input type="text" class="input" name="u_name" id="u_name" placeholder="Enter User Name" required>
+				<input type="text" class="input-4" name="u_name" id="u_name" placeholder="Enter User Name" required>
 				<div class="redText"> <?php echo $errors['u_name']; ?>	</div>
 				<p>Email</p>
-				<input type="email" class="input" name="email" id="email" placeholder="Enter Email" required>
+				<input type="email" class="input-4" name="email" id="email" placeholder="Enter Email" required>
 				<div class="redText"> <?php echo $errors['email']; ?>	</div>
 				<p>Telephone</p>
-				<input type="number" class="input" name="telephone" id="telephone" placeholder="Enter Telephone Number" required>
+				<input type="number" class="input-4" name="telephone" id="telephone" placeholder="Enter Telephone Number" required>
 				<div class="redText"> <?php echo $errors['telephone']; ?>	</div>
 				<p>Nic</p>
-				<input type="text" class="input" name="nic" id="nic" placeholder="Enter the Nic Number" required>
+				<input type="text" class="input-4" name="nic" id="nic" placeholder="Enter the Nic Number" required>
 				<div class="redText"> <?php echo $errors['nic']; ?>	</div>
 				<p>Password</p>
-				<input type="password" class="input" name="password" id="password" placeholder="Enter Password" required>
+				<input type="password" class="input-4" name="password" id="password" placeholder="Enter Password" required>
 				<div class="redText"> <?php echo $errors['password']; ?>	</div>
 				<p>type</p>
-				<input type="number" class="input" name="type" id="type" placeholder="Enter Type" required>
+				<input type="number" class="input-4" name="type" id="type" placeholder="Enter Type" required>
 				<div class="redText"> <?php echo $errors['type']; ?>	</div>
 		</div>
-		<input type="submit" name="submit" value="Add User">
+		<input type="submit" name="submit" value="Add User" class="btn-5">
 	</form>
 </body>
 </html>

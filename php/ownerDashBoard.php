@@ -72,7 +72,7 @@
 						        <p class="card-text">Here you can Manage your notifications</p>
 						        <div class="btn-group">
 									 <button type="button" class="btn btn-primary">
- 										 Notifications <span class="badge badge-light">*</span>
+ 										 Notifications <span class="badge badge-light">1</span>
 									</button>
 									  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									    <span class="sr-only">Toggle Dropdown</span>

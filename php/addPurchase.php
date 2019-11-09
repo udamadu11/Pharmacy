@@ -16,16 +16,16 @@
 <html>
 <head>
 	<title>Add Purchase</title>
-	<link rel="stylesheet" type="text/css" href="../css/addPurchase.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<form class="addPurchase" method="post">
+	<form class="form-3" method="post">
 		<img src="../img/shopping-cart.png">
 		<h2>Add Purchase</h2>
-		<div class="input_fields">
+		<div class="input_field-3">
 				
 				<p>Supplier Id</p>
-				<select class="form-control" name="supplier_id">
+				<select name="supplier_id">
 						<?php
 							include ('include/connection.php');
 							$sqlSupplier = "SELECT * FROM supplier";
@@ -40,10 +40,10 @@
 				</select>
 				
 				<p>Price</p>
-				<input type="text" class="input" name="invoice" id="invoice" placeholder="Enter the Invoice price">
+				<input type="text" class="input-2" name="invoice" id="invoice" placeholder="Enter the Invoice price">
 				
 		</div>
-		<input type="submit" name="submit" value="Add Purchase">
+		<input type="submit" name="submit" value="Add Purchase" class="btn-4">
 	</form>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/editUserNew.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <?php
@@ -17,7 +17,7 @@
                 while($row = mysqli_fetch_assoc($userquery)){
                     
                     echo "
-                            <form method=\"post\">
+                            <form method=\"post\" class=\"form-1\">
                                 <h2>Edit User</h2>                   
                                 <p>First Name</p>
                                 <input type=\"text\" name=\"EditFName\" placeholder=\"Edit name\" value=\"{$row['f_name']}\">
@@ -45,7 +45,7 @@
 
                                 <p></p>
                                 <input type=\"hidden\" value=" .$row['id']. " name=\"EditID\">
-                                <input type=\"submit\" name=\"EditSubmit\" value=\"EDIT\">
+                                <input type=\"submit\" name=\"EditSubmit\" value=\"EDIT\" class=\"btn-5\">
                             </form>";
 
 

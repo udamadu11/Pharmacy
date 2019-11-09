@@ -14,7 +14,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/owner.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<frameset rows="8%,92%" border="0px">
   		<frame src="top.php" border="0px">
   			<frameset cols="14%,86%" border="0px">

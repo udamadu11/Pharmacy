@@ -40,25 +40,25 @@
 <html>
 <head>
 	<title>Add Drug </title>
-	<link rel="stylesheet" type="text/css" href="../css/addDrug.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<form class="addDrug" method="post">
+	<form class="form-2" method="post">
 		<img src="../img/pharmacist.png">
 		<h2>Add Drug</h2>
-		<div class="input_fields">
+		<div class="input_field-2">
 				
 				<p>Drug Id</p>
-				<input type="number" class="input" name="drug_id" id="drug_id" placeholder="Enter Drug Id">
+				<input type="number" class="input-1" name="drug_id" id="drug_id" placeholder="Enter Drug Id">
 
 				<p>Drug Name</p>
-				<input type="text" class="input" name="drug_name" id="drug_name" placeholder="Enter Drug Name">
+				<input type="text" class="input-1" name="drug_name" id="drug_name" placeholder="Enter Drug Name">
 
 				<p>Brand</p>
-				<input type="text" class="input" name="brand" id="brand" placeholder="Enter the Brand Name">
+				<input type="text" class="input-1" name="brand" id="brand" placeholder="Enter the Brand Name">
 
 				<p>Category</p>
-				<input type="text" class="input" name="category" id="category" placeholder="Enter  Category Name">
+				<input type="text" class="input-1" name="category" id="category" placeholder="Enter  Category Name">
 
 				<p>Supplier Id</p>
 				<select class="form-control" name="supplier_id">
@@ -76,13 +76,13 @@
 				</select>
 
 				<p>Reorder Level</p>
-				<input type="number" class="input" name="reorder_level" id="reorder_level" placeholder="Enter Reorder level">
+				<input type="number" class="input-1" name="reorder_level" id="reorder_level" placeholder="Enter Reorder level">
 				
 				<p>Price</p>
-				<input type="number" class="input" name="price" id="price" placeholder="Enter the Price">
+				<input type="number" class="input-1" name="price" id="price" placeholder="Enter the Price">
 				
 		</div>
-		<input type="submit" name="submit" value="Add Drug">
+		<input type="submit" name="submit" value="Add Drug" class="btn-3">
 	</form>
 </body>
 </html>

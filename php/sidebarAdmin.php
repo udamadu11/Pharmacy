@@ -13,7 +13,7 @@
 <html>
 <head>
 	<title>Side Bar</title>
-	<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <div class="sidenav">
@@ -21,7 +21,6 @@
 		<a href="viewUser.php" target="main">View User</a>
 		<a href="removeUser.php" target="main">Remove User</a>
 		<a href="editUser.php" target="main">Reset Password</a>
-		<i class="far fa-restroom"></i>
 	</div>
 </body>
 </html>

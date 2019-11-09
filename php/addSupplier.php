@@ -37,27 +37,27 @@
 <html>
 <head>
 	<title>Add Supplier</title>
-	<link rel="stylesheet" type="text/css" href="../css/addSupplier.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<div class="addSupplier">
-		<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
+	<div class="form-4">
+	<!--	<h3 class="error-msg"><?php //include('include/message.php'); ?></h3>-->
 	<form  method="post">
 		<img src="../img/pharmacist.png">
 		<h2>Add Supplier</h2>
-		<div class="input_fields">
+		<div class="input_field-4">
 				<p>Supplier Name</p>
-				<input type="text" class="input" name="supplier_name" id="supplier_name" placeholder="Enter Supplier Name">
+				<input type="text" class="input-3" name="supplier_name" id="supplier_name" placeholder="Enter Supplier Name">
 				<p>Location</p>
-				<input type="text" class="input" name="location" id="location" placeholder="Enter  Location">
+				<input type="text" class="input-3" name="location" id="location" placeholder="Enter  Location">
 				<p>Email</p>
-				<input type="email" class="input" name="email" id="email" placeholder="Enter the Email">
+				<input type="email" class="input-3" name="email" id="email" placeholder="Enter the Email">
 				<p>Contact No :</p>
-				<input type="number" class="input" name="contact_no" id="contact_no" placeholder="Enter the Contact">
+				<input type="number" class="input-3" name="contact_no" id="contact_no" placeholder="Enter the Contact">
 				<p>Credit Period</p>
-				<input type="number"  class="input" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period">
+				<input type="number"  class="input-3" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period">
 		</div>
-		<input type="submit" name="submit" value="Add Supplier">
+		<input type="submit" name="submit" value="Add Supplier" class="btn-5">
 	</form>
 </div>
 </body>

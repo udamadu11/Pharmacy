@@ -48,12 +48,12 @@
 <html>
 <head>
 	<title>Add batch </title>
-	<link rel="stylesheet" type="text/css" href="../css/addBatch.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<form class="addBatch" method="post">
+	<form class="form-1" method="post">
 		<h2>Add New Stock</h2>
-	<div class="input-field">
+	<div class="input-field-1">
 		<p>Batch No</p>
 		<input type="text" name="batch_no">
 
@@ -106,8 +106,8 @@
 		<p>Expiry Date</p>
 		<input type="date" name="ex_date">
 	</div>
-		<input type="submit" name="submit" value="Add">
-		<input type="reset" name="reset" value="reset">
+		<input type="submit" name="submit" value="Add" class="btn-1">
+		<input type="reset" name="reset" value="reset" class="btn-2">
 	
 	</form>
 </body>
