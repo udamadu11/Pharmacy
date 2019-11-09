@@ -1,5 +1,4 @@
 <?php include('include/session.php') ?>
-
 <?php
     //Unauthorized Access Check
     checkSession();
@@ -13,13 +12,13 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/StockKeeper.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 	<div class="sidenav">
 
-		<a href="../php/viewDrugs.php" target="main">View drug</a>
-		<a href="../php/searchDrug.php" target="main">Search drug</a>
+		<a href="viewDrugs.php" target="main">View drug</a>
+		<a href="searchDrug.php" target="main">Search drug</a>
 				<div class="dropdown">
 					<button class="drop-btn" >Update Stock</button>
 					<div class="dropdown-content">
@@ -27,8 +26,8 @@
 						<a href="searchBatch.php" target="main">remove Stock</a>
 					</div>
 				</div>	
-				<br><br>
-		<a href="viewSupplier.php" target="main">View Supplier info</a>
+		<br><br>
+		<a href="viewSupplier.php" target="main" style="margin-top: 20px;">View Supplier info</a>
 		<a href="#">View low drug list</a>
 		<a href="expireDate.php" target="main">Expiry Notification</a>
 		
@@ -39,7 +38,7 @@
 						<a href="#">View purchase order</a>
 					</div>
 				</div><br><br>
-		<a href="#">View product info</a>
+		<a href="#" style="margin-top: 20px;">View product info</a>
 		<a href="creditPeriod.php" target="main">Store Credit Period</a>
 	</div>	
 </body>

@@ -14,25 +14,13 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/owner.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
 <div class="sidenav">
-		<a href="ownerDashboard.php"	target="main">DashBoard</a>
+		<a href="ownerDashboard.php" target="main" style="margin-top: 20px;">DashBoard</a>
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>
-
-		<div class="dropdown">
-			<button class="drop-btn">View Reports</button>
-				<div class="dropdown-content">
-					<a href="fastselling.php" target="main">Selling Reports</a>
-					<a href="current_stock_report.php" target="main">Current Stock</a>
-				</div>
-		</div>
-		<br><br>
-
-		<a href="creditOwnerNotification.php" target="main">Credit periods notification</a>
-		
 		<div class="dropdown">
 			<button class="drop-btn">Approval List</button>
 				<div class="dropdown-content">
@@ -41,9 +29,17 @@
 					<a href="approveAddDrug.php" target="main">Add Drug Appro:</a>
 					<a href="approveRemoveDrug.php" target="main">remove Drug Appro:</a>
 				</div>
-		</div>	
+		</div>
 		<br><br>
+		<a href="creditOwnerNotification.php" target="main" style="margin-top: 20px;">Credit periods notification</a>
 		<a href="viewEmployee.php" target="main">View Employee Details</a>
+		<div class="dropdown">
+			<button class="drop-btn">View Reports</button>
+				<div class="dropdown-content">
+					<a href="fastselling.php" target="main">Selling Reports</a>
+					<a href="current_stock_report.php" target="main">Current Stock</a>
+				</div>
+		</div>
 	</div>
 </body>
 </html>

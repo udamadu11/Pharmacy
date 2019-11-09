@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <link href="../bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
         <title> Reports | Pharma-Pro </title>
     </head>  
 
