@@ -1,4 +1,4 @@
-<?php require_once('include/connection.php') ?>
+<?php require_once('include/connection.php'); ?><!-- include database connection -->
 <?php 
 	if (isset($_POST['submit'])) {
 	$batch_no = $_POST['batch_no'];
@@ -11,9 +11,13 @@
 	$ex_date = $_POST['ex_date'];
 	$available_quantity = $quantity_box * $no_of_boxes;
 
+	//Insert query to batch table to add batch data
 	$sql = "INSERT INTO batch(batch_no,purchase_id,drug_id,drug_name,brand,no_of_boxes,quantity_box,ex_date,available_quantity) VALUES('$batch_no','$purchase_id','$drug_id','$drug_name','$brand','$no_of_boxes','$quantity_box','$ex_date','$available_quantity')";
+
+	//Performs a query on Database
 	$result = mysqli_query($con,$sql);
 
+	//after inserting to batch , updating stock here...
 	if ($result) {
 	$sql2 = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 	$result2 = mysqli_query($con,$sql2);
@@ -21,17 +25,20 @@
 	$category = $rows['category'];
 	$price = $rows['price'];
 
+	//Insert query to add batch data to stock
 	$sql3 = "INSERT INTO stock(drug_id,drug_name,price,category) VALUES('$drug_id','$drug_name','$price','$category')";
 	$result3 = mysqli_query($con,$sql3);
 	
 	}
 	
+	//update stock quantity
 	$sql4 = "SELECT available_quantity FROM batch WHERE drug_id = '$drug_id'";
 	$result4 = mysqli_query($con,$sql4);
 	$array = array();
 	while ($data = mysqli_fetch_assoc($result4)) {
 		$array[] = $data;
 	}
+	
 	$total = 0;
 	foreach ($array as $arr1) {
 		$total = $total + $arr1['available_quantity'];

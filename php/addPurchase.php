@@ -1,4 +1,4 @@
-<?php include('include/connection.php'); ?>
+<?php include('include/connection.php'); ?><!-- include database connection -->
 <?php 
 	if(isset($_POST['submit'])){ 
 
@@ -6,8 +6,9 @@
 		$date= date("Y-m-d H:i:s");
 		$invoice=$_POST['invoice'];
 		
-
+		//insert purchasing data to the table
 		$sql = "INSERT INTO purchase (supplier_id,date,invoice) VALUES ('$supplier_id','$date','$invoice')";
+		//performs a query on the database
 		mysqli_query($con, $sql);
 	}
 ?>

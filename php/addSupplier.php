@@ -1,16 +1,20 @@
-<?php include('include/connection.php'); ?>
-<?php include('include/session.php'); ?>
+<?php include('include/connection.php'); ?><!-- include database connection -->
+<?php include('include/session.php'); ?><!-- include session -->
 <?php 
 	if(isset($_POST['submit'])){ 
-		//$supplier_id = $_POST['supplier_id'];
 		$supplier_name = $_POST['supplier_name'];
 		$location = $_POST['location'];
 		$email = $_POST['email'];
 		$contact_no = $_POST['contact_no'];
 		$credit_period_allowed = $_POST['credit_period_allowed'];
 
+		//insert supplier data to temparary table to approving from owner 
 		$sql = "INSERT INTO tem (supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
+
+		//performs a query on the table
 		$result = mysqli_query($con, $sql);
+
+		//send notification here for approving supplier data to owner
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
@@ -41,7 +45,6 @@
 </head>
 <body>
 	<div class="form-4">
-	<!--	<h3 class="error-msg"><?php //include('include/message.php'); ?></h3>-->
 	<form  method="post">
 		<img src="../img/pharmacist.png">
 		<h2>Add Supplier</h2>

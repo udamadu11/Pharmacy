@@ -1,5 +1,5 @@
-<?php include('include/connection.php'); ?>
-<?php include('include/session.php'); ?>
+<?php include('include/connection.php'); ?><!-- include database connection -->
+<?php include('include/session.php'); ?><!-- include session -->
 <?php 
 	if(isset($_POST['submit'])){ 
 		
@@ -11,9 +11,13 @@
 		$reorder_level=$_POST['reorder_level'];
 		$price=$_POST['price'];
 		
-
+		//Insert temporary table to approve from owner
 		$sql = "INSERT INTO tem3 (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
+
+		//performs a query on the database
 		$result = mysqli_query($con, $sql);
+
+		//if inserting , this system send notification to owner for appoving
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
