@@ -11,7 +11,7 @@
     <h1><i>Pharma -pro</i></h1>
   </div> 
   <section class="login">
-<h4 class="error-msg"><?php include('include/message.php'); ?></h4>
+
     <form action="loginform.php" method="post">  
       <div id="fade-box">
         <input type="text" name="name" placeholder="Username" required>
