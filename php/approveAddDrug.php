@@ -22,9 +22,9 @@
 		</tr>
 		<?php
 			$sql = "SELECT * FROM tem3";
-			$result = $con->query($sql);
-			if($result-> num_rows > 0 ){
-				while ($row = $result-> fetch_assoc()){
+			$result = $con->query($sql);//Perform query
+			if($result-> num_rows > 0 ){//Return the number of rows in result set
+				while ($row = $result-> fetch_assoc()){//Fetch a result row as an associative array
 					echo "<tr>
 							<td>".$row['drug_id']."</td>
 							<td>".$row['drug_name']."</td>
@@ -62,11 +62,13 @@ include('include/connection.php');
 if(isset($_POST['approve'])){ 
 
 		$drug_id = $_POST['approveDrug'];
+		//Select Query from tem3 table using drug id
 		$select = "SELECT * FROM tem3 WHERE drug_id = '$drug_id'";
+		//Perform Query
 		$result1 = $con->query($select);
 		
-		if (mysqli_num_rows($result1) > 0) {
-		while ($row = mysqli_fetch_assoc($result1)) {
+		if (mysqli_num_rows($result1) > 0) {//Return the number of rows in result set
+		while ($row = mysqli_fetch_assoc($result1)) {//Fetch a result row as an associative array
 
 		$drug_id=$row['drug_id'];
 		$drug_name=$row['drug_name'];
@@ -76,10 +78,11 @@ if(isset($_POST['approve'])){
 		$reorder_level=$row['reorder_level'];
 		$price=$row['price'];
 
+		//Insert Query to drug table
 		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
 		$result = mysqli_query($con, $sql);
 
-		
+		//Delete Query from tem3 table
 		$delete_query ="DELETE FROM tem3 WHERE drug_id = '$drug_id' ";
 		$delete_result = mysqli_query($con,$delete_query);
 		if ($delete_query) {

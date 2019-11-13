@@ -62,6 +62,7 @@
 		}
 
 		else{
+			//Insert Query of users add
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
 			$sqlResult = mysqli_query($con, $sql);
 			//$massage = base64_encode(urlencode("Successfully Added"));

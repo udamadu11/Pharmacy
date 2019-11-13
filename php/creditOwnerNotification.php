@@ -53,6 +53,7 @@ while($row = mysqli_fetch_assoc($result)){
 	$delete_result = mysqli_query($con,$delete_query);
 
 	if ($delete_result) {
+		echo "<script>alert('Paid')</script>";
 		echo "<script>window.open('creditOwnerNotification.php','_self')</script>";
 		}
 	}		

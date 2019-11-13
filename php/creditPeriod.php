@@ -28,7 +28,7 @@ while($row = mysqli_fetch_assoc($result)){
 		
 		if ($paid == 0) {
 			
-			if ($warning_date > $today) {
+			if ($warning_date >= $today) {
 
 			$purchase_id = $row['purchase_id'];
 			$supplier_id = $row['supplier_id'];

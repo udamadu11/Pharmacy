@@ -31,19 +31,22 @@
 	
 	}
 	
-	//update stock quantity
+	//Select Available Quantity from batch using drug id
 	$sql4 = "SELECT available_quantity FROM batch WHERE drug_id = '$drug_id'";
 	$result4 = mysqli_query($con,$sql4);
+
+	//Get All Available Quantity to $array Variable
 	$array = array();
 	while ($data = mysqli_fetch_assoc($result4)) {
 		$array[] = $data;
 	}
-	
+	//Get all total quantity Value   
 	$total = 0;
 	foreach ($array as $arr1) {
 		$total = $total + $arr1['available_quantity'];
 	}
-	$sql5 = "UPDATE stock SET current_stock = '$total' WHERE drug_id = '$drug_id'";
+	//Update query of updating current stock using drug id
+ 	$sql5 = "UPDATE stock SET current_stock = '$total' WHERE drug_id = '$drug_id'";
 	$result5 = mysqli_query($con,$sql5);
 	if ($result5) {
 		echo "<script>alert('Add new Stock SuccessFully')</script>";

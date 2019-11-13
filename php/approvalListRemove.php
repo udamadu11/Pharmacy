@@ -12,8 +12,8 @@
 <?php
 	$sql = "SELECT * FROM tem2";
 	$result = $con->query($sql);
-	if($result-> num_rows > 0 ){
-		while ($row = $result-> fetch_assoc()){
+	if($result-> num_rows > 0 ){//Return the number of rows in result set
+		while ($row = $result-> fetch_assoc()){//Fetch a result row as an associative array
 			echo "
 		<table class=\"table\">
 		<tr>
@@ -64,11 +64,15 @@
 <?php 
 if (isset($_POST['del'])) {
 	$sid = $_POST['remove'];
+	//delete query from tem2 table
 	$delete_query ="DELETE FROM tem2 WHERE supplier_id = '$sid' ";
+	//Perform queries
 	$delete_result = mysqli_query($con,$delete_query);
 
 	$s_id = $_POST['remove'];
+	//delete query from supplier table
 	$delete_query2 ="DELETE FROM supplier WHERE supplier_id = '$s_id' ";
+	//Perform queries
 	$delete_result2 = mysqli_query($con,$delete_query2);
 
 	if ($delete_result2) {

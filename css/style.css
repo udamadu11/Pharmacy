@@ -488,12 +488,12 @@ a{text-decoration: none;}
 }
 /*login css*/
 #fade-box {
-  animation: input-entry 3s ease-in;
+  animation: input-entry 1s ease-in;
   z-index: 4;
 }
 
 .login form {
-  animation: form-entry 3s ease-in-out;
+  animation: form-entry 1s ease-in-out;
   background: #111;
   background: linear-gradient(#74ebe6, #74ebe6);
   border: 6px solid #74ebe6;
@@ -543,7 +543,7 @@ a{text-decoration: none;}
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.2), inset 0 0 5px rgba(255, 0, 0, 0.1), 0 2px 0 black;
 }
 .login button {
-  animation: input-entry 3s ease-in;
+  animation: input-entry 1s ease-in;
   background: #222;
   background: linear-gradient(#333333, #222222);
   box-sizing: content-box;
@@ -584,7 +584,7 @@ a{text-decoration: none;}
 Spinner
 ========================================= */
 #circle1 {
-  animation: circle1 4s linear infinite, circle-entry 6s ease-in-out;
+  animation: circle1 1s linear infinite, circle-entry 1s ease-in-out;
   background: #74ebe6;
   border-radius: 100%;
   border: 10px solid #74ebe6;
@@ -601,7 +601,7 @@ Spinner
 }
 
 #inner-cirlce1 {
-  background: #000;
+  background: #222;
   border-radius: 100%;
   border: 36px solid #74ebe6;
   height: 460px;
@@ -612,7 +612,7 @@ Spinner
   content: ' ';
   width: 240px;
   height: 480px;
-  background: #000;
+  background: #222;
   position: absolute;
   top: 0;
   left: 0;
@@ -621,7 +621,7 @@ Spinner
   content: ' ';
   width: 480px;
   height: 240px;
-  background: #000;
+  background: #222;
   position: absolute;
   top: 0;
   left: 0;
@@ -631,7 +631,7 @@ Spinner
 Hexagon Mesh
 ========================================= */
 .hexagons {
-  animation: logo-entry 4s ease-in;
+  animation: logo-entry 1s ease-in;
   /*background:url(http://fc03.deviantart.net/fs71/i/2012/237/c/7/jarvis_rainmeter_skin_by_ingwey-d5cc571.png);*/
   color: #000;
   font-size: 52px;
@@ -646,14 +646,14 @@ Hexagon Mesh
   z-index: -3;
 }
 #logo {
-  animation: logo-entry 4s ease-in;
+  animation: logo-entry 1.5s ease-in;
   width: 500px;
   margin: 0 auto;
   position: relative;
   z-index: 40;
 }
 .login-main h1 {
-  animation: text-glow 2s ease-out infinite alternate;
+  animation: text-glow 1s ease-out infinite alternate;
   font-family: 'Ubuntu', sans-serif;
   color: #74ebe6;
   font-size: 48px;
