@@ -50,15 +50,15 @@
 		<h2>Add Supplier</h2>
 		<div class="input_field-4">
 				<p>Supplier Name</p>
-				<input type="text" class="input-3" name="supplier_name" id="supplier_name" placeholder="Enter Supplier Name">
+				<input type="text" class="input-3" name="supplier_name" id="supplier_name" placeholder="Enter Supplier Name" required>
 				<p>Location</p>
-				<input type="text" class="input-3" name="location" id="location" placeholder="Enter  Location">
+				<input type="text" class="input-3" name="location" id="location" placeholder="Enter  Location" required>
 				<p>Email</p>
-				<input type="email" class="input-3" name="email" id="email" placeholder="Enter the Email">
+				<input type="email" class="input-3" name="email" id="email" placeholder="Enter the Email" required>
 				<p>Contact No :</p>
-				<input type="number" class="input-3" name="contact_no" id="contact_no" placeholder="Enter the Contact">
+				<input type="number" class="input-3" name="contact_no" id="contact_no" placeholder="Enter the Contact" title="The Valid Number" required>
 				<p>Credit Period</p>
-				<input type="number"  class="input-3" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period">
+				<input type="number"  class="input-3" name="credit_period_allowed" id="credit_period_allowed" placeholder="Enter the credit Period" required>
 		</div>
 		<input type="submit" name="submit" value="Add Supplier" class="btn-5">
 	</form>

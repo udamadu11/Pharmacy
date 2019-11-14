@@ -151,24 +151,36 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-md-12">
+		<div class="jumbotron" style="width:100%;height:100%;">
+			<h1>Current Stock Level</h1>
+			<script type="text/javascript">
+				<?php
 
-		<script type="text/javascript">
+				include('include/connection.php');
+					$queryStock = "SELECT drug_name,current_stock FROM stock";
+					$selectStock = mysqli_query($con,$queryStock);
+
+				 ?>
 		      google.charts.load('current', {'packages':['bar']});
 		      google.charts.setOnLoadCallback(drawChart);
 
 		      function drawChart() {
-		        var data = google.visualization.arrayToDataTable([
-		          ['Month', 'Sales', 'purchases', 'Profit'],
-		          ['January', 1000, 400, 600],
-		          ['2015', 1170, 460, 250],
-		          ['2016', 660, 1120, 300],
-		          ['2017', 1030, 540, 350]
-		        ]);
+		        var data = new google.visualization.DataTable();
+		        data.addColumn('string', 'Drug');
+        		data.addColumn('number', 'Stock Level');
 
+		<?php
+			while ($row = mysqli_fetch_row($selectStock)) {
+		 ?>
+			            data.addRows([
+			                ['<?php echo $row[0]; ?>', <?php echo $row[1]; ?>]
+			            ]);
+			<?php } ?>
 		        var options = {
 		          chart: {
 		            title: 'Company Performance',
-		            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+		            subtitle: 'Current Stock Level',
 		          }
 		        };
 
@@ -177,8 +189,10 @@
 		        chart.draw(data, google.charts.Bar.convertOptions(options));
 		      }
     </script>
-<div id="columnchart_material" style="width: 1000px; height: 500px;margin-top: 50px;"></div>
+<div id="columnchart_material" style="width: 800px; height: 500px;margin-top: 50px;"></div>
 
+		</div>
+</div>
     </div>
 	</div>
 
