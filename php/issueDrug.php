@@ -68,7 +68,7 @@ include('include/connection.php');
 										<form method=\"post\">
 											<div class=\"form-group\">
 	    								
-	    										<input type=\"number\" class=\"form-control\"  placeholder=\"Issue Drug Quantity\" name=\"quantity\">
+	    										<input type=\"number\" class=\"form-control\"  placeholder=\"Issue Drug Quantity\" name=\"quantity\" min=\"1\">
 	 										</div>
 	 								</td>
 	 								<td>
@@ -95,7 +95,8 @@ include('include/connection.php');
 		$available_quantity = $_POST['available_quantity'];
 		$batch_no = $_POST['batch_no'];
 		$qty = $_POST['quantity'];
-				if ($available_quantity > $qty) {
+
+				if ($available_quantity >= $qty) {
 					$sq = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 					$re = mysqli_query($con,$sq);
 					$row = mysqli_fetch_array($re);
@@ -121,6 +122,9 @@ include('include/connection.php');
 					$available = $avail - $qty;
 					$updateStock = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
 					$updateResultStock = mysqli_query($con,$updateStock);
+		}else{
+			echo "<script>alert('Sorry ,Not Enough')</script>";
+           	echo "<script>window.open('issueDrug.php','_self')</script>";
 		}
 	}
 	$total = 0;

@@ -26,6 +26,8 @@
 
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+ 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 
  </head>
@@ -149,6 +151,35 @@
 				</div>
 			</div>
 		</div>
+
+		<script type="text/javascript">
+		      google.charts.load('current', {'packages':['bar']});
+		      google.charts.setOnLoadCallback(drawChart);
+
+		      function drawChart() {
+		        var data = google.visualization.arrayToDataTable([
+		          ['Month', 'Sales', 'purchases', 'Profit'],
+		          ['January', 1000, 400, 600],
+		          ['2015', 1170, 460, 250],
+		          ['2016', 660, 1120, 300],
+		          ['2017', 1030, 540, 350]
+		        ]);
+
+		        var options = {
+		          chart: {
+		            title: 'Company Performance',
+		            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+		          }
+		        };
+
+		        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+		        chart.draw(data, google.charts.Bar.convertOptions(options));
+		      }
+    </script>
+<div id="columnchart_material" style="width: 1000px; height: 500px;margin-top: 50px;"></div>
+
+    </div>
 	</div>
 
 
