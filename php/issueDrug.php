@@ -11,6 +11,7 @@
   			<div class="form-row">
 				<div class="col-md-4" style="margin-left: 300px;">
 					<input type="text" class="form-control"  name="search_name" placeholder="Enter the Drug Name">
+					<input type="hidden" value="ex_date" name="ex_date">
 				</div>
 				<div class="col-md-4">
 					<input type="submit" name="submit" value="Search" class="btn btn-info" style="width: 150px;">
@@ -41,7 +42,8 @@
 include('include/connection.php');
 	if (isset($_POST['submit'])) {
 			$drug_name = $_POST['search_name'];
-			$search_id = "SELECT * FROM batch WHERE drug_name ='$drug_name'";
+			$eDate = $_POST['ex_date'];
+			$search_id = "SELECT * FROM batch WHERE drug_name = '$drug_name' UNION SELECT * FROM batch WHERE drug_name = '$drug_name'  ORDER BY $eDate";
 			$query= mysqli_query($con,$search_id);
 
 			echo "<table class=\"table\">
