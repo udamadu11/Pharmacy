@@ -54,6 +54,7 @@
 
 				    ?>
 				    <a href="#"><button class="btn btn-primary" data-toggle="modal" data-target="#form_profile"><i class="fa fa-edit">&nbsp;</i>Edit Profile</button></a>
+				    <a href="EditUser.php" class="btn btn-primary" style="margin-left: 10px;">Manage Users</a>
 				    <?php include ('ownerProfile.php'); ?>
 				  </div>
 				</div>
@@ -119,41 +120,19 @@
 	</div>
 	<p></p>
 	<p></p>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Categories</h4>
-						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
-						<a href="#" data-toggle="modal" data-target="#form_category" class="btn btn-primary">Add</a>
-						<a href="manage_categories.php" class="btn btn-primary">Manage</a>
-					</div>
+</div>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div id="columnchart_material" style="width: 600px; height: 400px;margin-top: 50px;"></div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Employees</h4>
-						<p class="card-text">Here you can manage your team</p>
-						<a href="EditUser.php" class="btn btn-primary" style="margin-left: 70px;">Manage</a>
-					</div>
+				<div class="col-md-3" style="margin-top: 120px;">
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Products</h4>
-						<p class="card-text">Here you can manage your products and you add new products</p>
-						<a href="#" data-toggle="modal" data-target="#form_products" class="btn btn-primary">Add</a>
-						<a href="manage_product.php" class="btn btn-primary">Manage</a>
-					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-12">
-		<div class="jumbotron" style="width:100%;height:100%;">
-			<h1>Current Stock Level</h1>
+
 			<script type="text/javascript">
 				<?php
 
@@ -189,16 +168,5 @@
 		        chart.draw(data, google.charts.Bar.convertOptions(options));
 		      }
     </script>
-<div id="columnchart_material" style="width: 800px; height: 500px;margin-top: 50px;"></div>
-
-		</div>
-</div>
-    </div>
-	</div>
-
-
-	
-
-
 </body>
 </html>

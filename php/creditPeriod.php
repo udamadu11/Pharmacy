@@ -12,30 +12,30 @@ include('include/connection.php');
 	
 <?php 
 include('include/connection.php');
-$query = "SELECT * FROM purchase";
+$query = "SELECT * FROM purchase ";
 $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
-		$credit_date = $row['date'];
+		$creditDate = $row['date'];
 		$paid = $row['paid'];
 		$today = date('Y-m-d');
-		$exp = strtotime($credit_date);
+		$exp = strtotime($creditDate);
 		$td = strtotime($today);
 
-		$warning_days = 76;
-		$seconds_diff = $warning_days * 24 * 3600;
-		$warning_timestamp = $exp + $seconds_diff;
-		$warning_date = date('Y-m-d', $warning_timestamp);
+		$warningDays = 74;
+		$secondsDiff = $warningDays * 24 * 3600;
+		$warningTimestamp = $exp + $secondsDiff;
+		$warningDate = date('Y-m-d', $warningTimestamp);
 		
 		if ($paid == 0) {
 			
-			if ($warning_date >= $today) {
+			if ($warningDate >= $today) {
 
-			$purchase_id = $row['purchase_id'];
-			$supplier_id = $row['supplier_id'];
+			$purchaseId = $row['purchase_id'];
+			$supplierId = $row['supplier_id'];
 			$date = $row['date'];
 			$invoice = $row['invoice'];
 
-			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchase_id','$supplier_id','$date','$invoice')";
+			$sqlCreidtOwner = "INSERT INTO pur_tem (purchase_id,supplier_id,date,invoice) VALUES ('$purchaseId','$supplierId','$date','$invoice')";
 			$resultCreditOwner = mysqli_query($con, $sqlCreidtOwner);
 	
 
@@ -49,8 +49,8 @@ while($row = mysqli_fetch_assoc($result)){
 $query = "SELECT * FROM pur_tem";
 $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
-			$purchase_id = $row['purchase_id'];
-			$supplier_id = $row['supplier_id'];
+			$purchaseId = $row['purchase_id'];
+			$supplierId = $row['supplier_id'];
 			$date = $row['date'];
 			$invoice = $row['invoice'];
 			echo "
@@ -61,8 +61,8 @@ while($row = mysqli_fetch_assoc($result)){
     Credit Period Notification
   </div>
   <ul class=\"list-group list-group-flush\">
-    <li class=\"list-group-item\"> Purchase Id : $purchase_id</li>
-    <li class=\"list-group-item\"> supplier Id : $supplier_id</li>
+    <li class=\"list-group-item\"> Purchase Id : $purchaseId</li>
+    <li class=\"list-group-item\"> supplier Id : $supplierId</li>
     <li class=\"list-group-item\"> Date : $date</li>
     <li class=\"list-group-item\"> Invoice : $invoice</li>
     <li class=\"list-group-item\">

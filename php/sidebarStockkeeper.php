@@ -38,7 +38,5 @@
 						<a href="#">View purchase order</a>
 					</div>
 				</div><br><br>
-		<a href="#" style="margin-top: 20px;">View product info</a>
-		<a href="creditPeriod.php" target="main">Store Credit Period</a>
 	</div>	
 </body>
