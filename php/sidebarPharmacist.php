@@ -18,6 +18,7 @@
 <div class="sidenav">
 		<a href="viewDrugs.php" target="main">View Drug</a>
 		<a href="searchDrug.php" target="main">Search Drug</a>
+		<a href="addPurchase.php" target="main">Purchase</a>
 		<a href="issueDrug.php" target="main">Issue Drugs</a>
 		<a href="viewSupplier.php" target="main">View Suppliers</a>
 		<div class="dropdown">

@@ -20,12 +20,12 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-	<form class="form-3" method="post">
+	<form class="form-3" method="post" style="margin-top: 100px;">
 		<img src="../img/shopping-cart.png">
 		<h2>Add Purchase</h2>
 		<div class="input_field-3">
 				
-				<p>Supplier Id</p>
+				<p>Supplier</p>
 				<select name="supplier_id">
 						<?php
 							include ('include/connection.php');
