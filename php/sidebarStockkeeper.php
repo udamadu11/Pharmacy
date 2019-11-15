@@ -28,7 +28,7 @@
 				</div>	
 		<br><br>
 		<a href="viewSupplier.php" target="main" style="margin-top: 20px;">View Supplier info</a>
-		<a href="#">View low drug list</a>
+		<a href="lowDrugList.php" target="main">View low drug list</a>
 		<a href="expireDate.php" target="main">Expiry Notification</a>
 		
 			<div class="dropdown ">
