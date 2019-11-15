@@ -21,9 +21,12 @@
 		<?php
 			//retrive all the data from drug table
 			$sql = "SELECT drug_id,drug_name,category,reorder_level,supplier_id,price,brand FROM drug";
+
+			//Performs a query on Database
 			$result = $con->query($sql);
-			if($result-> num_rows > 0 ){
-				while ($row = $result-> fetch_assoc()){
+
+			if($result-> num_rows > 0 ){//Return the number of rows in result set
+				while ($row = $result-> fetch_assoc()){//Fetch a result row as an associative array
 					echo "<tr>
 							<td>".$row['drug_id']."</td>
 							<td>".$row['drug_name']."</td>
@@ -35,9 +38,6 @@
 						</tr>";
 				}
 			echo "</table";
-			}
-			else{
-				echo "0 result";
 			}
 			$con->close();
 		?>		

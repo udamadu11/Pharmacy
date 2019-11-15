@@ -20,10 +20,13 @@
 			<th>Remove</th>
 		</tr>
 		<?php
+			//Retrive data from drug table
 			$sql = "SELECT drug_id,drug_name,category,reorder_level,supplier_id,price,brand FROM drug";
+			//Performs a query on Database
 			$result = $con->query($sql);
-			if($result-> num_rows > 0 ){
-				while ($row = $result-> fetch_assoc()){
+
+			if($result-> num_rows > 0 ){//Return the number of rows in result set
+				while ($row = $result-> fetch_assoc()){//Fetch a result row as an associative array
 					echo "<tr>
 							<td>".$row['drug_id']."</td>
 							<td>".$row['drug_name']."</td>
@@ -34,7 +37,7 @@
 							<td>".$row['brand']."</td>
 							<td>
 								<form method=\"post\">
-								<input type=\"hidden\" name=\"remove\" value=".$row['drug_id'].">
+								<input type=\"hidden\" name=\"remove\" value=".$row['drug_id']."> 
 								<input type=\"submit\" name=\"removeDrug\" value=\"Remove\" class=\"btn btn-danger\">
 								</form>
 							</td>
@@ -54,13 +57,14 @@
 <?php
 	
 	if(isset($_POST['removeDrug'])){ 
-
+		//Select All Data from drug table by drug id
 		$drug_id = $_POST['remove'];
 		$select = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
+		//Performs a query on Database
 		$result1 = $con->query($select);
 		
-		if (mysqli_num_rows($result1) > 0) {
-		while ($row = mysqli_fetch_assoc($result1)) {
+		if (mysqli_num_rows($result1) > 0) {//Return the number of rows in result set
+		while ($row = mysqli_fetch_assoc($result1)) {//Fetch a result row as an associative array
 
 		$drug_id=$row['drug_id'];
 		$drug_name=$row['drug_name'];
@@ -69,11 +73,12 @@
 		$supplier_id=$row['supplier_id'];
 		$reorder_level=$row['reorder_level'];
 		$price=$row['price'];
-
+		//Insert to drug data to temporary table to approve
 		$sql = "INSERT INTO tem4 (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
 		$result = mysqli_query($con, $sql);
 
 		if($result){
+			//Send mail after inserting data to tem table
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO To REMOVE DRUG";
 			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";

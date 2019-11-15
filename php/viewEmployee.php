@@ -20,9 +20,11 @@
 	<?php
 		//retrive all the data from employee table
 		$sql = "SELECT * FROM employee";
+		//Performs a query on Database
 		$result = mysqli_query($con,$sql);
-		if ($result -> num_rows > 0) {
-			while ($row = $result -> fetch_assoc()) {
+
+		if ($result -> num_rows > 0) {//Return the number of rows in result set
+			while ($row = $result -> fetch_assoc()) { //Fetch a result row as an associative array
 				echo "
 			<tr>
 				<td>".$row['id']."</td>

@@ -19,12 +19,14 @@
 	<?php 
 		if (isset($_POST['submit'])) {
 			$batch_no = $_POST['search_batch'];
+			//Retrive data from batch table by batch no 
 			$search_query = "SELECT * FROM batch WHERE batch_no = '$batch_no'";
+			//Performs a query on Database
 			$query = mysqli_query($con,$search_query);
 
 		
-			if (mysqli_num_rows($query) > 0) {
-						while($row = mysqli_fetch_assoc($query)){
+			if (mysqli_num_rows($query) > 0) {//Return the number of rows in result set
+						while($row = mysqli_fetch_assoc($query)){//Fetch a result row as an associative array
 							echo "
 							<br>
 								<table class=\"table table-hover\">
@@ -69,13 +71,16 @@
 			$batch = $_POST['delete'];
 			$drug_id = $_POST['deleteDrugId'];
 			$deleteAvailable = $_POST['deleteAvailable'];
+
+			//Delete Data from batch table 
 			$delete_batch_query = "DELETE FROM batch WHERE batch_no = '$batch'";
+			//Performs a query on Database
 			$resultDel = mysqli_query($con,$delete_batch_query);
 
 			if ($resultDel) {
 				echo "<script>alert('Delete Successfully')</script>";
 			}
-
+					//After deleting Batch upadte stock level
 					$sqlStock = "SELECT * FROM stock WHERE drug_id = '$drug_id'";
 					$resultStock = mysqli_query($con,$sqlStock);
 					$rowStock = mysqli_fetch_array($resultStock);

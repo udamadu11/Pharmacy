@@ -29,9 +29,9 @@
 	<?php
 		if (isset($_POST['submit1'])) {
 			$drug_name = $_POST['search_name'];
-
+			//Retrive data from batch and drug table using inner join by drug name
 			 $search_name ="SELECT drug.drug_id,drug.drug_name,drug.price, batch.batch_no,batch.ex_date,batch.available_quantity FROM drug INNER JOIN batch ON drug.drug_name = batch.drug_name AND drug.drug_name = '$drug_name'";
-
+			 //Performs a query on Database
 			$query= mysqli_query($con,$search_name);
 
 			echo "
@@ -50,8 +50,8 @@
 
 			";
 
-			if (mysqli_num_rows($query) > 0) {
-						while($row = mysqli_fetch_assoc($query)){
+			if (mysqli_num_rows($query) > 0) {//Return the number of rows in result set
+						while($row = mysqli_fetch_assoc($query)){//Fetch a result row as an associative array
 							echo "
 							
 
@@ -73,7 +73,9 @@
 		}
 		if (isset($_POST['submit2'])) {
 			$drug_category = $_POST['search_category'];
+			//Retrive All drug data from drug table by category
 			$search_category = "SELECT * FROM drug WHERE category ='$drug_category'";
+			//Performs a query on Database
 			$query= mysqli_query($con,$search_category);
 
 			echo "
