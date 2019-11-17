@@ -1,4 +1,4 @@
-<?php include('include/connection.php'); ?>
+<?php include('include/connection.php'); ?><!-- include database connection-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,15 +19,20 @@
 									<th>Current Stock</th>
 							</tr>
 <?php 
+	//Retrive data from drug table and stock table using inner join
 	$sql = "SELECT drug.drug_id,drug.drug_name,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id";
+	//Performs a query on databse
 	$query= mysqli_query($con,$sql);
+	//Return number of rows in result set
 	if (mysqli_num_rows($query) > 0) {
+	//Fetch result row as an associative array
 	while($row = mysqli_fetch_assoc($query)){
 	$drugId = $row['drug_id'];
 	$drugName = $row['drug_name'];
 	$reoderLevel = $row['reorder_level'];
 	$currentStock = $row['current_stock'];
 
+	//if current stock less than or equal to reorder level generate alert  
 	if ($currentStock <= $reoderLevel) {
 		echo "
 					<tr>
@@ -53,7 +58,7 @@
 if (isset($_POST['send'])) {
 	$druId = $_POST['drugId'];
 	$druName = $_POST['drugName'];
-
+			//Send mail to Pharmacist to fill reoder level notification
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "NOTIFICATION OF PHARMA-PRO LOW DRUG LIST";
 			$message = "<a href='http://localhost/Pharmacy/php/lowDrugList.php'>

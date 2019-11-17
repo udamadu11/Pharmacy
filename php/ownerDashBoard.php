@@ -1,5 +1,5 @@
 <?php include('include/session.php') ?>
-<?php include('include/connection.php') ?>
+<?php include('include/connection.php') ?><!--include databse connection -->
 
 <?php
     //Unauthorized Access_Check
@@ -83,29 +83,38 @@
 									  	<?php 
 									  		function counts(){
 									  		include('include/connection.php');
+									  		//Select All data from tem table
 									  		$sql1 = "SELECT * FROM tem";
+									  		//Performs query on database
 											$result1 = $con->query($sql1);
+											//Return number of rows in result set
 											if($result1-> num_rows > 0 ){
 												echo "<a class=\"dropdown-item\" href=\"approvalList.php\" target=\"main\">Add Supplier Appro:</a>";
 											}
 									  	
-									  		
+									  		//Select All data from tem2 table
 									  		$sql2 = "SELECT * FROM tem2";
+									  		//Performs query on database
 											$result2 = $con->query($sql2);
+											//Return number of rows in result set
 											if($result2-> num_rows > 0 ){
 												echo "<a class=\"dropdown-item\" href=\"approvalListRemove.php\" target=\"main\">remove Supplier Appro:</a>";
 											}
 									  
-									  		
+									  		//Select All data from tem3 table
 									  		$sql3 = "SELECT * FROM tem3";
+									  		//Performs query on database
 											$result3 = $con->query($sql3);
+											//Return number of rows in result set
 											if($result3-> num_rows > 0 ){
 												echo "<a class=\"dropdown-item\" href=\"approveAddDrug.php\" target=\"main\">Add Drug Appro:</a>";
 											}
 									 
-									  		
+									  		//Select All data from tem4 table
 									  		$sql4 = "SELECT * FROM tem4";
+									  		//Performs query on database
 											$result4 = $con->query($sql4);
+											//Return number of rows in result set
 											if($result4-> num_rows > 0 ){
 												echo "<a class=\"dropdown-item\" href=\"approveRemoveDrug.php\" target=\"main\">remove Drug Appro:</a>";
 											}
@@ -137,12 +146,13 @@
 
 			<script type="text/javascript">
 				<?php
-
-				include('include/connection.php');
+				//Select drug name and current stock from stock table
 					$queryStock = "SELECT drug_name,current_stock FROM stock";
+				//Performs a query on database
 					$selectStock = mysqli_query($con,$queryStock);
 
 				 ?>
+				 //Google developoer bar chart
 		      google.charts.load('current', {'packages':['bar']});
 		      google.charts.setOnLoadCallback(drawChart);
 

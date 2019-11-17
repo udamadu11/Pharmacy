@@ -1,5 +1,5 @@
 
-<?php include('include/connection.php') ?>
+<?php include('include/connection.php') ?><!-- include database connection -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +8,15 @@
 </head>
 <body>
     <?php 
+    //Get login user data
       if (isset($_SESSION['type'])) {
            $utype = $_SESSION['type'];
+           //select employee data by type
            $selectusers = "SELECT * FROM employee WHERE  type ='$utype' ";
 
           $userquery = mysqli_query($con,$selectusers);
           while($row = mysqli_fetch_assoc($userquery)){
+            //Form of Owner data
             echo "
 
               <div class=\"modal fade\" id=\"form_profile\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
@@ -98,8 +101,9 @@
         $newTelephone = $_POST['EditTelephone'];
         $newNic = $_POST['EditNic'];
         $newPassword = $_POST['EditPassword'];
-
+        //Upadate Owner data by id
         $EditQuery= "UPDATE employee SET f_name ='$newFname',l_name = '$newLname',u_name = '$newUname',email ='$newEmail',telephone ='$newTelephone',nic ='$newNic',password ='$newPassword' WHERE id = '$uid' ";
+        //Performs a query on databse
         $sqlQuery = mysqli_query($con,$EditQuery);
         if ($sqlQuery) {
             echo "<script>alert('Successfuly Upadated...')</script>";

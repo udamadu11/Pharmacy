@@ -1,7 +1,4 @@
-<?php 
-include ('include/connection.php');
-
-?>
+<?php  include ('include/connection.php');?><!-- include database connection -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +20,13 @@ include ('include/connection.php');
 		
 	</tr>
 	<?php 
+		//Retrive Data from supplier table
 		$sql = "SELECT * FROM supplier";
+		//Performs query on database
 		$result = $con->query($sql);
-		if($result-> num_rows > 0){
-			while ($row = $result-> fetch_assoc()) {
+		if($result-> num_rows > 0){//Return the number of rows in result set
+			while ($row = $result-> fetch_assoc()) {//Fetch a result row as an associative array
+				//Show Supplier data as table with edit and delte button
 				echo "<tr>
 					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
@@ -58,11 +58,13 @@ include ('include/connection.php');
 		if(isset($_POST['submit2'])){ 
 
 		$supplier_id = $_POST['delete'];
+		//Select Data from supplier table by supplier id
 		$select = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";
+		//Performs query on databse
 		$result1 = $con->query($select);
 		
-		if (mysqli_num_rows($result1) > 0) {
-		while ($row = mysqli_fetch_assoc($result1)) {
+		if (mysqli_num_rows($result1) > 0) {//Return number of rows in result set
+		while ($row = mysqli_fetch_assoc($result1)) {//Fetch result row as an associative array
 
 		$supplier_id = $row['supplier_id'];
 		$supplier_name = $row['supplier_name'];
@@ -70,11 +72,13 @@ include ('include/connection.php');
 		$email = $row['email'];
 		$contact_no = $row['contact_no'];
 		$credit_period_allowed = $row['credit_period_allowed'];
-
+		//Insert supllier data to temporary table to approve for delete
 		$sql = "INSERT INTO tem2 (supplier_id,supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_id','$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
+		//performs a query on database
 		$result = mysqli_query($con, $sql);
 
 		if($result){
+			//if performs a query on database , send message to owner 
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "Notification of PHARMA-PRO To REMOVE SUPPLIER";
 			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";

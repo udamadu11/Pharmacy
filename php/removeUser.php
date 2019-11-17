@@ -1,5 +1,4 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php require_once('include/connection.php'); ?><!-- include database connection -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,9 +16,11 @@
 <?php
 	if (isset($_POST['submit'])) {
 		$user = $_POST['searchName'];
+		//Select data from employee table by user name
 		$search = "SELECT * FROM employee WHERE u_name = '$user'";
+		//Performs a query on database
 		$query = mysqli_query($con,$search);
-
+		//Retrive employee table data
 		echo "<table class=\"table\" style=\"margin-top:50px;\">
 			<tr>
 			<th>Id</th>
@@ -34,8 +35,8 @@
 			<th>Delete</th>
 
 			</tr>";
-			if (mysqli_num_rows($query) > 0) {
-				while ($rows = mysqli_fetch_assoc($query)) {
+			if (mysqli_num_rows($query) > 0) {//Return the number of rows in result set
+				while ($rows = mysqli_fetch_assoc($query)) {//Fetch a result row as an associative array
 					echo "
 						<tr>
 							<td>".$rows['id']."</td>
@@ -65,9 +66,11 @@
 	}
 	if (isset($_POST['submit1'])) {
 	$d_id = $_POST['delete'];
+	//Delete Data from employee table by id After clicking delete button
 	$delete_query ="DELETE FROM employee WHERE id = '$d_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
 	if ($delete_result) {
+		//after performs a query on database get alet 
 		echo "<script>alert('Successfuly Removed...')</script>";
             echo "<script>window.open('removeUser.php','_self')</script>";
 	}
