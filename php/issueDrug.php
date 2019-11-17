@@ -43,9 +43,10 @@ include('include/connection.php');
 	if (isset($_POST['submit'])) {
 			$drug_name = $_POST['search_name'];
 			$eDate = $_POST['ex_date'];
+			//Search from Batch table by drug name order by date
 			$search_id = "SELECT * FROM batch WHERE drug_name = '$drug_name' UNION SELECT * FROM batch WHERE drug_name = '$drug_name'  ORDER BY $eDate";
+			//Performs a query on database
 			$query= mysqli_query($con,$search_id);
-
 			echo "<table class=\"table\">
 				<tr>
 					<th>Batch No</th>
@@ -57,9 +58,11 @@ include('include/connection.php');
 					<th>Action</th>
 					
 				</tr>";
-
+			//Return number of rows in result set 
 			if (mysqli_num_rows($query) > 0) {
+						//Fetch Result rows as an associative array
 						while($row = mysqli_fetch_assoc($query)){
+							//After searching show drug table data from batch table ordered by date
 							echo "<tr>
 									<td>".$row['batch_no']."</td>
 									<td>".$row['drug_id']."</td>
