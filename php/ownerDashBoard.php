@@ -74,18 +74,19 @@
 						        <p class="card-text">Here you can Manage your notifications</p>
 						        <div class="btn-group">
 									 <button type="button" class="btn btn-primary">
- 										 Notifications <span class="badge badge-light">1</span>
+ 										 Notifications <span class="badge badge-light"><?php echo counts() ?></span>
 									</button>
 									  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									    <span class="sr-only">Toggle Dropdown</span>
 									  </button>
 									  <div class="dropdown-menu">
 									  	<?php 
+									  		function counts(){
 									  		include('include/connection.php');
 									  		$sql1 = "SELECT * FROM tem";
 											$result1 = $con->query($sql1);
 											if($result1-> num_rows > 0 ){
-												echo "<h5><a class=\"dropdown-item\" href=\"approvalList.php\" target=\"main\" style=\"color:red;\">Add Supplier Appro:</a></h5>";
+												echo "<a class=\"dropdown-item\" href=\"approvalList.php\" target=\"main\">Add Supplier Appro:</a>";
 											}
 									  	
 									  		
@@ -108,6 +109,7 @@
 											if($result4-> num_rows > 0 ){
 												echo "<a class=\"dropdown-item\" href=\"approveRemoveDrug.php\" target=\"main\">remove Drug Appro:</a>";
 											}
+}
 									  	?>
 									</div>
 						      </div>
