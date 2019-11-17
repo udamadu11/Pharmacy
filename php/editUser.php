@@ -22,11 +22,15 @@
 					<th>Edit</th>
 				</tr>
 				<?php
+				//Retrive employee table data
 					$sql = "SELECT * FROM employee";
+					//Performs query on database
 					$result = mysqli_query($con,$sql);
-
+					//Return number of result in result set
 					if ($result -> num_rows > 0) {
+					//Fetch a result row as an associative array
 					while ($row = $result -> fetch_assoc()) {
+						//Display employee table data to update
 							echo "<tr>
 									<td>".$row['id']."</td>
 									<td>".$row['f_name']."</td>

@@ -11,11 +11,13 @@
         if(isset($_POST['submit1'])){
 
             $sid = $_POST['edit'];
+            //Retrive data from supplier table
             $selectSupplier = "SELECT * FROM supplier WHERE  supplier_id ='$sid' ";
-
+            //Performs query on databse
             $supplierquery = mysqli_query($con,$selectSupplier);
+            //Fetch result row as associative array
                 while($row = mysqli_fetch_assoc($supplierquery)){
-                    
+                    //Display supplier table data with edit buutton
                     echo "
                             <form method=\"post\" class=\"form-1\" style=\"margin-top:100px;\">
                                 <h3 style=\"text-align:center;\">Edit Supplier</h3>
@@ -50,6 +52,7 @@
         $newContact = $_POST['contact_no'];
         $newCreditPeriod = $_POST['credit_period_allowed'];
         
+        //Edit supplier table data by supplier id
         $EditQuery= "UPDATE supplier SET supplier_name ='$newSupplierName',location = '$newLocation',email = '$newEmail',contact_no ='$newContact',credit_period_allowed ='$newCreditPeriod' WHERE supplier_id = '$uid' ";
         $sqlQuery = mysqli_query($con,$EditQuery);
         if ($sqlQuery) {

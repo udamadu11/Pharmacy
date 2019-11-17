@@ -30,7 +30,7 @@
                     <div class="row">
                         <?php
                         include ('include/connection.php');
-                        //current stock
+                        //current stock data retrive
                         $result_stock = mysqli_query($con, "SELECT drug_name,current_stock FROM stock ORDER BY current_stock DESC");
                         ?>
                         <div class="col-sm-12">
@@ -66,7 +66,7 @@
        
 
 
-        <script>
+        <script>//print current stock table data
             function PrintElem(elem)
             {
                 var mywindow = window.open('', 'PRINT', "");

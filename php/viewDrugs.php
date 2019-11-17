@@ -44,24 +44,7 @@
 			}
 			$con->close();
 		?>		
- <?php 
-  include('include/connection.php');
-  $sql = "SELECT drug.drug_id,drug.drug_name,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id";
-  $query= mysqli_query($con,$sql);
-  if (mysqli_num_rows($query) > 0) {
-  while($row = mysqli_fetch_assoc($query)){
-echo"
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
-   <script type='text/javascript'>
-    $(document).ready(function(){
-Swal.fire('Low Drug List Here')
-    })
-     
-   </script>";
-      }
-    }
-
-?>
+ 
 	</table>
 	</div>
 </body>

@@ -1,3 +1,14 @@
+<?php 
+include('include/connection.php');
+include('include/session.php');
+    //Unauthorized Access_Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+       header("Location:login.php");
+       exit();
+       }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +33,7 @@
 				    <h4 class="card-title">Profile Info</h4>
 				    <p class="card-text"><i class="fa fa-user">&nbsp;</i><?php 
 				    	if (isset($_SESSION['type'])) {
-				    		echo $_SESSION['f_name'];
+				    		echo $_SESSION['u_name'];
 				    	}
 				    ?></p>
 				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Pharmacist</p>
@@ -51,23 +62,43 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
+		<div>
+			<div class="row">
+				<div class="col-md-8">
+					<div id="columnchart_material" style="width: 600px; height: 400px;margin-top: 50px;"></div>
+				</div>
+				<div class="col-md-3" style="margin-top: 120px;">
+				</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				<?php
+				//Select drug name and current stock from stock table
+					$queryStock = "SELECT drug_name,current_stock FROM stock";
+				//Performs a query on database
+					$selectStock = mysqli_query($con,$queryStock);
+
+				 ?>
+				 //Google developoer bar chart
 		      google.charts.load('current', {'packages':['bar']});
 		      google.charts.setOnLoadCallback(drawChart);
 
 		      function drawChart() {
-		        var data = google.visualization.arrayToDataTable([
-		          ['Month', 'Sales', 'purchases', 'Profit'],
-		          ['January', 1000, 400, 600],
-		          ['2015', 1170, 460, 250],
-		          ['2016', 660, 1120, 300],
-		          ['2017', 1030, 540, 350]
-		        ]);
+		        var data = new google.visualization.DataTable();
+		        data.addColumn('string', 'Drug');
+        		data.addColumn('number', 'Stock Level');
 
+		<?php
+			while ($row = mysqli_fetch_row($selectStock)) {
+		 ?>
+			            data.addRows([
+			                ['<?php echo $row[0]; ?>', <?php echo $row[1]; ?>]
+			            ]);
+			<?php } ?>
 		        var options = {
 		          chart: {
 		            title: 'Company Performance',
-		            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+		            subtitle: 'Current Stock Level',
 		          }
 		        };
 
@@ -76,9 +107,26 @@
 		        chart.draw(data, google.charts.Bar.convertOptions(options));
 		      }
     </script>
-<div id="columnchart_material" style="width: 800px; height: 500px;margin-top: 20px;margin-left: 200px;"></div>
 		</div>
 	</div>
+	<?php 
+  include('include/connection.php');
+  $sql = "SELECT drug.drug_id,drug.drug_name,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id";
+  $query= mysqli_query($con,$sql);
+  if (mysqli_num_rows($query) > 0) {
+  while($row = mysqli_fetch_assoc($query)){
+echo"
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
+   <script type='text/javascript'>
+    $(document).ready(function(){
+Swal.fire('You have Low Drug List mail')
+    })
+     
+   </script>";
+      }
+    }
+
+?>
 		
 </body>
 </html>

@@ -34,7 +34,7 @@
                     <div class="row">
                         <?php
                         include ('include/connection.php');
-                       
+                       //Retive selling data from invoice item table
                         $result_fast_move = mysqli_query($con, "SELECT i.drug_name AS 'name',SUM(iv.qty) AS 'qtys' FROM invoice_items iv LEFT JOIN batch i ON iv.drug_id=i.drug_id WHERE iv.qty>0 GROUP BY iv.drug_id  ORDER BY qtys DESC LIMIT 10");
                         ?>
                         <div class="col-sm-12">
@@ -70,7 +70,7 @@
         
 
 
-        <script>
+        <script>//print Selling drug data
             function PrintElem(elem)
             {
                 var mywindow = window.open('', 'PRINT', "");

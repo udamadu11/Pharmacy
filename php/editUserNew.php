@@ -11,11 +11,13 @@
         if(isset($_POST['submit'])){
 
             $uid = $_POST['edit'];
+            //Retrive emplyee table data from id
             $selectusers = "SELECT * FROM employee WHERE  id ='$uid' ";
-
+            //Performs query on database
             $userquery = mysqli_query($con,$selectusers);
+            //Fetch result row as an Associative array
                 while($row = mysqli_fetch_assoc($userquery)){
-                    
+                    //Display employee data by id
                     echo "
                             <form method=\"post\" class=\"form-1\">
                                 <h2>Edit User</h2>                   
@@ -66,6 +68,7 @@
         $newPassword = $_POST['EditPassword'];
         $newType = $_POST['EditType'];
 
+        //Edit employee data by employee id
         $EditQuery= "UPDATE employee SET f_name ='$newFname',l_name = '$newLname',u_name = '$newUname',email ='$newEmail',telephone ='$newTelephone',nic ='$newNic',password ='$newPassword',type ='$newType' WHERE id = '$uid' ";
         $sqlQuery = mysqli_query($con,$EditQuery);
         if ($sqlQuery) {

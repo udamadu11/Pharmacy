@@ -1,5 +1,5 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php require_once('include/connection.php'); ?><!-- include database connection -->
+<?php require_once('include/session.php'); ?><!-- include sessions -->
 <!DOCTYPE html>
 <html> 
 <head>
@@ -94,6 +94,7 @@ if(isset($_POST['approve'])){
 }
 if (isset($_POST['decline'])) {
 	$drug_id = $_POST['declineDrug'];
+	//Delete drug data from tem3 table by drug id
 	$delete_query ="DELETE FROM tem3 WHERE drug_id = '$drug_id' ";
 	$delete_result = mysqli_query($con,$delete_query);
 

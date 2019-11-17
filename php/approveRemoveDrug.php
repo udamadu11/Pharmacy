@@ -1,4 +1,4 @@
-<?php include('include/connection.php') ?>
+<?php include('include/connection.php') ?><!-- include database connection -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,15 @@
 			<th>Decline</th>
 		</tr>
 		<?php
+			//Select data from tem4 table and reTrive data
 			$sql = "SELECT * FROM tem4";
+			//Performs a query on database
 			$result = $con->query($sql);
+			//Return number of rows in result set
 			if($result-> num_rows > 0 ){
+				//Fetch data result row as a associative array
 				while ($row = $result-> fetch_assoc()){
+					//Display drug table data with remove button and decline button
 					echo "<tr>
 							<td>".$row['drug_id']."</td>
 							<td>".$row['drug_name']."</td>
@@ -60,10 +65,14 @@
 <?php 
 if (isset($_POST['removeDrug'])) {
 	$drug_id = $_POST['remove'];
+	//Delete Data from tem4(temporary) table by drug id
 	$delete_query ="DELETE FROM tem4 WHERE drug_id = '$drug_id' ";
+	//Performs a query on database
 	$delete_result = mysqli_query($con,$delete_query);
 
+	//Delete Data from drug table by drug id
 	$delete_query2 ="DELETE FROM drug WHERE drug_id = '$drug_id' ";
+	//Performs a query on database
 	$delete_result2 = mysqli_query($con,$delete_query2);
 
 	if ($delete_result2) {
@@ -74,6 +83,7 @@ if (isset($_POST['removeDrug'])) {
 	}
 if (isset($_POST['notRemoveDrug'])) {
 	$id = $_POST['remove1'];
+	//If not delete drug data , delete that data from tem4 table
 	$no_query ="DELETE FROM tem4 WHERE drug_id = '$id' ";
 	$no_result = mysqli_query($con,$no_query);
 	if ($no_result) {

@@ -7,14 +7,15 @@
 <body>
 <?php 
 include('include/connection.php');
+//Retrive batch table data
 $query = "SELECT * FROM batch";
 $result = mysqli_query($con,$query);
 
-
+//Fetch data result row as an associative array
 while($row = mysqli_fetch_assoc($result)){
 		$exp_date = $row['ex_date'];
-		$today = date('Y-m-d');
-		$exp =strtotime($exp_date);
+		$today = date('Y-m-d');//get today data with date function
+		$exp =strtotime($exp_date); //Parse about any English textual datetime description into a Unix timestamp
 		$td = strtotime($today);
 
 		$warning_days = 80;
@@ -22,6 +23,7 @@ while($row = mysqli_fetch_assoc($result)){
 		$warning_timestamp = $exp - $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
 		
+		//if today date is gretter than or equal to warning date display expire dates
 		if ($warning_date <= $today) {
 
 			$batch_no = $row['batch_no'];
