@@ -101,7 +101,9 @@ include('include/connection.php');
 		$batch_no = $_POST['batch_no'];
 		$qty = $_POST['quantity'];
 
+				//check Availbale quantity and quatity of drug are enough to issue
 				if ($available_quantity >= $qty) {
+					//Retrive Query of drug by drug id
 					$sq = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
 					$re = mysqli_query($con,$sq);
 					$row = mysqli_fetch_array($re);
@@ -110,10 +112,11 @@ include('include/connection.php');
 					$price = $row['price'];
 					$total = $qty * $price;
 
-				
+					//Insert issue drug to temporary table 
 					$s = "INSERT INTO invoice_temp(drug_id,drug_name,price,qty,total,batch_no)VALUES('$drug_id','$drug_name','$price','$qty','$total','$batch_no')";
 					$r = mysqli_query($con,$s);
 
+					//Update from batch after issuing drug
 					$available = $available_quantity - $qty;
 					$updateQury = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no = '$batch_no'";
 					$updateRe = mysqli_query($con,$updateQury);
@@ -124,6 +127,7 @@ include('include/connection.php');
 					$rowStock = mysqli_fetch_array($resultStock);
 					$avail = $rowStock['current_stock'];
 
+					//Update from stock after issuing drug
 					$available = $avail - $qty;
 					$updateStock = "UPDATE stock SET current_stock = '$available' WHERE drug_id = '$drug_id'";
 					$updateResultStock = mysqli_query($con,$updateStock);
@@ -154,6 +158,7 @@ include('include/connection.php');
 			$q = "SELECT * FROM invoice_temp";
 				$rr =mysqli_query($con,$q);
 		while($row1 = mysqli_fetch_array($rr)){
+			//Display issue drug list
 					echo "
 		
 				<tr>
@@ -177,7 +182,7 @@ include('include/connection.php');
 
 				<tr></tr>
 				"; 
-				$total += $row1['total'];
+				$total += $row1['total'];//Get tatal value from issue drugs
 				
 }
 				echo "
@@ -202,17 +207,18 @@ include('include/connection.php');
 	$qty = $_POST['qty'];
 	$batch_no = $_POST['batch_no'];
 
-
+	//Removing drugs from issue drug list by drug id and batch no
 	$sele = "SELECT * FROM batch WHERE drug_id = '$drug_id' AND batch_no = '$batch_no'";
 	$ress = mysqli_query($con,$sele);
 	$rows = mysqli_fetch_array($ress);
 	$available_quantity = $rows['available_quantity'];
 
+	//Update batch after removing drug from issue drug list 
 	$available = $available_quantity + $qty;
 	$updateQury2 = "UPDATE batch SET available_quantity = '$available' WHERE drug_id = '$drug_id' AND batch_no ='$batch_no'";
 	$updateRe2 = mysqli_query($con,$updateQury2);
 
-
+	//Update stock after removing drug from issue drug list 
 	$sqlStock2 = "SELECT * FROM stock WHERE drug_id = '$drug_id'";
 	$resultStock2 = mysqli_query($con,$sqlStock2);
 	$rowStock2 = mysqli_fetch_array($resultStock2);
@@ -240,11 +246,12 @@ if (isset($_POST['btn2'])) {
 			$id = $rowIssue['id'];
 			$drug_id = $rowIssue['drug_id'];
 			$qty = $rowIssue['qty'];
-
+			//After issuing selling item insert invoice item table
 			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty)VALUES('$id','$drug_id','$qty')";
 			$query = mysqli_query($con,$sq);		
  	}
  		$today = date('Y-m-d');
+ 		//After issuing invoice data insert to invoice table
 		$issueSql = "INSERT INTO invoice(date,total)VALUES('$today','$total')";
 		$IssuResult = mysqli_query($con,$issueSql);
 

@@ -26,9 +26,8 @@ while($row = mysqli_fetch_assoc($result)){
 		$warningTimestamp = $exp + $secondsDiff;
 		$warningDate = date('Y-m-d', $warningTimestamp);
 		
+		if ($warningDate <= $today) {
 		if ($paid == 0) {
-			
-			if ($warningDate >= $today) {
 
 			$purchaseId = $row['purchase_id'];
 			$supplierId = $row['supplier_id'];
