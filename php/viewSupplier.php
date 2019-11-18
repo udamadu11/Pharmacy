@@ -4,11 +4,10 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/viewSupplier.css">
 </head>
 <body> 
-	<div class="container" style="margin-top: 50px;">
-		<table class="table table-hover">
+	<table>
 		<tr>
 			<th>Supplier Id</th>
 			<th>Supplier Name</th>
@@ -18,13 +17,10 @@
 			<th>Credit Period</th>
 		</tr>
 		<?php
-		// retrive all the data from supplier table
 		$sql = "SELECT * FROM supplier";
-		//Performs a query on Database
 		$result = mysqli_query($con,$sql);
-
-		if ($result -> num_rows > 0) {//Return the number of rows in result set
-			while ($row = $result -> fetch_assoc()) {//Fetch a result row as an associative array
+		if ($result -> num_rows > 0) {
+			while ($row = $result -> fetch_assoc()) {
 				echo "
 			<tr>
 				<td>".$row['supplier_id']."</td>
@@ -44,7 +40,6 @@
 		$con ->close();
 		?>
 	</table>
-	</div>
 
 </body>
 </html>
