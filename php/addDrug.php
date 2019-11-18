@@ -1,5 +1,5 @@
-<?php include('include/connection.php'); ?><!-- include database connection -->
-<?php include('include/session.php'); ?><!-- include session -->
+<?php include('include/connection.php'); ?><!-- Include database connection -->
+<?php include('include/session.php'); ?><!-- Include session -->
 <?php 
 	if(isset($_POST['submit'])){ 
 		

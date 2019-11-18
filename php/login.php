@@ -3,44 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
+  <title>Pharma-pro Login</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body>
-	<div class="wrapper">
+<body class="login-main">
+  <div id="logo"> 
+    <h1><i>Pharma -pro</i></h1>
+  </div> 
+  <section class="login">
+<h4 class="error-msg"><?php include('include/message.php'); ?></h4>
+    <form action="loginform.php" method="post">  
+      <div id="fade-box">
+        <input type="text" name="name" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
 
-		<div class="top">
-			<img src="../img/logo.png">
-			<h1>PHARMA-PRO</h1>
-		</div>
-		<form action="loginform.php" method="post">
-		<div class="login-form">
-			<div class="title">
-				<h1>Login Here</h1>
-			</div>
-			<h3 class="error-msg"><?php include('include/message.php'); ?></h3>
-			<div class="login-section">
-				<div class="input-fields">
-					<img src="../img/man-user.png">
-					<input type="text" class="input" name="name" id="name" placeholder="Enter name" required>
-				</div>
-				<div class="input-fields">
-					<img src="../img/lock.png">
-					<input type="password" class="input" id="password" name="password" placeholder="Enter password" required>
-				</div>
+        <input type="submit" name="submit" value="Login"> 
+      </div>
+    </form>
+    <div class="hexagons">
+      
+    </div>      
+  </section> 
 
-					<input type="submit" name="submit" value="Login">
-
-			</div>
-		</div>
-		</form>
-
-		<footer class="footer">
-        <h1>developed by <b>Team</b></h1>
-    	</footer>
-
-	</div>
-	<div class="bg"></div>
-   		<div class="bg2"></div>
+    <div id="circle1">
+      <div id="inner-cirlce1">
+          <h2> </h2>
+            </div>
+    </div>
 </body>
 </html>
