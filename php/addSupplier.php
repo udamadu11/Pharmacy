@@ -7,22 +7,17 @@
 		$email = $_POST['email'];
 		$contact_no = $_POST['contact_no'];
 		$credit_period_allowed = $_POST['credit_period_allowed'];
-
 		//insert supplier data to temparary table to approving from owner 
 		$sql = "INSERT INTO tem (supplier_name,location,email,contact_no,credit_period_allowed) VALUES ('$supplier_name','$location','$email','$contact_no','$credit_period_allowed')";
-
 		//performs a query on the table
 		$result = mysqli_query($con, $sql);
-
 		//send notification here for approving supplier data to owner
 		if($result){
 			$to = "udaramadumalka3@gmail.com";
 			$subject = "NOTIFICATION OF PHARMA-PRO TO ADD SUPPLIERS";
 			$message = "<a href='http://localhost/Pharmacy/php/approvalList.php'>Approval for Request</a>";
-
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
 			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
 			$mail = mail($to,$subject,$message,$headers);
 			if ($mail) {

@@ -110,11 +110,11 @@
 		<p>Brand</p>
 		<input type="text" name="brand">
 		<p>NO of Boxes</p>
-		<input type="number" name="no_of_boxes">
+		<input type="number" name="no_of_boxes" min="1">
 		<p>Quantity Box</p>
-		<input type="number" name="quantity_box">
+		<input type="number" name="quantity_box" min="1">
 		<p>Expiry Date</p>
-		<input type="date" name="ex_date">
+		<input type="date" name="ex_date" min="2019-11-20">
 	</div>
 		<input type="submit" name="submit" value="Add" class="btn-1">
 		<input type="reset" name="reset" value="reset" class="btn-2">

@@ -17,6 +17,7 @@
 <body>
 	<div class="sidenav">
 
+		<a href="storekeeperDashborad.php" target="main">Dashboard</a>
 		<a href="viewDrugs.php" target="main">View drug</a>
 		<a href="searchDrug.php" target="main">Search drug</a>
 				<div class="dropdown">

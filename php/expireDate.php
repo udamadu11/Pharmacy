@@ -18,7 +18,7 @@ while($row = mysqli_fetch_assoc($result)){
 		$exp =strtotime($exp_date); //Parse about any English textual datetime description into a Unix timestamp
 		$td = strtotime($today);
 
-		$warning_days = 80;
+		$warning_days = 104;
 		$seconds_diff = $warning_days * 24 * 3600;
 		$warning_timestamp = $exp - $seconds_diff;
 		$warning_date = date('Y-m-d', $warning_timestamp);
