@@ -246,8 +246,9 @@ if (isset($_POST['btn2'])) {
 			$id = $rowIssue['id'];
 			$drug_id = $rowIssue['drug_id'];
 			$qty = $rowIssue['qty'];
+			$dateItem = date("Y-m-d H:i:s");
 			//After issuing selling item insert invoice item table
-			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty)VALUES('$id','$drug_id','$qty')";
+			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty,date)VALUES('$id','$drug_id','$qty','$dateItem')";
 			$query = mysqli_query($con,$sq);		
  	}
  		$today = date('Y-m-d');

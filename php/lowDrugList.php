@@ -87,7 +87,7 @@ echo"
         <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
    <script type='text/javascript'>
     $(document).ready(function(){
-Swal.fire('You have Low Drug List')
+Swal.fire('Stock Alert')
     })
      
    </script>";

@@ -4,6 +4,10 @@
 <html>
     <head>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+           <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <title> Reports</title>
         
     </head>  
@@ -31,6 +35,19 @@
                         </div>
                     </div>
                     <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="text" name="from_date" id="from_date" placeholder="From date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="to_date" id="to_date" placeholder="To date" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="button" name="filter" id="filter" value="filter" class="btn btn-info" style="width: 100px;">
+                        </div>
+                    </div>
+                    <br><br>
                     <div class="row">
                         <?php
                         include ('include/connection.php');
@@ -89,6 +106,36 @@
 
                 return true;
             }
+        </script>
+
+        <script>
+            $(document).ready(function() {
+               $.datepicker.setDefaults({
+                    dateFormat: 'yy-mm-dd'                
+               });
+               $(function(){
+                    $("#from_date").datepicker();
+                    $("#to_date").datepicker();
+               });
+               $('#filter').click(function(){
+                var from_date = $('#from_date').val();
+                var to_date = $('#to_date').val();
+                if (from_date != '' && to_date != '') {
+                    $.ajax({
+                        url: "filter.php",
+                        method: "POST",
+                        data:{from_date:from_date, to_date:to_date},
+                        success: function(data)
+                        {
+                            $('#print_area').html(data);
+                        }
+                    });
+                }
+                else{
+                    alert("Please Select Date")
+                }
+               });
+            });
         </script>
     </body>
 </html>
