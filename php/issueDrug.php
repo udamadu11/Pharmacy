@@ -3,6 +3,9 @@
 <head>
 	<title>Issue Drug</title>
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<div class="container" style="margin-top: 50px;">
@@ -173,7 +176,7 @@ include('include/connection.php');
 									<input type=\"hidden\" value=".$row1['drug_id']." name=\"drug_id\">
 									<input type=\"hidden\" value=".$row1['batch_no']." name=\"batch_no\">
 									<input type=\"hidden\" value=".$row1['qty']." name=\"qty\">
-									<input class=\"btn btn-danger\" type=\"submit\" name=\"deli\" value=\"remove\">
+									<input class=\"btn btn-danger\" type=\"submit\" name=\"deli\" value=\"remove\" style=\"width:100px;\">
 								</form>
 
 					</td>
@@ -192,10 +195,20 @@ include('include/connection.php');
 						<td></td>
 						<td></td>
 						<td>Total</td>
-						<td>".$total."</td>
+						<td></td>
+						<td><input type=\"number\" class=\"form-control\" name=\"total\" min=\"1\" style=\"width:100px;\" value='".$total."'></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
 						<td>
-							<form method=\"post\">
-							<input type=\"submit\" name=\"btn2\" class=\"btn btn-success\" value=\"Issue\" style=\"width:80px;\">
+							<form method=\"post\" action=\"bill.php\">
+							<input type=\"submit\" name=\"btn2\" class=\"btn btn-success\" value=\"Issue\" style=\"width:100px;\">
 							</form>
 						</td>
 					</tr>
@@ -239,6 +252,7 @@ include('include/connection.php');
 }
 if (isset($_POST['btn2'])) {
  		
+ 		$amount = $_POST['amount'];
  		$sqlIssue = "SELECT * FROM invoice_temp";
 		$resIssue = mysqli_query($con,$sqlIssue);
 		
@@ -269,4 +283,5 @@ if (isset($_POST['btn2'])) {
 		</div>
 </body>
 </html>
-
+<!--
+-->
