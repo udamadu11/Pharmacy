@@ -66,7 +66,7 @@ include('include/session.php');
 		<div>
 			<div class="row">
 				<div class="col-md-8">
-					<div id="columnchart_material" style="width: 600px; height: 400px;margin-top: 50px;"></div>
+					<div id="columnchart_material" style="width: 1000px; height: 400px;margin-top: 50px;"></div>
 				</div>
 				<div class="col-md-3" style="margin-top: 120px;">
 				</div>

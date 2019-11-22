@@ -250,35 +250,6 @@ include('include/connection.php');
 		echo "<script>window.open('issueDrug.php','_self')</script>";
 	}
 }
-if (isset($_POST['btn2'])) {
- 		
- 		$amount = $_POST['amount'];
- 		$sqlIssue = "SELECT * FROM invoice_temp";
-		$resIssue = mysqli_query($con,$sqlIssue);
-		
-		while($rowIssue=mysqli_fetch_array($resIssue)){
-			$id = $rowIssue['id'];
-			$drug_id = $rowIssue['drug_id'];
-			$qty = $rowIssue['qty'];
-			$dateItem = date("Y-m-d H:i:s");
-			//After issuing selling item insert invoice item table
-			$sq = "INSERT INTO invoice_items(invoice_no,drug_id,qty,date)VALUES('$id','$drug_id','$qty','$dateItem')";
-			$query = mysqli_query($con,$sq);		
- 	}
- 		$today = date('Y-m-d');
- 		//After issuing invoice data insert to invoice table
-		$issueSql = "INSERT INTO invoice(date,total)VALUES('$today','$total')";
-		$IssuResult = mysqli_query($con,$issueSql);
-
-		$delete_query ="DELETE FROM invoice_temp";
-		$delete_result = mysqli_query($con,$delete_query);
-
-		if ($delete_query) {
-			echo "<script>alert('Issue succesfully')</script>";
-			echo "<script>window.open('issueDrug.php','_self')</script>";
-		}
-
- }
 		?>
 		</div>
 </body>
