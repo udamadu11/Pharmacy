@@ -41,10 +41,12 @@
 				$supplier = $_POST['supplier_id'];
 				$search_id = "SELECT supplier.supplier_id,supplier.supplier_name, drug.drug_id,drug.drug_name,drug.price  FROM supplier INNER JOIN drug ON supplier.supplier_id = drug.supplier_id AND supplier.supplier_id = '$supplier'";
 				$query= mysqli_query($con,$search_id);
+				$pdate =date("y-d-m");
 				echo "<table class=\"table\">
 						<tr>
 							<th>Drug Id</th>
 							<th>Drug Name</th>
+							<th>Date</th>
 							<th>Price</th>
 							<th>Quantity</th>
 							<th>Action</th>
@@ -55,6 +57,9 @@
 							echo "<tr>
 									<td>".$row['drug_id']."</td>
 									<td>".$row['drug_name']."</td>
+									<td>
+										<input type=\"text\" readonly class=\"form-control\" value=$pdate>
+									</td>
 									<td>".$row['price']."</td>
 									<td>
 										<form method=\"post\">
@@ -64,6 +69,9 @@
 	 								</td>
 	 								<td>
 										<input type=\"hidden\" value=".$row['drug_id']." name=\"drug_id\">
+										<input type=\"hidden\" value=".$row['drug_name']." name=\"drug_name\">
+										<input type=\"hidden\" value=".$row['price']." name=\"price\">
+										<input type=\"hidden\" value=".$pdate." name=\"pdate\">
 										<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Add\">
 									</td>
 										</form>
@@ -76,7 +84,29 @@
 		?>
 	</div>
 	</div>
+	<div class="card-body">
+		<tr>
+			<th>qwe</th>
+			<th>qwe</th>
+			<th>qwe</th>
+			<th>qwe</th>
+		</tr>
+	</div>
 </div>
 </body>
 </html>
-	
+<?php
+	if (isset($_POST['btn'])) {
+		$drug_id = $_POST['drug_id'];
+		$drug_name = $_POST['drug_name'];
+		$pdate = $_POST['pdate'];
+		$price = $_POST['price']; 
+		$quantity = $_POST['quantity'];
+		$total = $price * $quantity;
+
+		$sql_drug = "INSERT INTO purchase_item(drug_id,drug_name,pdate,price,quantity,total)VALUES('$drug_id','$drug_name','$pdate','$price','$quantity','$total')";
+		$result_drug = mysqli_query($con,$sql_drug);
+	}
+
+
+?>
