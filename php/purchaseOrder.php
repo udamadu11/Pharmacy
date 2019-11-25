@@ -50,24 +50,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td></td>
-											<td>
-												<select class="form-control col-md-12" name="drug_name[]">
-														<?php 
-															$sql_drug = "SELECT * FROM drug";
-															$result_drug = mysqli_query($con,$sql_drug);
-															while ($row = mysqli_fetch_array($result_drug)) {
-															$drug = $row['drug_name'];
-															echo '<option value="'.$drug.'">'.$drug.'</option>';
-											}
-										 ?>
-												</select>
-											</td>
-											<td><input type="number" readonly name="price[]" class="form-control col-md-12"></td>
-											<td><input type="number" name="qty[]" class="form-control col-md-12"></td>
-											<td><input type="number" name="total[]" class="form-control col-md-12"></td>
-										</tr>
+										
 									</tbody>
 								</table>
 									<center style="padding: 10px;">
