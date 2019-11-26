@@ -10,8 +10,9 @@
 		$sql = "SELECT * FROM employee WHERE u_name='$name' AND password='$password'";
 		//Performs a query on database
 		$res = mysqli_query($con, $sql);
+		$check_user = mysqli_num_rows($res);
 		//Return number of result row in result set
-		if (mysqli_num_rows($res) > 0) {
+		if ($check_user == 1) {
 			//Fetch results row as an associative array
 			$row = mysqli_fetch_array($res);
 
@@ -22,6 +23,8 @@
 			$_SESSION["type"] = $row['type'];
 
 			$type = $row['type'];
+
+			$update_msg = mysqli_query($con,"UPDATE employee SET log_in ='online' WHERE u_name ='$name'");
 			
 			if($type == '1'){
 				header("Location: owner.php");

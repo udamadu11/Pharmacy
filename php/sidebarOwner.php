@@ -18,6 +18,7 @@
 </head>
 <body>
 <div class="sidenav">
+		<a href="chatRoom.php" target="main" style="margin-top: 20px;">Chat Room</a>
 		<a href="ownerDashboard.php" target="main" style="margin-top: 20px;">DashBoard</a>
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>

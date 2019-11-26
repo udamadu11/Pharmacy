@@ -19,7 +19,7 @@
   		<frame src="top.php" border="0px">
   			<frameset cols="14%,86%" border="0px">
     			<frame src="sidebarOwner.php" border="0px">
-          <frame src="ownerDashBoard.php" name="main" border="0px">
+          <frame src="chatRoom.php" name="main" border="0px">
   			</frameset>
 	</frameset>
 </head>

@@ -95,6 +95,7 @@
 			<th>Total</th>
 		</tr>
 			<?php 
+				$sub_total = 0;
 				$sql_show = "SELECT * FROM purchase_item";
 				$sql_show_result = mysqli_query($con,$sql_show);
 				if ($sql_show_result -> num_rows > 0) {
@@ -114,10 +115,20 @@
 								</td>
 
 						</tr>";
+						$sub_total += $num_rows['total'];
+
 					}
 				}
  
 			?>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Sub Total</td>
+				<td></td>
+				<td><?php echo $sub_total?></td>
+			</tr>
 
 		</table>
 </div>
