@@ -5,6 +5,7 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="topnav">
@@ -15,8 +16,12 @@
 			checkSession();
 			if(isset($_SESSION['u_name'])){
 				//owner
+				$u_name = $_SESSION['u_name'];
 				if("{$_SESSION['type']}" == '1'){
-					echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
+					echo "<form method=\"post\" action=\"logout.php\">
+								<a href =\"logout.php\" target=\"_top\" name=\"logout\">Log Out</a>
+						</form>";
+					//echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
 					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";
 					
 				}
@@ -42,7 +47,7 @@
 				echo "<a href=\"login.php\">Login</a>";
 			}
 
-
+			
 		?>
 		
 
