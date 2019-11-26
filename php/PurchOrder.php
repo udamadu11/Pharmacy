@@ -78,20 +78,48 @@
 								</tr>";
 						}
 					}else{
-						echo "<script>alert('Invalid Drug Name')</script>";
+						echo "<script>alert('There is no Drug')</script>";
 					}		
 				}
 		?>
 	</div>
 	</div>
-	<div class="card-body">
+	<br><br>
+		<table class="table table-hover" style="box-shadow: 0 0 15px 0 lightgrey;">
 		<tr>
-			<th>qwe</th>
-			<th>qwe</th>
-			<th>qwe</th>
-			<th>qwe</th>
+			<th>Drug_id</th>
+			<th>Drug_name</th>
+			<th>Date</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Total</th>
 		</tr>
-	</div>
+			<?php 
+				$sql_show = "SELECT * FROM purchase_item";
+				$sql_show_result = mysqli_query($con,$sql_show);
+				if ($sql_show_result -> num_rows > 0) {
+					while ($num_rows = mysqli_fetch_assoc($sql_show_result)) {
+						echo "<tr>
+								<td>".$num_rows['drug_id']."</td>
+								<td>".$num_rows['drug_name']."</td>
+								<td>".$num_rows['pdate']."</td>
+								<td>".$num_rows['price']."</td>
+								<td>".$num_rows['qty']."</td>
+								<td>".$num_rows['total']."</td>
+								<td>
+									<form method=\"post\">
+										<input type=\"submit\" name=\"delete\" value=\"Remove\" class=\"btn btn-danger\">
+										<input type=\"hidden\" value=".$num_rows['id']." name=\"id\">
+									</form>
+								</td>
+
+						</tr>";
+					}
+				}
+ 
+			?>
+
+		</table>
 </div>
 </body>
 </html>
@@ -104,8 +132,20 @@
 		$quantity = $_POST['quantity'];
 		$total = $price * $quantity;
 
-		$sql_drug = "INSERT INTO purchase_item(drug_id,drug_name,pdate,price,quantity,total)VALUES('$drug_id','$drug_name','$pdate','$price','$quantity','$total')";
+		$sql_drug = "INSERT INTO purchase_item(drug_id,drug_name,pdate,price,qty,total)VALUES('$drug_id','$drug_name','$pdate','$price','$quantity','$total')";
 		$result_drug = mysqli_query($con,$sql_drug);
+		if ($result_drug) {
+			echo"<script>window.open('PurchOrder.php','_self')</script>";
+		}
+	}
+	if (isset($_POST['delete'])) {
+		$id = $_POST['id'];
+		$sql_delete = "DELETE FROM purchase_item WHERE id = '$id'";
+		$result_delete = mysqli_query($con,$sql_delete);
+
+		if ($result_delete) {
+			echo"<script>window.open('PurchOrder.php','_self')</script>";
+		}
 	}
 
 
