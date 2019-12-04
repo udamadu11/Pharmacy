@@ -60,21 +60,13 @@
 					$messege_result = mysqli_query($con,$total_msg);
 					$total = mysqli_num_rows($messege_result);
 				?>
-				<div class="col-md-12 right-header">
-					<div class="right-header-deatails">
-						<form method="post"> 
-							<p><?php echo $username; ?></p>
-							<span><?php echo $total; ?>message</span>&nbsp &nbsp
-							<button name="logout" class="btn btn-danger">Logout</button>
-						</form>
-						<?php
-							if (isset($_POST['logout'])) {
-								$update_msg = mysqli_query($con,"UPDATE employee SET log_in = 'offline' WHERE u_name = '$u_name'");
-								header("location: login.php");
-								exit();
-							}
-						 ?>
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 right-header-contentChat" id="scrolling_to_bottom">
+					<?php 
+					
+
+					?>
 				</div>
 			</div>
 		</div>
