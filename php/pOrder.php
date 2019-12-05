@@ -27,7 +27,7 @@
 						<td>".$row['email']."</td>
 						<td>".$row['contact_no']."</td>
 						<td>
-							<form method=\"post\">
+							<form method=\"post\" action=\"purchaseOrder.php\">
 								<input class=\"btn btn-info\" type=\"submit\" name=\"supplier\" value=\"Generate\">
 								<input type=\"hidden\" value=".$row['supplier_id']." name=\"supplier_id\">
 							</form>
