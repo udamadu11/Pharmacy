@@ -10,6 +10,21 @@
 	include('include/connection.php');
 	if (isset($_POST['supplier'])) {
 				$supplier = $_POST['supplier_id'];
+
+				$supplier_search_query = "SELECT * FROM supplier WHERE supplier_id = '$supplier'";
+				$supplier_search_result = mysqli_query($con,$supplier_search_query);
+
+				while ($rows = mysqli_fetch_assoc($supplier_search_result)) {
+					echo "
+					<form method=\"post\">
+						<div class=\"form-group\">
+	    					<input type=\"text\" class=\"form-control\" name=\"quantity\" value=".$rows['supplier_name'].">
+	 					</div>
+					</form>
+
+					";
+				}
+
 				$search_id = "SELECT supplier.supplier_id,supplier.supplier_name, drug.drug_id,drug.drug_name,drug.price  FROM supplier INNER JOIN drug ON supplier.supplier_id = drug.supplier_id AND supplier.supplier_id = '$supplier'";
 				$query= mysqli_query($con,$search_id);
 				$pdate =date("y-d-m");
