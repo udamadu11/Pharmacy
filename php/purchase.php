@@ -13,11 +13,11 @@
 	<div class="col-md-6" style="margin-left: 300px;">
 		<form method="post" action="purchaseOrderGen.php">
 			<label>Invoice No: </label>
-			<input type="number" name="Invoice" class="form-control">
+			<input type="number" name="invoice" id="invoice" class="form-control">
 			<label>Date</label>
-			<input type="date" name="date" class="form-control">
+			<input type="date" name="date" id="date" class="form-control">
 			<label>Supplier</label>
-			<select class="form-control" name="Supplier">
+			<select class="form-control" name="supplier">
 				<?php 
 					$supplier = "SELECT * FROM supplier";
 					$result = mysqli_query($con,$supplier);
@@ -29,7 +29,7 @@
 				?>
 			</select>
 			<label>No of items</label>
-			<input type="number" name="item" class="form-control">
+			<input type="number" name="item" id="item" class="form-control">
 			<div style="margin-top: 20px;">
 				<input type="submit" name="generate" id="generate" onclick='generate()' value="Generate" class="btn btn-info" style="margin-left: 100px;width: 100px;">
 				<input type="reset" name="reset" value="reset" class="btn btn-danger" style="margin-left: 100px;width: 100px;">
