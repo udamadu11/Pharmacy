@@ -7,14 +7,27 @@ if (isset($_POST['generate'])) {
 	$item_no = $_POST['item'];
 }
 if (isset($_POST['create'])) {
-	$drug_name = $_POST['drug_name'];
+	$invoice = $_POST['invoice'];
 	$date = $_POST['date'];
-	$price = $_POST['price'];
-	$qty = $_POST['quantity'];
-	$total = $price * $qty;
+	$supplier = $_POST['supplier'];
+	$item_no = $_POST['item'];
+	$sub_total = 0;
+	for ($j=0; $j < $item_no; $j++) { 
+		$drug_name = $_POST['item'.$j];
+		$date = $_POST['date'];
+		$price = $_POST['price'.$j];
+		$qty = $_POST['quantity'.$j];
+		$total = $price * $qty;
+		$supplier = $_POST['supplier'];
+		$sub_total = $sub_total + $total;
+		$sql = "INSERT INTO purchase_item (supplier,drug_name,pdate,price,qty,total) VALUES ('$supplier','$drug_name','$date','$price','$qty','$total')";
+    	mysqli_query($con, $sql);
+	}
 
-	$sql = "INSERT INTO purchase_item (drug_name,pdate,price,qty,total) VALUES ('$drug_name','$date','$price','$qty','$total')";
-    mysqli_query($con, $sql);
+	$insert = "INSERT INTO porder(pdate,supplier,item_no,invoice,sub_total) VALUES ('$date','$supplier','$item_no','$invoice','$sub_total');";
+	mysqli_query($con,$insert);
+
+	
 }
 ?>
 <!DOCTYPE html>
@@ -66,23 +79,19 @@ if (isset($_POST['create'])) {
 					<th>Quantity</th>
 				</tr>
 					<?php 
-						$search_id = "SELECT supplier.supplier_id,supplier.supplier_name, drug.drug_id,drug.drug_name,drug.price  FROM supplier INNER JOIN drug ON supplier.supplier_id = drug.supplier_id AND supplier.supplier_id = '$supplier'";
-						$query= mysqli_query($con,$search_id);
-						if (mysqli_num_rows($query) > 0) {
-						while($row = mysqli_fetch_assoc($query)){
-							echo "<tr>
-									<td>".$row['drug_name']."</td>
-									<td>".$row['price']."</td>
-									<td>
-										<div class=\"form-group\">
-											<input type=\"hidden\" value=".$row['drug_name']." name=\"drug_name\">
-										<input type=\"hidden\" value=".$row['price']." name=\"price\">
-	    									<input type=\"number\" class=\"form-control\"  placeholder=\"Add Drug Quantity\" name=\"quantity\" min=\"1\">
-	 									</div>
-	 								</td>
-								</tr>";
+						for ($i=0; $i < $item_no; $i++) { 
+							echo "<tr> <td>";
+							$result = mysqli_query($con, "SELECT supplier.supplier_id,supplier.supplier_name, drug.drug_id,drug.drug_name,drug.price  FROM supplier INNER JOIN drug ON supplier.supplier_id = drug.supplier_id AND supplier.supplier_id = '$supplier';");
+							echo "<select name = 'item".$i."' class = 'form-control'>";
+							while($row = mysqli_fetch_assoc($result)){
+								echo " <option value = '".$row['drug_name']."'> ".$row['drug_name']."</option>";
+							}
+							echo "
+							</select>
+							</td> <td> <input type='number' min='1' name='quantity".$i."' class = 'form-control'>
+                            <td> <input type='number' min='0.00' name='price".$i."' class = 'form-control'> </td>
+							";
 						}
-}
 					?>
 				<tr>
 					<td></td>
