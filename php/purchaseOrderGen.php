@@ -27,7 +27,7 @@ if (isset($_POST['create'])) {
 	$insert = "INSERT INTO porder(pdate,supplier,item_no,invoice,sub_total) VALUES ('$date','$supplier','$item_no','$invoice','$sub_total');";
 	mysqli_query($con,$insert);
 
-	
+	 header("location:purchaseLetter.php");
 }
 ?>
 <!DOCTYPE html>
