@@ -22,12 +22,12 @@ if (isset($_POST['create'])) {
 		$sub_total = $sub_total + $total;
 		$sql = "INSERT INTO purchase_item (supplier,drug_name,pdate,price,qty,total) VALUES ('$supplier','$drug_name','$date','$price','$qty','$total')";
     	mysqli_query($con, $sql);
-    	$sql2 = "INSERT INTO purchase_temp (supplier,drug_name,pdate,price,qty,total) VALUES ('$supplier','$drug_name','$date','$price','$qty','$total')";
+    	$sql2 = "INSERT INTO purchase_temp (supplier,invoice,drug_name,pdate,price,qty,total) VALUES ('$supplier','$invoice','$drug_name','$date','$price','$qty','$total')";
     	mysqli_query($con, $sql2);
 	}
 
 	$insert = "INSERT INTO porder(pdate,supplier,item_no,invoice,sub_total) VALUES ('$date','$supplier','$item_no','$invoice','$sub_total');";
-	mysqli_query($con,$insert);
+	$ins = mysqli_query($con,$insert);
 
 	 header("location:purchaseLetter.php");
 }
@@ -108,16 +108,8 @@ if (isset($_POST['create'])) {
 					<td><input type="submit" name="create" value="Create" class="btn btn-primary btn-lg btn-block"></td>
 				</tr>
 			</table>
-	<?php 
-	if (isset($_POST['btn'])) {
-		$drug_id = $_POST['drug_id'];
-		$drug_name = $_POST['drug_name'];
-		$price = $_POST['price'];
-		$pdate = $_POST['pdate'];
-		$supplier_id = $_POST['supplier_id'];
-	}
-
-	?>
+	</div>
+</form>
 </div>
 </body>
 </html>

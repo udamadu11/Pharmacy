@@ -1,9 +1,16 @@
+<?php 
+    include ('include/connection.php');
+    $select = "SELECT * FROM purchase_temp";
+    $result = mysqli_query($con,$select);
 
+    $row = $result -> fetch_assoc();
+    $invoice  = $row['invoice'];
+    $date  = $row['pdate'];
+?>
 <!DOCTYPE>
 <html>
 <head>
     <title> Purchase Confirmation Letter | Inwa </title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
     <body class="font">
             <div class="container">
@@ -32,11 +39,9 @@
 
 
                     <td style="width: 200px;">
-                        Inwa Automotives <br>
-                        No. 156/3/H , <br>
-                        New Kandy Rd, <br>
-                        Bandarawatta, <br>
-                        Biyagama. <br>
+                        Pallawatta Pharmacy <br>
+                        Pallawattta Rd, <br>
+                        Pallawatta <br>
                     </td>
                 
                 </tr>
@@ -49,27 +54,27 @@
             </table>
 
             <table width="100%" >
-                <tr><td><strong>Item</strong></td><td><strong>Quantity</strong></td><td><strong>Unit Price</strong></td><td><strong>Discount</strong></td><td><strong>Total</strong></td></tr>
+                <tr><td><strong>Item</strong></td><td><strong>Quantity</strong></td><td><strong>Unit Price</strong></td><td><strong>Total</strong></td></tr>
                 <?php
                     include('include/connection.php');
-                    $sql2 = mysqli_query($con,"SELECT `id`, `price`, `qty`, `total` FROM `purchase_item` WHERE `id` = '$purch_id'");
+                    $sql2 = mysqli_query($con,"SELECT `pidd`, `price`, `qty`, `total` FROM `purchase_temp`");
 
                     $total  = 0 ;
 
                     while ($row = mysqli_fetch_row($sql2)) {
 
-                        $item = mysqli_fetch_row(mysqli_query($con, "SELECT `drug_name` FROM `purchase_item` WHERE `id` = '$row[0]'"))[0];
-                        $total = $total + $row[4];
+                        $item = mysqli_fetch_row(mysqli_query($con, "SELECT `drug_name` FROM `purchase_temp` WHERE `pidd` = '$row[0]'"))[0];
+                        $total = $total + $row[3];
                         
 
-                        echo "<tr> <td>".$item."</td> <td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]." </td><td>".$row[4]."</td></tr>";
+                        echo "<tr> <td>".$item."</td> <td>".$row[2]."</td><td>".$row[1]."</td><td>".$row[3]."</td></tr>";
 
                     }
                 ?>
 
 
             <tr style="height:2rem"></tr>
-            <tr><td></td><td></td><td></td><td><strong>Total</strong></td> <td><strong>RS. <?php echo $total; ?>.00</strong></td></tr>
+            <tr><td></td><td></td><td><strong>Total</strong></td> <td><strong>RS. <?php echo $total; ?>.00</strong></td></tr>
              <tr style="height:5rem"></tr>
 
             </table>
