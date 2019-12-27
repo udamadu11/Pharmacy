@@ -35,7 +35,7 @@
 			<div class="dropdown ">
 					<button class="drop-btn">Purchase order</button>
 					<div class="dropdown-content">
-						<a href="#">Send purchase order</a>
+						<a href="purchase.php" target="main">Send purchase order</a>
 						<a href="#">View purchase order</a>
 					</div>
 				</div><br><br>

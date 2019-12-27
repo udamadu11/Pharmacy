@@ -6,31 +6,32 @@
     $row = $result -> fetch_assoc();
     $invoice  = $row['invoice'];
     $date  = $row['pdate'];
+    $supplier  = $row['supplier'];
+
+    $select_supplier = "SELECT * FROM supplier WHERE supplier_id = '$supplier'";
+    $result_query = mysqli_query($con,$select_supplier);
+    $row1 = $result_query -> fetch_assoc();
+    $name = $row1['supplier_name'];
+    $location = $row1['location'];
 ?>
 <!DOCTYPE>
 <html>
 <head>
-    <title> Purchase Confirmation Letter | Inwa </title>
+    <title> Purchase Confirmation Letter</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 </head>
     <body class="font">
-            <div class="container">
+            <div class="container" style="margin-top: 100px;box-shadow: 0 0 15px 0 lightgrey;padding: 10px 10px;">
             <div class="row">
-                <div class="col-3 left-sidebar"></div>
-
-                <div class="col-3"></div>
-
-                <div class="col-6">      
-
-        <div class='printablearea'  id="printablearea">
-            <h2 style="text-align: center">Purchase Acceptance Confirmation</h2>
+        <div class='printablearea'  id="printablearea" style="margin-left: 120px;">
+                <div class="alert alert-info" role="alert" style="text-align: center;">
+                    <h2>Purchase Acceptance Confirmation</h2>
+                </div>
             <hr>
             <table border="0">
                 <tr>
-                    <td style="width: 200px"><?php echo $supplier_add[0];?><br>
-                        <?php echo $supplier_add[1];?>,<br>
-                        <?php echo $supplier_add[2];?>,<br>
-                        <?php echo $supplier_add[3];?>,<br>
-                        <?php echo $supplier_add[4];?>,<br>
+                    <td style="width: 200px"><?php echo $name;?><br>
+                        <?php echo $location;?>.<br>
                     </td>
                     <td style="width: 100px"></td>
                     <td style="width: 100px"></td>
@@ -53,7 +54,7 @@
                 <tr style="height:5rem"></tr>
             </table>
 
-            <table width="100%" >
+            <table width="100%"  class="table table-hover">
                 <tr><td><strong>Item</strong></td><td><strong>Quantity</strong></td><td><strong>Unit Price</strong></td><td><strong>Total</strong></td></tr>
                 <?php
                     include('include/connection.php');
@@ -93,11 +94,10 @@
 
             <br > <br> <br> <br>
         </div> 
-
-
-        
-            <div class="col-3 right sidebar">
-                <button class="btn btn-blue btn-large btn-wide" onclick="printDiv('printablearea')">Print</button>
+        </div>
+        <div class="row">
+            <div class="col-3" style="margin-left: 300px;margin-top: 20px;">
+                <button class="btn btn-info" onclick="printDiv('printablearea')" style="width: 200px;">Print</button>
                 <script type="text/javascript">
                     function printDiv(divName) {
                          var printContents = document.getElementById(divName).innerHTML;
@@ -111,6 +111,41 @@
                     }
                 </script>
             </div>
+            <div class="col-3" style="margin-left: 200px;margin-top: 20px;">
+               <form method="post">
+                   <input type="hidden" name="supplier" value=<?php $supplier ?>>
+                   <input type="submit" name="mail" value="Send Mail" class="btn btn-primary" style="width: 200px;">
+               </form>
+            </div>
         </div>
+        
     </body>
 </html>
+<?php 
+if (isset($_POST['mail'])) {
+    $select_mail = "SELECT email FROM supplier WHERE supplier_id = '$supplier'";
+    $email_result = mysqli_query($con,$select_mail);
+    $row2 = $email_result -> fetch_assoc();
+    $email = $row2['email'];
+    
+    if ($email_result) {
+            $to = $email;
+            $subject = "Notification of PHARMA-PRO To Purchase Order";
+            $message = "";
+
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            $headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+            $mail = mail($to,$subject,$message,$headers);
+            if ($mail) {
+                echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
+            }
+            else{
+                echo "<script>alert('Error.')</script>";
+            }
+            
+    }
+}
+
+?>
