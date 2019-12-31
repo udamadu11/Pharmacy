@@ -44,21 +44,19 @@
 					$row = mysqli_fetch_array($result);
 					$user_id = $row['id'];
 					$u_name = $row['u_name'];
-				?>
-				<?php 
-					if (isset($_GET['u_name'])) {
-						global $con;
-						$get_username = $_GET['u_name'];
-						$get_user = "SELECT * FROM employee WHERE u_name= '$get_username'";
+				
+					
+						$get_user = "SELECT * FROM employee WHERE u_name= '$u_name'";
 						$rUser = mysqli_query($con,$get_user);
 						$row_user = mysqli_fetch_array($rUser);
 
 						$username =$row_user['u_name'];
 						
-					}
+			
 					$total_msg = "SELECT * FROM users_chat WHERE(sender = '$u_name' AND receiver = '$username') OR(receiver = '$u_name' AND sender = '$username')";
 					$messege_result = mysqli_query($con,$total_msg);
 					$total = mysqli_num_rows($messege_result);
+					
 				?>
 			</div>
 			<div class="row">
