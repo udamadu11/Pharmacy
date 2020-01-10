@@ -96,8 +96,8 @@
         </div> 
         </div>
         <div class="row">
-            <div class="col-3" style="margin-left: 300px;margin-top: 20px;">
-                <button class="btn btn-info" onclick="printDiv('printablearea')" style="width: 200px;">Print</button>
+            <div class="col-3" style="margin-left: 500px;margin-top: 20px;">
+                <button class="btn btn-info" onclick="printDiv('printablearea')" style="width: 400px;">Print</button>
                 <script type="text/javascript">
                     function printDiv(divName) {
                          var printContents = document.getElementById(divName).innerHTML;
@@ -111,41 +111,7 @@
                     }
                 </script>
             </div>
-            <div class="col-3" style="margin-left: 200px;margin-top: 20px;">
-               <form method="post">
-                   <input type="hidden" name="supplier" value=<?php $supplier ?>>
-                   <input type="submit" name="mail" value="Send Mail" class="btn btn-primary" style="width: 200px;">
-               </form>
-            </div>
         </div>
         
     </body>
 </html>
-<?php 
-if (isset($_POST['mail'])) {
-    $select_mail = "SELECT email FROM supplier WHERE supplier_id = '$supplier'";
-    $email_result = mysqli_query($con,$select_mail);
-    $row2 = $email_result -> fetch_assoc();
-    $email = $row2['email'];
-    
-    if ($email_result) {
-            $to = $email;
-            $subject = "Notification of PHARMA-PRO To Purchase Order";
-            $message = "";
-
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-            $headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
-            $mail = mail($to,$subject,$message,$headers);
-            if ($mail) {
-                echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
-            }
-            else{
-                echo "<script>alert('Error.')</script>";
-            }
-            
-    }
-}
-
-?>

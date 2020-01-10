@@ -4,7 +4,7 @@
 <?php
     //Unauthorized Access Check
     checkSession();
-    if(!isset($_SESSION['type']) || $_SESSION['type'] != '1'){
+    if(!isset($_SESSION['u_name']) || $_SESSION['type'] != '1'){
        header("Location:login.php");
        exit();
        }
@@ -19,7 +19,7 @@
   		<frame src="top.php" border="0px">
   			<frameset cols="14%,86%" border="0px">
     			<frame src="sidebarOwner.php" border="0px">
-          <frame src="chatRoom.php" name="main" border="0px">
+          <frame src="ownerDashboard.php" name="main" border="0px">
   			</frameset>
 	</frameset>
 </head>

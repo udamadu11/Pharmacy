@@ -18,8 +18,8 @@
 </head>
 <body>
 <div class="sidenav">
-		<a href="chatRoom.php" target="main" style="margin-top: 20px;">Chat Room</a>
 		<a href="ownerDashboard.php" target="main" style="margin-top: 20px;">DashBoard</a>
+		<a href="chatRoom.php" target="main">Chat Room</a>
 		<a href="viewDrugs.php"	target="main">View drugs</a>
 		<a href="viewSupplier.php"	target="main">View Suppliers</a>
 		<div class="dropdown">
@@ -41,6 +41,7 @@
 					<a href="current_stock_report.php" target="main">Current Stock</a>
 				</div>
 		</div>
+
 	</div>
 </body>
 </html>

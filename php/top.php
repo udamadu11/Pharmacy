@@ -22,8 +22,7 @@
 								<a href =\"logout.php\" target=\"_top\" name=\"logout\">Log Out</a>
 						</form>";
 					//echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
-					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";
-					
+					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";	
 				}
 				//pharmacist
 				if("{$_SESSION['type']}" == '2'){
