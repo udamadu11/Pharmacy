@@ -4,7 +4,7 @@
 <?php
     //Unauthorized Access Check
     checkSession();
-    if(!isset($_SESSION['u_name']) || $_SESSION['type'] != '1'){
+    if(!isset($_SESSION['u_name'])){
        header("Location:login.php");
        exit();
        }

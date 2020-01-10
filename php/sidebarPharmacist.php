@@ -17,6 +17,7 @@
 <body>
 <div class="sidenav">
 		<a href="pharmacistDashboard.php" target="main">Dashbord</a>
+		<a href="chatRoom.php" target="main">Chat Room</a>
 		<a href="viewDrugs.php" target="main">View Drug</a>
 		<a href="searchDrug.php" target="main">Search Drug</a>
 		<a href="addPurchase.php" target="main">Purchase</a>
