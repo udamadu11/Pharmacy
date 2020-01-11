@@ -26,19 +26,25 @@
 				}
 				//pharmacist
 				if("{$_SESSION['type']}" == '2'){
-					echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
-					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";
-					
+					echo "<form method=\"post\" action=\"logout.php\">
+								<a href =\"logout.php\" target=\"_top\" name=\"logout\">Log Out</a>
+						</form>";
+					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";	
 				}
 				//storekeeper
 				if("{$_SESSION['type']}" == '3'){
-					echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
-					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";
+					echo "<form method=\"post\" action=\"logout.php\">
+								<a href =\"logout.php\" target=\"_top\" name=\"logout\">Log Out</a>
+						</form>";
+				
+					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";	
 				}
 				//admin
 				if("{$_SESSION['type']}" == '4'){
-					echo "<a href =\"logout.php\" target=\"_top\">Log Out</a>";
-					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";
+					echo "<form method=\"post\" action=\"logout.php\">
+								<a href =\"logout.php\" target=\"_top\" name=\"logout\">Log Out</a>
+						</form>";
+					echo "<p>You are Logged in as ". $_SESSION['u_name'] ."</p>";	
 				}
 
 			}
