@@ -87,7 +87,7 @@
 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
-			$mail = mail($to,$subject,$message,$headers);
+			$mail = mail($to,$subject,$message,$headers) or die("Your message was not sent");;
 			if ($mail) {
 				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
 			}

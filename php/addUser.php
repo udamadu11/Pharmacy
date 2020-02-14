@@ -13,7 +13,7 @@
 		$nic=$_POST['nic'];
 		$password=$_POST['password'];
 		$type=$_POST['type'];
-
+		$passwordHash= md5($password);
 		if (empty($_POST['f_name'])||empty($_POST['l_name'])||empty($_POST['u_name'])||empty($_POST['email'])||empty($_POST['telephone'])||empty($_POST['nic'])||empty($_POST['password'])||empty($_POST['type'])) {
 			
 			//check first Name:
@@ -63,7 +63,7 @@
 
 		else{
 			//Insert Query of users add
-			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$password','$type')";
+			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$passwordHash','$type')";
 			$sqlResult = mysqli_query($con, $sql);
 			//$massage = base64_encode(urlencode("Successfully Added"));
 			//header('Location:addUser.php?msg=' .$massage);

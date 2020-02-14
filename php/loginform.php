@@ -6,8 +6,9 @@
 		
 		$name = $_POST['name'];
 		$password = $_POST['password'];
+		$passwordHash = md5($password);
 		//Select user name and password 
-		$sql = "SELECT * FROM employee WHERE u_name='$name' AND password='$password'";
+		$sql = "SELECT * FROM employee WHERE u_name='$name' AND password='$passwordHash'";
 		//Performs a query on database
 		$res = mysqli_query($con, $sql);
 		$check_user = mysqli_num_rows($res);

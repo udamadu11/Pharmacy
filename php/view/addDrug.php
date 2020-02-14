@@ -30,17 +30,16 @@
 			$mail = mail($to,$subject,$message,$headers);
 			if ($mail) {
 				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
-				echo "<script>window.open('addDrug.php','_self')</script>";
 			}
 			else{
 				echo "<script>alert('Error.')</script>";
-				echo "<script>window.open('addDrug.php','_self')</script>";
 			}
 			
     		
 		}
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

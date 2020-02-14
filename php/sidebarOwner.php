@@ -19,9 +19,8 @@
 <body>
 <div class="sidenav">
 		<a href="ownerDashboard.php" target="main" style="margin-top: 20px;">DashBoard</a>
-		<a href="chatRoom.php" target="main">Chat Room</a>
-		<a href="viewDrugs.php"	target="main">View drugs</a>
-		<a href="viewSupplier.php"	target="main">View Suppliers</a>
+		<a href="ownerViewDrug.php"	target="main">Drugs</a>
+		<a href="ownerViewSupplier.php"	target="main">Suppliers</a>
 		<div class="dropdown">
 			<button class="drop-btn">Approval List</button>
 				<div class="dropdown-content">
@@ -33,14 +32,15 @@
 		</div>
 		<br><br>
 		<a href="creditOwnerNotification.php" target="main" style="margin-top: 20px;">Credit periods notification</a>
-		<a href="viewEmployee.php" target="main">View Employee Details</a>
+		<a href="viewEmployee.php" target="main">Employees</a>
 		<div class="dropdown">
-			<button class="drop-btn">View Reports</button>
+			<button class="drop-btn">Reports</button>
 				<div class="dropdown-content">
 					<a href="fastselling.php" target="main">Selling Reports</a>
 					<a href="current_stock_report.php" target="main">Current Stock</a>
 				</div>
 		</div>
+		<a href="chatRoom.php" target="main" style="margin-top: 50px;">Chat Room</a>
 
 	</div>
 </body>
