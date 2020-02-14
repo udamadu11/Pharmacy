@@ -59,27 +59,27 @@
 // 									<input type=\"hidden\" name=\"drugId\" value=".$row['drug_id'].">
 // 									<input type=\"hidden\" name=\"drugName\" value=".$row['drug_name'].">
 // 									</form>
-// if (isset($_POST['send'])) {
-// 	$druId = $_POST['drugId'];
-// 	$druName = $_POST['drugName'];
-// 			//Send mail to Pharmacist to fill reoder level notification
-// 			$to = "udaramadumalka3@gmail.com";
-// 			$subject = "NOTIFICATION OF PHARMA-PRO LOW DRUG LIST";
-// 			$message = "<a href='http://localhost/Pharmacy/php/lowDrugList.php'>
-// 			Low Drug Id : $druId & Low Drug Name : $druName</a>";
+if (isset($_POST['send'])) {
+	$druId = $_POST['drugId'];
+	$druName = $_POST['drugName'];
+			//Send mail to Pharmacist to fill reoder level notification
+			$to = "udaramadumalka3@gmail.com";
+			$subject = "NOTIFICATION OF PHARMA-PRO LOW DRUG LIST";
+			$message = "<a href='http://localhost/Pharmacy/php/lowDrugList.php'>
+			Low Drug Id : $druId & Low Drug Name : $druName</a>";
 
-// 			$headers = "MIME-Version: 1.0" . "\r\n";
-// 			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-// 			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
-// 			$mail = mail($to,$subject,$message,$headers);
-// 			if ($mail) {
-// 				echo "<script>alert('Thank You..!..We have sent an email to owner.')</script>";
-// 			}
-// 			else{
-// 				echo "<script>alert('Error.')</script>";
-// 			}
-// }
+			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+			$mail = mail($to,$subject,$message,$headers);
+			if ($mail) {
+				echo "<script>alert('Thank You..!..We have sent an email to owner.')</script>";
+			}
+			else{
+				echo "<script>alert('Error.')</script>";
+			}
+}
 ?>
 </table>
 </body>
