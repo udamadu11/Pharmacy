@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View Drug Owner</title>
+	<title>View Drugs Owner</title>
 	<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
 </head>
 <body>
