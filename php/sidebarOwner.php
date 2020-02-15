@@ -21,6 +21,7 @@
 		<a href="ownerDashboard.php" target="main" style="margin-top: 20px;">DashBoard</a>
 		<a href="ownerViewDrug.php"	target="main">Drugs</a>
 		<a href="ownerViewSupplier.php"	target="main">Suppliers</a>
+		<a href="viewEmployee.php" target="main">Employees</a>
 		<div class="dropdown">
 			<button class="drop-btn">Approval List</button>
 				<div class="dropdown-content">
@@ -32,7 +33,6 @@
 		</div>
 		<br><br>
 		<a href="creditOwnerNotification.php" target="main" style="margin-top: 20px;">Credit periods notification</a>
-		<a href="viewEmployee.php" target="main">Employees</a>
 		<div class="dropdown">
 			<button class="drop-btn">Reports</button>
 				<div class="dropdown-content">

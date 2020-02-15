@@ -15,11 +15,11 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<frameset rows="8%,92%" border="-5px">
-  		<frame src="top.php" border="-5px">
-  			<frameset cols="14%,86%" border="-5px">
-    			<frame src="sidebarAdmin.php" border="-5px">
-          <frame src="addUser.php" name="main" border="-5px">
+	<frameset rows="8%,92%" border="0px">
+  		<frame src="top.php" border="0px">
+  			<frameset cols="14%,86%" border="0px">
+    			<frame src="sidebarAdmin.php" border="0px">
+          <frame src="viewEmployee.php" name="main" border="0px">
   			</frameset>
 	</frameset>
 </head>

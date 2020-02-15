@@ -5,15 +5,20 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
-		<table class="table table-hover" style="margin-top: 100px;">
-			<tr>
+	<div class="container"  style="margin-top: 100px;">
+		<div class="alert alert-info" role="alert" style="font-weight:bold;font-size: 24px;">
+  		<center>List of Drugs</center>
+		</div>
+		<table class="table table-hover">
+			<tr style="font-size: 16px;padding: 10 10px;background-color: lightblue;font-weight: bold;">
 				<td>Drug Name</td>
 				<td>Brand</td>
 				<td>Category</td>
 				<td>Supplier_id</td>
 				<td>Reorder Level</td>
 				<td>Price</td>
+				<td></td>
+				<td>Action</td>
 			</tr>
 			<?php
 				include('include/connection.php');
@@ -24,11 +29,11 @@
 						echo "
 						<tr>
 							<td>".$row['drug_name']."</td>
-							<td>".$row['category']."</td>
-							<td>".$row['reorder_level']."</td>
-							<td>".$row['supplier_id']."</td>
-							<td>".$row['price']."</td>
 							<td>".$row['brand']."</td>
+							<td>".$row['category']."</td>
+							<td>".$row['supplier_id']."</td>
+							<td>".$row['reorder_level']."</td>
+							<td>".$row['price']."</td>
 							<td>
 								<form method=\"post\">
 								<input type=\"hidden\" name=\"remove\" value=".$row['drug_id']."> 

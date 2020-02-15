@@ -73,11 +73,11 @@
         $sqlQuery = mysqli_query($con,$EditQuery);
         if ($sqlQuery) {
             echo "<script>alert('Successfuly Upadated...')</script>";
-            echo "<script>window.open('editUser.php','_self')</script>";
+            echo "<script>window.open('viewEmployee.php','_self')</script>";
         }
         else{
             echo "<script>alert('Unsuccessfuly Upadated...')</script>";
-            echo "<script>window.open('editUser.php','_self')</script>";
+            echo "<script>window.open('viewEmployee.php','_self')</script>";
         }
         }
         

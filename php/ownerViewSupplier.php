@@ -6,9 +6,12 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 </head>
 <body>
-	<div class="container" style="margin-top: 100px;">
-<table class="table">
-	<tr>
+	<div class="container"  style="margin-top: 100px;">
+	<div class="alert alert-primary" role="alert" style="font-weight: bold;font-size: 24px;">
+  		<center>List of Suppliers</center>
+	</div>
+	<table class="table table-hover">
+	<tr style="font-size: 16px;font-weight: bold;background-color: lightblue;padding: 10 10px;">
 		<th>Supplier Name</th>
 		<th>Location</th>
 		<th>Email</th>
@@ -27,7 +30,6 @@
 			while ($row = $result-> fetch_assoc()) {//Fetch a result row as an associative array
 				//Show Supplier data as table with edit and delte button
 				echo "<tr>
-					<td>".$row['supplier_id']."</td>
 					<td>".$row['supplier_name']."</td>
 					<td>".$row['location']."</td>
 					<td>".$row['email']."</td>

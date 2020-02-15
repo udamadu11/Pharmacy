@@ -17,10 +17,7 @@
 </head>
 <body>
 <div class="sidenav">
-		<a href="addUser.php" target="main">Add User</a>
-		<a href="viewUser.php" target="main">View User</a>
-		<a href="removeUser.php" target="main">Remove User</a>
-		<a href="editUser.php" target="main">Reset Password</a>
+		<a href="viewEmployee.php" target="main">Users</a>
 		<a href="chatRoom.php" target="main">Chat Room</a>
 	</div>
 </body>
