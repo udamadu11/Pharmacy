@@ -6,7 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
 </head>
 <body>
-	<div class="container" style="margin-top: 100px;">
+	<div class="container" style="margin-top: 50px;">
+		<div class="alert alert-info" role="alert" style="font-weight:bold;font-size: 24px;">
+  		<center>List of Supplier</center>
+		</div>
+		<hr  style="margin-top:10px;">
+		<a href="addSupplier.php"><button class="btn btn-success" style="margin-left:935px;">Add New Supplier</button></a>
+		<hr  style="margin-top:10px;">
 <table class="table">
 	<tr>
 		<th>Supplier Id</th>
@@ -37,7 +43,7 @@
 					<td>
 						<form method=\"post\" action=\"editSupplier.php\">
 						<input type=\"hidden\" name=\"edit\" value=".$row['supplier_id'].">
-						<input type=\"submit\" name=\"submit1\" class=\"btn btn-primary\" value=\"Edit\" style=\"width:70px;\">
+						<input type=\"submit\" name=\"submit1\" class=\"btn btn-primary\" value=\"Edit\" style=\"width:100px;\">
 						</form>
 					</td>
 					<td>
@@ -52,8 +58,6 @@
 		} 
 	
 		echo "</table>";
-		echo "<hr  style=\"margin-top:50px;\">";
-		echo"<a href=\"addSupplier.php\"><button class=\"btn btn-success\" style=\"margin-left:935px;\">Add New Supplier</button></a>";
 		
 		if(isset($_POST['submit2'])){ 
 

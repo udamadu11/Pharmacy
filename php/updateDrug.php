@@ -8,7 +8,11 @@
 </head>
 <body>
 	<div class="container" style="margin-top: 50px">
-		<table class="table">
+		<div class="alert alert-info" role="alert" style="font-weight:bold;font-size: 24px;">
+  		<center>List of Drugs</center>
+		</div>
+		<a href="AddDrug.php"><button class="btn btn-success" style="margin-left:935px;margin-bottom: 20px;">Add New Drug</button></a>
+		<table class="table table-hover">
 		<tr>
 			<th>Drug Id</th>
 			<th>Drug Name</th>
@@ -17,6 +21,7 @@
 			<th>Supplier Id</th>
 			<th>Price</th>
 			<th>Brand</th>
+			<th>Edit</th>
 			<th>Remove</th>
 		</tr>
 		<?php
@@ -36,9 +41,15 @@
 							<td>".$row['price']."</td>
 							<td>".$row['brand']."</td>
 							<td>
+								<form method=\"post\" action=\"editDrugPharmacist.php\">
+								<input type=\"hidden\" name=\"edit\" value=".$row['drug_id']."> 
+								<input type=\"submit\" name=\"editDrug\" value=\"Edit\" class=\"btn btn-info\" style=\"width:100px;\">
+								</form>
+							</td>
+							<td>
 								<form method=\"post\">
 								<input type=\"hidden\" name=\"remove\" value=".$row['drug_id']."> 
-								<input type=\"submit\" name=\"removeDrug\" value=\"Remove\" class=\"btn btn-danger\">
+								<input type=\"submit\" name=\"removeDrug\" value=\"Remove\" class=\"btn btn-danger\" style=\"width:100px;\">
 								</form>
 							</td>
 						</tr>";

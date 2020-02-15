@@ -17,28 +17,11 @@
 <body>
 <div class="sidenav">
 		<a href="pharmacistDashboard.php" target="main">Dashbord</a>
-		<a href="chatRoom.php" target="main">Chat Room</a>
-		<a href="viewDrugs.php" target="main">View Drug</a>
+		<a href="issueDrug.php" target="main">Issue Drugs</a>
+		<a href="updateDrug.php" target="main">Drugs</a>
+		<a href="removeSupplier.php" target="main">Suppliers</a>
 		<a href="searchDrug.php" target="main">Search Drug</a>
 		<a href="addPurchase.php" target="main">Purchase</a>
-		<a href="issueDrug.php" target="main">Issue Drugs</a>
-		<a href="viewSupplier.php" target="main">View Suppliers</a>
-		<div class="dropdown">
-					<button class="drop-btn" >Update Suppliers</button>
-					<div class="dropdown-content">
-						<a href="addSupplier.php" target="main">Add Supplier</a>
-						<a href="removeSupplier.php" target="main">remove Supplier</a>
-					</div>
-				</div>	
-				<br><br>
-		<div class="dropdown">
-					<button class="drop-btn" >Update Drugs</button>
-					<div class="dropdown-content">
-						<a href="addDrug.php" target="main">Add New Drug</a>
-						<a href="updateDrug.php" target="main">Remove Drug</a>
-					</div>
-				</div>	
-				<br><br>
-	</div>
+		<a href="chatRoom.php" target="main">Chat Room</a>
 </body>
 </html>
