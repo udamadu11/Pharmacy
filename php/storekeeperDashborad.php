@@ -63,15 +63,19 @@ include('include/session.php');
 				</div>
 			</div>
 		</div>
-		<div>
+		<div class="container">
 			<div class="row">
+				<div class="col-md-4">
+					<div id="piechart" style="width: 400px; height: 400px;margin-top: 50px;"></div>
+				</div>
 				<div class="col-md-8">
-					<div id="columnchart_material" style="width: 1000px; height: 400px;margin-top: 50px;"></div>
-				</div>
-				<div class="col-md-3" style="margin-top: 120px;">
-				</div>
+					<div id="columnchart_material" style="width: 600px; height: 400px;margin-top: 50px;margin-left: 100px;"></div>
 				</div>
 			</div>
+			</div>
+
+		</div>
+
 			<script type="text/javascript">
 				<?php
 				//Select drug name and current stock from stock table
@@ -79,10 +83,39 @@ include('include/session.php');
 				//Performs a query on database
 					$selectStock = mysqli_query($con,$queryStock);
 
+					$result_fast_move = mysqli_query($con, "SELECT i.drug_name AS 'name',SUM(iv.qty) AS 'qtys' FROM invoice_items iv LEFT JOIN batch i ON iv.drug_id=i.drug_id WHERE iv.qty>0 GROUP BY iv.drug_id");
+
 				 ?>
 				 //Google developoer bar chart
 		      google.charts.load('current', {'packages':['bar']});
 		      google.charts.setOnLoadCallback(drawChart);
+
+		      	//pie chart
+		      google.charts.load('current', {'packages': ['corechart']});
+    		  google.charts.setOnLoadCallback(drawChartFastMoving);
+
+
+    		  // Draw the chart and set the chart values
+	    	function drawChartFastMoving() {
+	        var data = new google.visualization.DataTable();
+	        data.addColumn('string', 'Item');
+	        data.addColumn('number', 'Populartiy');
+
+	        <?php
+				while ($row = mysqli_fetch_row($result_fast_move)) {
+   			 ?>
+            data.addRows([
+                ['<?php echo $row[0]; ?>', <?php echo $row[1]; ?>]
+            ]);
+			<?php } ?>
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title': 'Selling Items', 'width': 500, 'height': 500};
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+
+	    	}
 
 		      function drawChart() {
 		        var data = new google.visualization.DataTable();
@@ -108,26 +141,6 @@ include('include/session.php');
 		        chart.draw(data, google.charts.Bar.convertOptions(options));
 		      }
     </script>
-		</div>
-	</div>
-	<?php 
-  include('include/connection.php');
-  $sql = "SELECT drug.drug_id,drug.drug_name,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id";
-  $query= mysqli_query($con,$sql);
-  if (mysqli_num_rows($query) > 0) {
-  while($row = mysqli_fetch_assoc($query)){
-echo"
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
-   <script type='text/javascript'>
-    $(document).ready(function(){
-Swal.fire('Stock Alert')
-    })
-     
-   </script>";
-      }
-    }
-
-?>
-		
+</div>	
 </body>
 </html>
