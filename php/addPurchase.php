@@ -1,4 +1,12 @@
-<?php include('include/connection.php'); ?><!-- include database connection -->
+<?php include('include/connection.php'); ?><!-- Include database connection -->
+<?php include('include/session.php');
+	//Unauthorized Access Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+       header("Location:login.php");
+       exit();
+       }
+ ?><!-- Include session -->
 <?php 
 	if(isset($_POST['submit'])){ 
 

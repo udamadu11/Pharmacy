@@ -32,7 +32,13 @@ while($row = mysqli_fetch_assoc($result)){
 			$ex_date = $row['ex_date'];
 			$purchase_id = $row['purchase_id'];
 			$available_quantity = $row['available_quantity'];
-			echo "
+
+		$sql = "INSERT INTO expiery (batch_no,drug_name,brand,ex_date,purchase_id,available_quantity) VALUES ('$batch_no','$drug_name','$brand','$ex_date','$purchase_id','$available_quantity')";
+		$result1 = mysqli_query($con, $sql); 
+
+		
+
+	echo "
 			
 
 	<div class=\"card\" style=\"width:16rem; float:left;margin-left:100px;margin-top:40px;\">
@@ -48,13 +54,47 @@ while($row = mysqli_fetch_assoc($result)){
     <li class=\"list-group-item\"> Available Quantity : $available_quantity</li>
   
   </ul>
-</div>
+  							<form method=\"post\">
+									<input type=\"hidden\" name=\"delete\" value=".$row['batch_no'].">
+									<input type=\"submit\" name=\"submit2\" class=\"btn btn-danger btn-lg btn-block\" value=\"Delete\">
+					</form>
+	</div>";
+	
+			}
 
-			";
+if(isset($_POST['submit2'])){ 
+		
+		$b_n = 
+		$delete_query ="DELETE FROM batch WHERE batch_no = '$batch_no' ";
+		$result1 = mysqli_query($con,$delete_query);
+		if($result1){
+			
+				echo "<script>alert('Removed')</script>";
+			}
+			else{
+				echo "<script>alert('Error.')</script>";
+			}
+
 		}
+
 }
+
+	
+
 
 ?>
 
 </body>
 </html>
+
+<!-- $batch_no = $_POST['batch_no']
+		$drug_name = $_POST['drug_name'];
+		$brand = $_POST['brand'];
+		$ex_date = $_POST['ex_date'];
+		$purchase_id = $_POST['purchase_id'];
+		$available_quantity = $_POST['available_quantity'];
+		//insert expiry data to temparary table to approving from owner  -->
+
+		<!-- $sql = "INSERT INTO Expiery (batch_no,drug_name,brand,ex_date,purchase_id,available_quantity) VALUES ('$batch_no','$drug_name','$brand','$ex_date','$purchase_id','$available_quantity')";
+		//performs a query on the table
+		$result1 = mysqli_query($con, $sql); -->

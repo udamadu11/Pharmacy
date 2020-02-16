@@ -36,7 +36,7 @@ include('include/session.php');
 				    		echo $_SESSION['u_name'];
 				    	}
 				    ?></p>
-				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Pharmacist</p>
+				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Nimal Jayathilaka</p>
 				  </div>
 				</div>
 			</div>

@@ -36,7 +36,7 @@ include('include/session.php');
 				    		echo $_SESSION['u_name'];
 				    	}
 				    ?></p>
-				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Storekeeper</p>
+				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Sahan Perera</p>
 				  </div>
 				</div>
 			</div>
@@ -144,3 +144,30 @@ include('include/session.php');
 </div>	
 </body>
 </html>
+<?php 
+	//Retrive data from drug table and stock table using inner join
+	$sql = "SELECT drug.drug_id,drug.drug_name,drug.supplier_id,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id";
+	//Performs a query on databse
+	$query= mysqli_query($con,$sql);
+	//Return number of rows in result set
+	if (mysqli_num_rows($query) > 0) {
+	//Fetch result row as an associative array
+	while($row = mysqli_fetch_assoc($query)){
+	$reoderLevel = $row['reorder_level'];
+	$currentStock = $row['current_stock'];
+
+	//if current stock less than or equal to reorder level generate alert  
+	if ($currentStock <= $reoderLevel) {
+				echo"
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
+   <script type='text/javascript'>
+    $(document).ready(function(){
+Swal.fire('Stock Alert')
+    })
+     
+   </script>";
+	}
+}
+}
+
+?>

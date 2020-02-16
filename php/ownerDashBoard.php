@@ -47,7 +47,7 @@
 				    		echo $_SESSION['u_name'];
 				    	}
 				    ?></p>
-				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Owner</p>
+				    <p class="card-text"><i class="fa fa-user">&nbsp;</i>Lalith Liyanage</p>
 				    <?php 
 				    	include('include/connection.php');
 				    	$ownerQuery = "SELECT  * FROM employee";

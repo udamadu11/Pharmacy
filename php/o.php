@@ -11,12 +11,11 @@
 		<h2>Purchase Order Generation</h2>
 	</div>
 	<div class="col-md-6" style="margin-left: 300px;">
-		<form method="post" action="purchaseOrder.php">
+		<form method="post" action="or.php">
 			<label>Invoice No: </label>
 			<input type="number" name="invoice" id="invoice" class="form-control">
 			<label>Date</label>
-			<?php $today = date('Y-m-d'); ?>
-			<input type="date" name="date" id="date" value = "<?php echo $today;?>" class="form-control" readonly>
+			<input type="date" name="date" id="date" class="form-control">
 			<label>Supplier</label>
 			<select class="form-control" name="supplier">
 				<?php 
@@ -29,8 +28,6 @@
 					}
 				?>
 			</select>
-			<label>No of items</label>
-			<input type="number" name="item" id="item" class="form-control">
 			<div style="margin-top: 20px;">
 				<input type="submit" name="generate" id="generate" onclick='generate()' value="Generate" class="btn btn-info" style="margin-left: 100px;width: 100px;">
 				<input type="reset" name="reset" value="reset" class="btn btn-danger" style="margin-left: 100px;width: 100px;">

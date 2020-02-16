@@ -47,6 +47,9 @@
 									<td>".$row['current_stock']."</td>
 									<td>
 									<form method=\"post\" action=\"generateOrder.php\">
+										<input type=\"number\" class=\"form-control\"  placeholder=\"Quantity\" name=\"quantity\" min=\"1\">
+									</td>
+									<td>
 										<input type=\"hidden\" name=\"drug_id\" value=".$row['drug_id'].">
 										<input type=\"hidden\" name=\"supplier_id\" value=".$row['supplier_id'].">
 										<input type=\"submit\" name=\"order\" value=\"Order\" class=\"btn btn-primary\">
@@ -56,7 +59,14 @@
 							</tr>
 					</div>
 				";
-
+				echo"
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@8.17.1/dist/sweetalert2.all.min.js'></script>
+   <script type='text/javascript'>
+    $(document).ready(function(){
+Swal.fire('Stock Alert')
+    })
+     
+   </script>";
 	}
 }
 // $supplier = "SELECT * FROM supplier WHERE supplier_id = '$supplier_id'";

@@ -1,5 +1,14 @@
-<?php 
-include('include/connection.php');
+<?php include('include/session.php') ?>
+<?php include('include/connection.php') ?>
+
+<?php
+    //Unauthorized Access_Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '1'){
+       header("Location:login.php");
+       exit();
+       }
+
 ?>
 <!DOCTYPE html>
 <html>

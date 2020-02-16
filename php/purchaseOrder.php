@@ -17,17 +17,12 @@ if (isset($_POST['create'])) {
 		$date = $_POST['date'];
 		$price = $_POST['price'.$j];
 		$qty = $_POST['quantity'.$j];
-		$total = $price * $qty;
 		$supplier = $_POST['supplier'];
-		$sub_total = $sub_total + $total;
-		$sql = "INSERT INTO purchase_item (supplier,drug_name,pdate,price,qty,total) VALUES ('$supplier','$drug_name','$date','$price','$qty','$total')";
+		$sql = "INSERT INTO purchase_item (supplier,drug_name,pdate,qty) VALUES ('$supplier','$drug_name','$date','$qty')";
     	mysqli_query($con, $sql);
-    	$sql2 = "INSERT INTO purchase_temp (supplier,invoice,drug_name,pdate,price,qty,total) VALUES ('$supplier','$invoice','$drug_name','$date','$price','$qty','$total')";
+    	$sql2 = "INSERT INTO purchase_temp (supplier,invoice,drug_name,pdate,qty) VALUES ('$supplier','$invoice','$drug_name','$date','$qty')";
     	mysqli_query($con, $sql2);
 	}
-
-	$insert = "INSERT INTO porder(pdate,supplier,item_no,invoice,sub_total) VALUES ('$date','$supplier','$item_no','$invoice','$sub_total');";
-	$ins = mysqli_query($con,$insert);
 
 	 header("location:purchaseLetter.php");
 }
@@ -40,6 +35,48 @@ if (isset($_POST['create'])) {
 </head>
 <body>
 <div class="container" style="margin-top: 100px;">
+			<div class="alert alert-info" role="alert" style="font-weight:bold;font-size: 24px;">
+  		<center>List of Low Drugs</center>
+		</div>
+		<table class="table table-hover">
+							<tr>
+									<th>Drug Id</th>
+									<th>Drug Name</th>
+									<th>supplier Id</th>
+									<th>Reoder Level</th>
+									<th>Current Stock</th>
+							</tr>
+<?php 
+	//Retrive data from drug table and stock table using inner join
+	$sql = "SELECT drug.drug_id,drug.drug_name,drug.supplier_id,drug.reorder_level, stock.current_stock FROM drug INNER JOIN stock ON drug.drug_id = stock.drug_id WHERE drug.supplier_id = '$supplier'";
+	//Performs a query on databse
+	$query= mysqli_query($con,$sql);
+	//Return number of rows in result set
+	if (mysqli_num_rows($query) > 0) {
+	//Fetch result row as an associative array
+	while($row = mysqli_fetch_assoc($query)){
+	$drugId = $row['drug_id'];
+	$drugName = $row['drug_name'];
+	$reoderLevel = $row['reorder_level'];
+	$currentStock = $row['current_stock'];
+
+	//if current stock less than or equal to reorder level generate alert  
+	if ($currentStock <= $reoderLevel) {
+		echo "
+					<tr>
+									<td>".$row['drug_id']."</td>
+									<td>".$row['drug_name']."</td>
+									<td>".$row['supplier_id']."</td>
+									<td>".$row['reorder_level']."</td>
+									<td>".$row['current_stock']."</td>
+							</tr>
+					</div>
+				";
+	}
+}
+}
+?>
+</table>
 	<div class="alert alert-info" role="alert" style="text-align: center;">
 		<h2>Purchase Order Generation</h2>
 	</div>
@@ -77,7 +114,6 @@ if (isset($_POST['create'])) {
 			<table class="table table-hover">
 				<tr>
 					<th>Drug Name</th>
-					<th>Price</th>
 					<th>Quantity</th>
 				</tr>
 					<?php 
@@ -91,13 +127,8 @@ if (isset($_POST['create'])) {
 							echo "
 							</select>
 							</td> ";
-							echo "<td><select name = 'price".$i."' class = 'form-control'>";
-							$result1 = mysqli_query($con, "SELECT supplier.supplier_id,supplier.supplier_name, drug.drug_id,drug.drug_name,drug.price  FROM supplier INNER JOIN drug ON supplier.supplier_id = drug.supplier_id AND supplier.supplier_id = '$supplier';");
-							while($row1 = mysqli_fetch_assoc($result1)){
-								echo " <option value = '".$row1['price']."'> ".$row1['price']."</option>";
-							}
 							echo"
-							</td></select><td> <input type='number' min='1' name='quantity".$i."' class = 'form-control'>
+							<td> <input type='number' min='1' name='quantity".$i."' class = 'form-control'></td>
                   
 							";
 						}

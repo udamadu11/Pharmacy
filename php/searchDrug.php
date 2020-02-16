@@ -1,5 +1,12 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php include('include/connection.php'); ?><!-- Include database connection -->
+<?php include('include/session.php');
+	//Unauthorized Access Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+       header("Location:login.php");
+       exit();
+       }
+ ?><!-- Include session -->
 <!DOCTYPE html>
 <html>
 <head>

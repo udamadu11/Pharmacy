@@ -1,5 +1,12 @@
-<?php require_once('include/connection.php'); ?>
-<?php require_once('include/session.php'); ?>
+<?php include('include/connection.php'); ?><!-- Include database connection -->
+<?php include('include/session.php');
+	//Unauthorized Access Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+       header("Location:login.php");
+       exit();
+       }
+ ?><!-- Include session -->
 <!DOCTYPE html>
 <html> 
 <head>
@@ -67,50 +74,62 @@
 </html>
 <?php
 	
-	if(isset($_POST['removeDrug'])){ 
-		//Select All Data from drug table by drug id
-		$drug_id = $_POST['remove'];
-		$select = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
-		//Performs a query on Database
-		$result1 = $con->query($select);
+
+	if (isset($_POST['removeDrug'])) {
+	$drug_id = $_POST['remove'];
+	//Delete Data from tem4(temporary) table by drug id
+	$delete_query ="DELETE FROM drug WHERE drug_id = '$drug_id' ";
+	//Performs a query on database
+	$delete_result = mysqli_query($con,$delete_query);
+
+	if ($delete_result) {
+			echo "<script>alert('Delete Successfully..')</script>";
+			echo "<script>window.open('updateDrug.php','_self')</script>";
 		
-		if (mysqli_num_rows($result1) > 0) {//Return the number of rows in result set
-		while ($row = mysqli_fetch_assoc($result1)) {//Fetch a result row as an associative array
 
-		$drug_id=$row['drug_id'];
-		$drug_name=$row['drug_name'];
-		$brand=$row['brand'];
-		$category=$row['category'];
-		$supplier_id=$row['supplier_id'];
-		$reorder_level=$row['reorder_level'];
-		$price=$row['price'];
-		//Insert to drug data to temporary table to approve
-		$sql = "INSERT INTO tem4 (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
-		$result = mysqli_query($con, $sql);
+		//Select All Data from drug table by drug id
+		// $drug_id = $_POST['remove'];
+		// $select = "SELECT * FROM drug WHERE drug_id = '$drug_id'";
+		// //Performs a query on Database
+		// $result1 = $con->query($select);
+		
+		// if (mysqli_num_rows($result1) > 0) {//Return the number of rows in result set
+		// while ($row = mysqli_fetch_assoc($result1)) {//Fetch a result row as an associative array
 
-		if($result){
-			//Send mail after inserting data to tem table
-			$to = "udaramadumalka3@gmail.com";
-			$subject = "Notification of PHARMA-PRO To REMOVE DRUG";
-			$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
+		// $drug_id=$row['drug_id'];
+		// $drug_name=$row['drug_name'];
+		// $brand=$row['brand'];
+		// $category=$row['category'];
+		// $supplier_id=$row['supplier_id'];
+		// $reorder_level=$row['reorder_level'];
+		// $price=$row['price'];
+		// //Insert to drug data to temporary table to approve
+		// $sql = "INSERT INTO tem4 (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
+		// $result = mysqli_query($con, $sql);
 
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		// if($result){
+		// 	//Send mail after inserting data to tem table
+		// 	$to = "udaramadumalka3@gmail.com";
+		// 	$subject = "Notification of PHARMA-PRO To REMOVE DRUG";
+		// 	$message = "<a href='http://localhost/approvalList.php'>Approval for Request</a>";
 
-			$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
-			$mail = mail($to,$subject,$message,$headers);
-			if ($mail) {
-				echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
-			}
-			else{
-				echo "<script>alert('Error.')</script>";
-			}
+		// 	$headers = "MIME-Version: 1.0" . "\r\n";
+		// 	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+		// 	$headers .= 'From: <udaramadumalka3@gmail.com>' . "\r\n";
+		// 	$mail = mail($to,$subject,$message,$headers);
+		// 	if ($mail) {
+		// 		echo "<script>alert('Thank You..!..We have sent an email with a confirmation link to your Requesting.')</script>";
+		// 	}
+		// 	else{
+		// 		echo "<script>alert('Error.')</script>";
+		// 	}
 			
     		
-		}
+		// }
 
 		
-	}
+	
 	}
 }
 

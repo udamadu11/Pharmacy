@@ -1,4 +1,15 @@
-<?php  include ('include/connection.php');?><!-- include database connection -->
+<?php include('include/session.php') ?>
+<?php include('include/connection.php') ?>
+
+<?php
+    //Unauthorized Access_Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '1'){
+       header("Location:login.php");
+       exit();
+       }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,8 +28,7 @@
 		<th>Email</th>
 		<th>Contact No</th>
 		<th>Credit Period</th>
-		<th>Edit</th>
-		<th>Remove</th>
+		
 		
 	</tr>
 	<?php 
@@ -35,18 +45,8 @@
 					<td>".$row['email']."</td>
 					<td>".$row['contact_no']."</td>
 					<td>".$row['credit_period_allowed']."</td>
-					<td>
-						<form method=\"post\" action=\"ownerEditSupplier.php\">
-						<input type=\"hidden\" name=\"edit\" value=".$row['supplier_id'].">
-						<input type=\"submit\" name=\"submit1\" class=\"btn btn-primary\" value=\"Edit\" style=\"width:70px;\">
-						</form>
-					</td>
-					<td>
-						<form method=\"post\">
-						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_id'].">
-						<input type=\"submit\" name=\"submit2\" class=\"btn btn-danger\" value=\"Delete\">
-						</form>
-					</td>
+					
+					
 				</tr>
 		";
 				}	
@@ -54,7 +54,7 @@
 	
 		echo "</table>";
 		echo "<hr  style=\"margin-top:50px;\">";
-		echo"<a href=\"addSupplier.php\"><button class=\"btn btn-success\" style=\"margin-left:935px;\">Add New Supplier</button></a>";
+		//echo"<a href=\"addSupplier.php\"><button class=\"btn btn-success\" style=\"margin-left:935px;\">Add New Supplier</button></a>";
 
 	?>
 	</div>
@@ -75,3 +75,17 @@ if (isset($_POST['submit2'])) {
 	mysqli_close($con);
 
 ?>
+
+<!-- <td>
+					  	<form method=\"post\" action=\"ownerEditSupplier.php\">
+						<input type=\"hidden\" name=\"edit\" value=".$row['supplier_id'].">
+						<input type=\"submit\" name=\"submit1\" class=\"btn btn-primary\" value=\"Edit\" style=\"width:70px;\">
+						</form>
+					</td>  -->
+
+				<!-- 	<td>
+						<form method=\"post\">
+						<input type=\"hidden\" name=\"delete\" value=".$row['supplier_id'].">
+						<input type=\"submit\" name=\"submit2\" class=\"btn btn-danger\" value=\"Delete\">
+						</form>
+					</td> -->

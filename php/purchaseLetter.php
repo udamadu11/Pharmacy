@@ -55,28 +55,23 @@
             </table>
 
             <table width="100%"  class="table table-hover">
-                <tr><td><strong>Item</strong></td><td><strong>Quantity</strong></td><td><strong>Unit Price</strong></td><td><strong>Total</strong></td></tr>
+                <tr><td><strong>Item</strong></td><td><strong>Quantity</strong></td></tr>
                 <?php
                     include('include/connection.php');
-                    $sql2 = mysqli_query($con,"SELECT `pidd`, `price`, `qty`, `total` FROM `purchase_temp`");
-
-                    $total  = 0 ;
+                    $sql2 = mysqli_query($con,"SELECT `pidd`, `qty` FROM `purchase_temp`");
 
                     while ($row = mysqli_fetch_row($sql2)) {
 
                         $item = mysqli_fetch_row(mysqli_query($con, "SELECT `drug_name` FROM `purchase_temp` WHERE `pidd` = '$row[0]'"))[0];
-                        $total = $total + $row[3];
                         
 
-                        echo "<tr> <td>".$item."</td> <td>".$row[2]."</td><td>".$row[1]."</td><td>".$row[3]."</td></tr>";
+                        echo "<tr> <td>".$item."</td> <td>".$row[1]."</td></tr>";
 
                     }
                 ?>
 
 
-            <tr style="height:2rem"></tr>
-            <tr><td></td><td></td><td><strong>Total</strong></td> <td><strong>RS. <?php echo $total; ?>.00</strong></td></tr>
-             <tr style="height:5rem"></tr>
+            
 
             </table>
 

@@ -1,3 +1,12 @@
+<?php include('include/connection.php'); ?><!-- Include database connection -->
+<?php include('include/session.php');
+	//Unauthorized Access Check
+    checkSession();
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+       header("Location:login.php");
+       exit();
+       }
+ ?><!-- Include session -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +92,7 @@ include('include/connection.php');
 											<input type=\"hidden\" value=".$row['batch_no']." name=\"batch_no\">
 											<input type=\"hidden\" value=".$row['available_quantity']." name=\"available_quantity\">
 											<input type=\"hidden\" value=".$row['drug_id']." name=\"drug_id\">
-											<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Issue\">
+											<input type=\"submit\" name=\"btn\" class=\"btn btn-success\" value=\"Issue\"> 
 										
 
 									</td>
@@ -154,7 +163,7 @@ include('include/connection.php');
 		</tr>";
 				echo "
 				<div class=\"alert alert-info\" role=\"alert\" style=\"text-align: center;\">
-				  	<h2>Issue Drug Table</h2>
+				  	<h2>Invoice</h2>
 				 </div>
 				";
 		
