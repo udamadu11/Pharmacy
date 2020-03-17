@@ -54,8 +54,9 @@ include('include/session.php');
 							<div class="card">
 						      <div class="card-body">
 						        <h4 class="card-title">Issue Drug</h4>
-						        <p class="card-text">Here You can Issue Drug</p>
+						        <!-- <p class="card-text">Here You can Issue Drug</p> -->
 						        <a href="issueDrug.php"><button class="btn btn-info"><i class="fa fa-ambulance">&nbsp;Issue Drug</i></button></a>
+						        <a href="viewPrescription.php"><button class="btn btn-info"><i class="fa fa-file">&nbsp;Prescription</i></button></a>
 						    </div>
 						</div>
 					</div>

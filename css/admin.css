@@ -1,0 +1,29 @@
+.sidenav{
+	height: 100%;/*100% full height */
+	width: 250px;
+	position: fixed;
+	z-index: 1;  
+	top : 0;
+	left: 0;
+	background-color: #222;
+	overflow-x: hidden; /* disable the horsontal scroll */
+	transition: 0.3s;
+}
+.sidenav a{
+	margin-top: 10px;
+	padding: 4px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+
+}
+.sidenav a:hover{
+	color: #f1f1f1;
+}
+
+@media screen and (max-height: 400px) {
+  .sidenav {padding-top: 8px;}
+  .sidenav a {font-size: 16px;}
+}

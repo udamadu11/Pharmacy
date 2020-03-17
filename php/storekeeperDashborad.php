@@ -55,7 +55,7 @@ include('include/session.php');
 						      <div class="card-body">
 						        <h4 class="card-title">Update Stock</h4>
 						        <p class="card-text">Here You can manage stock level</p>
-						        <a href="addBatch.php"><button class="btn btn-info"><i class="fa fa-ambulance">&nbsp;Add Stock</i></button></a>
+						        <a href="view/addBatch.php"><button class="btn btn-info"><i class="fa fa-ambulance">&nbsp;Add Stock</i></button></a>
 						        <a href="searchBatch.php"><button class="btn btn-info"><i class="fa fa-ambulance">&nbsp;Remove Stock</i></button></a>
 						    </div>
 						</div>

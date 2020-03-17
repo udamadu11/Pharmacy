@@ -27,7 +27,6 @@
 
 			//Performs a query on Database
 			$result = $con->query($sql);
-
 			if($result-> num_rows > 0 ){//Return the number of rows in result set
 				while ($row = $result-> fetch_assoc()){//Fetch a result row as an associative array
 					echo "<tr>

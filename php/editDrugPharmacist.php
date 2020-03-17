@@ -11,7 +11,7 @@
         if(isset($_POST['editDrug'])){
 
             $sid = $_POST['edit'];
-            //Retrive data from supplier table
+            //Retrive data from drug table
             $selectDrug = "SELECT * FROM drug WHERE  drug_id ='$sid' ";
             //Performs query on databse
             $DrugQuery = mysqli_query($con,$selectDrug);

@@ -49,7 +49,7 @@
 
 
                 <tr style="height:5rem"></tr>
-                <tr><td>Invoice No :</td> <td style= "width: 200px"><?php echo $invoice ?></td></tr>
+                <tr><td>P/O No :</td> <td style= "width: 200px"><?php echo $invoice ?></td></tr>
                 <tr><td>Purchase Date :</td><td style= "width: 200px"><?php echo $date ?></td></tr>
                 <tr style="height:5rem"></tr>
             </table>
@@ -75,7 +75,7 @@
 
             </table>
 
-            <p>The above methioned purchase order was received and accepted.<br> <br> We look forward to do more business with you.</p>
+             <br> We look forward to do more business with you.</p>
 
             <hr>
             <br > <br> <br> <br> 

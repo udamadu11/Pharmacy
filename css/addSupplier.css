@@ -1,0 +1,61 @@
+.addSupplier{
+	float: left;
+	margin-top: 20px; 
+	margin-left: 450px;
+	background: #052C34;
+	color: #fff;
+	position: absolute;
+	box-sizing: border-box; 
+	padding: 40px 30px;
+}
+.addSupplier img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: 5px;
+	left: 320px;
+}
+.addSupplier h2{
+	text-align: center;
+	font-size: 20px;
+}
+.addSupplier .input_fields{
+	padding-bottom: 10px;
+	position: relative;
+}
+.addSupplier .input_fields .input{
+	width: 300px;
+	border: 1px solid #BDBDBD;
+	padding: 6px 30px;
+	border-radius: 3px;
+	font-size: 1.0em;	
+}
+
+.addSupplier  p{
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	font-size: 15px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-weight: bold;
+	
+}
+input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 30px;
+	width: 160px;
+	background-color: #127D93; 
+	font-size: 18px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	margin-left: 100px;
+}
+input[type="submit"]:hover{
+	cursor: pointer;
+	background: #94DAE8;
+	color: #000;
+}

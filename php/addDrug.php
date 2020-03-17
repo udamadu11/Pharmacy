@@ -18,8 +18,9 @@
 		$reorder_level=$_POST['reorder_level'];
 		$price=$_POST['price'];
 		
+		$newprice = $price * 110/100;
 		//Insert temporary table to approve from owner
-		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$price')";
+		$sql = "INSERT INTO drug (drug_id,drug_name,brand,category,supplier_id,reorder_level,price) VALUES ('$drug_id','$drug_name','$brand','$category','$supplier_id','$reorder_level','$newprice ')";
 
 		//performs a query on the database
 		$result = mysqli_query($con, $sql);

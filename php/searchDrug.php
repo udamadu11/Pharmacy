@@ -2,7 +2,7 @@
 <?php include('include/session.php');
 	//Unauthorized Access Check
     checkSession();
-    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2'){
+    if(!isset($_SESSION['type']) || $_SESSION['type'] != '2' && $_SESSION['type'] != '3'){
        header("Location:login.php");
        exit();
        }

@@ -2,7 +2,7 @@
 <?php require_once('include/session.php'); ?>
 <?php 
 
-	$errors = array('f_name'=>'', 'l_name'=>'', 'u_name'=>'', 'email'=>'', 'telephone'=>'', 'nic'=>'', 'password'=>'', 'type'=>'');
+	
 
 	if(isset($_POST['submit'])){ 
 		$f_name=$_POST['f_name'];
@@ -14,54 +14,7 @@
 		$password=$_POST['password'];
 		$type=$_POST['type'];
 		$passwordHash= md5($password);
-		if (empty($_POST['f_name'])||empty($_POST['l_name'])||empty($_POST['u_name'])||empty($_POST['email'])||empty($_POST['telephone'])||empty($_POST['nic'])||empty($_POST['password'])||empty($_POST['type'])) {
-			
-			//check first Name:
-		if (empty($_POST['f_name'])) {
-			$errors['f_name'] = 'First Name is Required';
-		}
-
-		// check Last name:
-		if (empty($_POST['l_name'])) {
-			$errors['l_name'] = 'Last Name is Required';
-		}
-
-		//check User name:
-		if (empty($_POST['u_name'])) {
-			$errors['u_name'] = 'User Name is Required';
-		}
-
-		//check an email
-		if (empty($_POST['email'])) {
-			$errors['email'] = 'An Email is Required';
-		}else{
-			if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-				$errors['email'] = 'An Email Must Be Valid Email Address';
-			}
-		}
-
-		//check telephone number:
-		if (empty($_POST['telephone'])) {
-			$errors['telephone'] = 'Telephone number is Required';
-		}
-
-		//check nic
-		if (empty($_POST['nic'])) {
-			$errors['nic'] = 'National Identity Number is Required';
-		}
-
-		//check password
-		if (empty($_POST['password'])) {
-			$errors['password'] = 'Password is Required';
-		}
-
-		// check type:
-		if (empty($_POST['type'])) {
-			$errors['type'] = 'Type is Required';
-		}
-		}
-
-		else{
+	
 			//Insert Query of users add
 			$sql = "INSERT INTO employee (f_name,l_name,u_name,email,telephone,nic,password,type) VALUES ('$f_name','$l_name','$u_name','$email','$telephone','$nic','$passwordHash','$type')";
 			$sqlResult = mysqli_query($con, $sql);
@@ -72,8 +25,6 @@
            	echo "<script>window.open('AddUser.php','_self')</script>";
 			}
 			exit();
-		}
-		
 	}
 ?>
 
@@ -90,28 +41,20 @@
 		<div class="input_field-5">
 				<p>First Name</p>
 				<input type="text" class="input-4" name="f_name" id="f_name" placeholder="Enter First Name" required>
-				<div class="redText"> <?php echo $errors['f_name']; ?>	</div>
 				<p>Last Name</p>
 				<input type="text" class="input-4" name="l_name" id="l_name" placeholder="Enter Last Name" required>
-				<div class="redText"> <?php echo $errors['l_name']; ?>	</div>
 				<p>User Name</p>
 				<input type="text" class="input-4" name="u_name" id="u_name" placeholder="Enter User Name" required>
-				<div class="redText"> <?php echo $errors['u_name']; ?>	</div>
 				<p>Email</p>
 				<input type="email" class="input-4" name="email" id="email" placeholder="Enter Email" required>
-				<div class="redText"> <?php echo $errors['email']; ?>	</div>
 				<p>Telephone</p>
 				<input type="number" class="input-4" name="telephone" id="telephone" placeholder="Enter Telephone Number" required>
-				<div class="redText"> <?php echo $errors['telephone']; ?>	</div>
 				<p>Nic</p>
 				<input type="text" class="input-4" name="nic" id="nic" placeholder="Enter the Nic Number" required>
-				<div class="redText"> <?php echo $errors['nic']; ?>	</div>
 				<p>Password</p>
 				<input type="password" class="input-4" name="password" id="password" placeholder="Enter Password" required>
-				<div class="redText"> <?php echo $errors['password']; ?>	</div>
 				<p>type</p>
 				<input type="number" class="input-4" name="type" id="type" placeholder="Enter Type" required>
-				<div class="redText"> <?php echo $errors['type']; ?>	</div>
 		</div>
 		<input type="submit" name="submit" value="Add User" class="btn-5">
 	</form>

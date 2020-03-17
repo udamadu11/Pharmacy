@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-md-6" style="margin-left: 300px;">
 		<form method="post" action="purchaseOrder.php">
-			<label>Invoice No: </label>
+			<label>P/O No: </label>
 			<input type="number" name="invoice" id="invoice" class="form-control">
 			<label>Date</label>
 			<?php $today = date('Y-m-d'); ?>

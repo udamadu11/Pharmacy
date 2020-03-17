@@ -83,7 +83,7 @@ if (isset($_POST['create'])) {
 	<hr>
 	<form method="post">
 		<div class="row">
-		<div class="col-3">Invoice number</div>
+		<div class="col-3">P/O</div>
             <div class="col-9">
                 <input type="text" name="invoice" id="invoice" value = "<?php echo $invoice;?>" class="form-control" readonly>
            </div>

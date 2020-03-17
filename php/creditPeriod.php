@@ -17,17 +17,17 @@ $result = mysqli_query($con,$query);
 while($row = mysqli_fetch_assoc($result)){
 		$creditDate = $row['date'];
 		$paid = $row['paid'];
-		$today = date('Y-m-d');
-		$exp = strtotime($creditDate);
+		$today = date('Y-m-d');//diplay today date.
+		$exp = strtotime($creditDate);//convert string date to  timestamp.
 		$td = strtotime($today);
 
 		$warningDays = 74;
-		$secondsDiff = $warningDays * 24 * 3600;
+		$secondsDiff = $warningDays * 24 * 3600;//days convert to seconds
 		$warningTimestamp = $exp + $secondsDiff;
-		$warningDate = date('Y-m-d', $warningTimestamp);
+		$warningDate = date('Y-m-d', $warningTimestamp);//convert above seconds to date format
 		
 		if ($warningDate <= $today) {
-		if ($paid == 0) {
+		if ($paid == 0) {//nopaid
 
 			$purchaseId = $row['purchase_id'];
 			$supplierId = $row['supplier_id'];
